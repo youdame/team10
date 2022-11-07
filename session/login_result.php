@@ -13,7 +13,7 @@
 
         if($row!=null && $row['pwd']==$input_pw){
             $_SESSION['id'] = $row['id'];
-            $_SESSION['name'] = $row['name'];
+            $_SESSION['name'] = $row['username'];
             echo "<script>location.href='../test.php';</script>";
             exit;
         }
