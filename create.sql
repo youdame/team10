@@ -2,7 +2,8 @@
 CREATE TABLE user(
     id VARCHAR(15) NOT NULL PRIMARY KEY,
     pwd VARCHAR(20) NOT NULL,
-    username VARCHAR(30) NOT NULL
+    username VARCHAR(30) NOT NULL,
+    preferred VARCHAR(30)
 );
 
 CREATE TABLE movie_info (
