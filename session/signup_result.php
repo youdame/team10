@@ -6,6 +6,7 @@
     $enter_id = $_POST['enter_id'];
     $enter_pw = $_POST['enter_pw'];
     $enter_name = $_POST['enter_name'];
+    $enter_genre = $_POST['genre'];
 
     $sql = "SELECT * FROM user WHERE id=?";    
     $stmt = $mysqli->prepare($sql);
@@ -21,9 +22,9 @@
         echo "<script>history.back();</script>";
         exit;
     }else{
-        $sql2 = "INSERT INTO user(id, pwd, username) VALUES (?, ?, ?)";
+        $sql2 = "INSERT INTO user(id, pwd, username, preferred) VALUES (?, ?, ?, ?)";
         $stmt = $mysqli->prepare($sql2);
-        $stmt->bind_param("sss", $enter_id, $enter_pw, $enter_name);
+        $stmt->bind_param("ssss", $enter_id, $enter_pw, $enter_name, $enter_genre);
         $stmt->execute();
 
         echo "<script>alert('Sign up succeed.')</script>";
