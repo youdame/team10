@@ -1,9 +1,22 @@
--- 홍진서 
 CREATE TABLE user(
     id VARCHAR(15) NOT NULL PRIMARY KEY,
     pwd VARCHAR(20) NOT NULL,
     username VARCHAR(30) NOT NULL,
     preferred VARCHAR(30)
+);
+
+CREATE TABLE movie_boxoffice(
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    title varchar(50) NOT NULL,
+    released_date date NOT NULL,
+    sales int NOT NULL,
+    audience int NOT NULL,
+    screen_num int NOT NULL,
+    country	varchar(20) NOT NULL,
+    distributor varchar(50) NOT NULL,
+    director varchar(20) NOT NULL,
+    genre varchar(20) NOT NULL,
+    rating decimal(2, 1) NOT NULL
 );
 
 CREATE TABLE movie_info (
