@@ -2,7 +2,7 @@
     session_start();
     $mysqli = mysqli_connect("localhost", "team10", "team10", "team10");
 
-    //바탕화면과 연결 시 해당 데이터들 1차로 넘겨주기
+    //바탕화면과 연결 시 해당 데이터들 1차로 넘겨주기 ($_POST['audMin']도 전송)
     $title;
     $country = $_POST['country'];
     $rate = $_POST['rate'];
@@ -42,7 +42,7 @@
                     <input type='radio' name='rate' value='8' onclick="this.form.rateTextbox.disabled=true" <?php if ($rate == '8') { ?>checked="checked" <?php } ?>/>over 8
                     <input type='radio' name='rate' value='9' onclick="this.form.rateTextbox.disabled=true" <?php if ($rate == '9') { ?>checked="checked" <?php } ?>/>over 9
                     <input type='radio' name='rate' value='self' onclick="this.form.rateTextbox.disabled=false" <?php if ($rate == 'self') { ?>checked="checked" <?php } ?>/>over
-                    <input type="text" name="rateTextbox" value="0" disabled>
+                    <input type="text" name="rateTextbox" value="0" <?php if ($rate != 'self') { ?>disabled="disabled" <?php } ?>>
                 </td>
             </tr>
 
@@ -51,19 +51,19 @@
                 <td>
                     <input type='radio' name='aud' value='all' onclick="this.form.AudTxtMin.disabled=true; this.form.AudTxtMax.disabled=true" <?php if ($aud == 'all') { ?>checked="checked" <?php } ?> checked/>All
                     <input type='radio' name='aud' value='user' onclick="this.form.AudTxtMin.disabled=false; this.form.AudTxtMax.disabled=false" <?php if ($aud == 'user') { ?>checked="checked" <?php } ?>/>
-                    over <input type="text" name="AudTxtMin" value="0" disabled> million, 
-                    under <input type="text" name="AudTxtMax" value="20" disabled> million
+                    over <input type="text" name="AudTxtMin" value="0" <?php if ($aud == 'all') { ?>disabled="disabled" <?php } ?>> million, 
+                    under <input type="text" name="AudTxtMax" value="20" <?php if ($aud == 'all') { ?>disabled="disabled" <?php } ?>> million
                 </td>
             </tr>
 
             <tr>
                 <td>Release year</td>
                 <td>
-                    <input type='radio' name='year' value='0' <?php if ($year == '0') { ?>checked="checked" <?php } ?>/>befor 2005
-                    <input type='radio' name='year' value='2005' <?php if ($year == '2005') { ?>checked="checked" <?php } ?>/>2005 to 2009
-                    <input type='radio' name='year' value='2010' <?php if ($year == '2010') { ?>checked="checked" <?php } ?>/>2010 to 2014
-                    <input type='radio' name='year' value='2015' <?php if ($year == '2015') { ?>checked="checked" <?php } ?>/>2015 to 2019
-                    <input type='radio' name='year' value='2020' <?php if ($year == '2020') { ?>checked="checked" <?php } ?> checked/>after 2020
+                    <input type='radio' name='year' value='0' <?php if ($year == 0) { ?>checked="checked" <?php } ?>/>before 2005
+                    <input type='radio' name='year' value='2005' <?php if ($year == 2005) { ?>checked="checked" <?php } ?>/>2005 to 2009
+                    <input type='radio' name='year' value='2010' <?php if ($year == 2010) { ?>checked="checked" <?php } ?>/>2010 to 2014
+                    <input type='radio' name='year' value='2015' <?php if ($year == 2015) { ?>checked="checked" <?php } ?>/>2015 to 2019
+                    <input type='radio' name='year' value='2020' <?php if ($year == 2020) { ?>checked="checked" <?php } ?> checked/>after 2020
                 </td>
             </tr>
         <table>
@@ -89,15 +89,16 @@
                     $rate = $rateTextBox;
                 }
 
-                if($_POST['aud'] == 'all'){
-                    $audMin = 0;
-                    $audMax = 10 * 1000000;
-                }else{
-                    $audMin = $AudTxtMin;
-                    $audMax = $AudTxtMax;
+                if($_POST['aud'] == 'user'){
+                    $audMin = (int)$_POST['AudTxtMin'];
+                    $audMax = (int)$_POST['AudTxtMax'];
 
                     $audMin *= 1000000;
                     $audMax *= 1000000;
+                }else{
+                    $audMin = 0;
+                    $audMax = 10 * 1000000;
+
                 }
 
                 $year = (int)$_POST['year'];
@@ -143,7 +144,7 @@
                     }
         
                     while($row = mysqli_fetch_array($result)){
-                        $list = $list."<tr><td>{$row['title']}</td><td>{$row['country']}</td><td>{$row['audience']}</td><td>{$row['rating']}</td> </br>";
+                        $list = $list."<tr><td>{$row['title']}</td><td>{$row['country']}</td><td>{$row['audience']}</td><td>{$row['rating']}</td></tr> </br>";
                     }echo $list;
                 }
                 else{
@@ -157,6 +158,6 @@
 
 
 
-    <script src="./search.js"></script>
+    <script src="./filter.js"></script>
 </body>
 </html>
