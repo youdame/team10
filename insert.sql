@@ -1,5 +1,7 @@
+-- 사용자 테이블
 INSERT INTO user (id, pwd, username, preferred) VALUES ('team12', 'team12', '김이화', 'action');
 
+-- 영화 정보
 INSERT INTO movie_boxoffice (title, released_date, sales, audience, screen_num, country, distributor, director, genre, rating) VALUES ('명량', '2014-07-30', '135748398910', '17613682', '1587', 'Korea', '(주)씨제이이엔엠', '김한민', '액션', '7.8');
 INSERT INTO movie_boxoffice (title, released_date, sales, audience, screen_num, country, distributor, director, genre, rating) VALUES ('극한직업', '2019-01-23', '139647979516', '16264944', '1978', 'Korea', '(주)씨제이이엔엠', '이병헌', '코미디', '8.51');
 INSERT INTO movie_boxoffice (title, released_date, sales, audience, screen_num, country, distributor, director, genre, rating) VALUES ('신과함께-죄와 벌', '2017-12-20', '115698654137', '14410754', '1912', 'Korea', '롯데엔터테인먼트', '김용화', 'SF', '7.83');
