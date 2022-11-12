@@ -57,4 +57,4 @@ CREATE TABLE movie_month
     f_sales	varchar(300),
     f_audience	varchar(300),
     f_share	varchar(300)
-);
+); 
