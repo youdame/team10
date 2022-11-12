@@ -45,16 +45,14 @@ CREATE TABLE director(
 
 CREATE TABLE movie_month 
 (
-    year	varchar(300),
-    month	varchar(300),
-    k_release	varchar(300),
-    k_screen	varchar(300),
-    k_sales	varchar(300),
-    k_audience	varchar(300),
-    k_share	varchar(300),
-    f_release	varchar(300),
-    f_screen	varchar(300),
-    f_sales	varchar(300),
-    f_audience	varchar(300),
-    f_share	varchar(300)
-); 
+    year	bigint(20) NOT NULL,
+    month	bigint(20) NOT NULL,
+    k_release	bigint(20) NOT NULL,
+    k_screen	bigint(20) NOT NULL, 
+    k_sales	bigint(20) NOT NULL,
+    k_audience	bigint(20) NOT NULL,
+    f_release	bigint(20) NOT NULL,
+    f_screen	bigint(20) NOT NULL,
+    f_sales	bigint(20) NOT NULL,
+    f_audience	bigint(20) NOT NULL
+);
