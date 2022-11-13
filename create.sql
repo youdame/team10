@@ -42,3 +42,14 @@ CREATE TABLE director(
     director varchar(20) NOT NULL,
     FOREIGN KEY (m_id) REFERENCES movie_boxoffice(m_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
+
+-- 홍진서
+-- (기준 날짜, 개봉편수, 상영편수, 매출, 관객수, 영화 국가)
+CREATE TABLE film_industry(
+    reference_date DATE,
+    opening INT NOT NULL,
+    screening INT NOT NULL,
+    sales BIGINT NOT NULL,
+    attendance BIGINT NOT NULL,
+    country VARCHAR(20) NOT NULL
+);
