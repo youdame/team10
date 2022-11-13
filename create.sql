@@ -55,4 +55,4 @@ CREATE TABLE movie_month
     f_screen	bigint(20) NOT NULL,
     f_sales	bigint(20) NOT NULL,
     f_audience	bigint(20) NOT NULL
-);
+); 
