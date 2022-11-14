@@ -51,7 +51,6 @@
 </head>
 
 <body>
-    
     <div>
         <form name="form_year">
             <input type="hidden" name="yearOfData"/>
@@ -63,15 +62,17 @@
                 <?php
                 //년
                 $result = mysqli_query($mysqli, $sql);
-                $list_year = "<table><tr><td>Referencd Year</td><td>Country</td><td>Sum of Sales</td><td>Average of Sales</td></tr> </br>";
+                $list_year = "<table><tr><td>Referencd Year</td><td>Country</td><td>Sum of Sales</td><td>Average of Sales</td></tr>";
+                //$list_year = "Referencd Yeay \tCountry \tSum of Sales \tAverage of Sales <br>";
                 while($row = mysqli_fetch_array($result)){
                     $y = $row['Year'];
                     $list_year = $list_year."<tr>
-                                                <td onclick='javascript:updateMonth($y)'>{$row['Year']}\t</td>
+                                                <td onclick='javascript:updateMonth($y)'>{$row['Year']}</td>
                                                 <td>{$row['country']}</td>
                                                 <td>{$row['sum_sales']}</td>
                                                 <td>{$row['avg_sales']}</td>
-                                            </tr> </br>";
+                                            </tr>";
+                    //$list_year = "<a href='javascript:updateMonth($y)'>${list_year} ".$row['Year']." ".$row['country']." ".$row['sum_sales']." ".$row['avg_sales']."</a><br>";
                 }
                 $list_year = $list_year."</table>";
                 echo $list_year;
@@ -93,7 +94,7 @@
             $stmt->execute();
             $result_m = $stmt->get_result();
 
-            $list_month = "<table><tr><td>Referencd Month</td><td>Country</td><td>Sum of Sales</td><td>Average of Sales</td></tr> </br>";
+            $list_month = "<table><tr><td>Referencd Month</td><td>Country</td><td>Sum of Sales</td><td>Average of Sales</td></tr>";
 
             while($row_m = mysqli_fetch_array($result_m)){
                 $m = $row_m['Month'];
@@ -102,7 +103,7 @@
                                                 <td>{$row_m['country']}</td>
                                                 <td>{$row_m['sum_sales']}</td>
                                                 <td>{$row_m['avg_sales']}</td>
-                                            </tr> </br>";     
+                                            </tr>";     
             }
             $list_month = $list_month."</table>";
             echo "Referenced Date : $clicked_year 년";
@@ -119,10 +120,10 @@
         $stmt_d->execute();
         $result_d = $stmt_d->get_result();
 
-        $list_day = "<table><tr><td>Referencd Day\t</td><td>Country\t</td><td>Sum of Sales\t</td><td>Average of Sales</td></tr> </br>";
+        $list_day = "<table><tr><td>Referencd Day\t</td><td>Country\t</td><td>Sum of Sales\t</td><td>Average of Sales</td></tr>";
 
         while($row_d = mysqli_fetch_array($result_d)){
-            $list_day = $list_day."<tr><td>{$row_d['Day']}\t</td><td>{$row_d['country']}\t</td><td>{$row_d['sum_sales']}\t</td><td>{$row_d['avg_sales']}</td></tr> </br>";
+            $list_day = $list_day."<tr><td>{$row_d['Day']}</td><td>{$row_d['country']}</td><td>{$row_d['sum_sales']}</td><td>{$row_d['avg_sales']}</td></tr> ";
         }
         $list_day = $list_day."</table>";
         echo "Referenced Date : $clicked_year 년 $clicked_month 월";

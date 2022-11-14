@@ -6,10 +6,6 @@ CREATE TABLE user(
     preferred VARCHAR(30)
 );
 
-CREATE INDEX index_username ON user(username);
-CREATE INDEX index_usersex_preferred ON user(usersex, preferred);
-
-
 CREATE TABLE movie_boxoffice(
     m_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title varchar(50) NOT NULL,
@@ -52,4 +48,21 @@ CREATE TABLE film_industry(
     sales BIGINT NOT NULL,
     attendance BIGINT NOT NULL,
     country VARCHAR(20) NOT NULL
+);
+CREATE INDEX index_film_industry ON film_industry(reference_date, sales);
+
+-- 홍진서
+CREATE TABLE movie_profit(
+    m_title VARCHAR(50) NOT NULL,
+    m_sales BIGINT NOT NULL,
+    m_audience BIGINT NOT NULL
+);
+
+-- 홍진서
+CREATE TABLE compare_data(
+    --u_id VARCHAR(15) NOT NULL,
+    input_title VARCHAR(50) NOT NULL,
+    input_sales BIGINT NOT NULL,
+    input_audience BIGINT NOT NULL,
+    FOREIGN KEY (u_id) REFERENCES user(u_id) ON UPDATE CASCADE ON DELETE CASCADE
 );

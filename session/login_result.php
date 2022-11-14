@@ -6,7 +6,7 @@
     $input_id = $_POST['input_id'];
     $input_pw = $_POST['input_pw'];
 
-    $sql = "SELECT * FROM user WHERE id=? and pwd=?";
+    $sql = "SELECT * FROM user WHERE u_id=? and pwd=?";
     $stmt = $mysqli->prepare($sql);
     $stmt->bind_param("ss", $input_id, $input_pw);
     $stmt->execute();
@@ -14,7 +14,7 @@
     $result = $stmt->get_result();
     if(mysqli_num_rows($result)){
         $row = $result->fetch_array(MYSQLI_ASSOC);
-        $_SESSION['id'] = $row['id'];
+        $_SESSION['id'] = $row['u_id'];
         $_SESSION['name'] = $row['username'];
         echo "<script>location.href='../test.php';</script>";
         exit;
