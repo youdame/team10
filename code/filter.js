@@ -1,3 +1,4 @@
+// 홍진서
 function selectAll(selectAll)  {
     const checkboxes 
          = document.getElementsByName('year[]');

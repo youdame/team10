@@ -1,3 +1,7 @@
+<!--이유림-->
+/*mypage_like_delete*/
+
+
 <?php
 $prevPage = 'mypage.php';
 $selected_title = $_POST['movie_title'];
@@ -18,7 +22,7 @@ $m_id_row = mysqli_fetch_row($m_id_result);
 
 $movie_id = $m_id_row[0];
 
-$insert_query = "DELETE FROM user_like WHERE m_id='$movie_id' AND u_id='$user_id'";
+$insert_query = "INSERT INTO user_like VALUES ($user_id,$movie_id)";
 $insert_res = mysqli_query($mysqli, $insert_query);
 
 header('location:' . $prevPage);

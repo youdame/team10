@@ -1,3 +1,4 @@
+<!--홍진서-->
 <?php 
     session_start();
     session_destroy();
