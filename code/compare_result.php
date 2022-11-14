@@ -10,7 +10,7 @@ $input_sales = $_POST['input_sales'];
 $input_audience = $_POST['input_audience'];
 
 //$user_id = $_SESSION['id'];
-$user_id = 'JINSEO';
+$user_id = $_SESSION['id'];
 
 $stmt = $mysqli->prepare($sql_insert);
 $stmt->bind_param("ssii", $user_id, $input_title, $input_sales, $input_audience);
