@@ -132,8 +132,8 @@ $keyword = $_GET['keyword']
         </tr>
 
         <?php
-        // 쿼리
-        $sql = "SELECT * FROM movie_boxoffice WHERE title LIKE '%$keyword%' OR director LIKE '%$keyword%'";
+        // 쿼리 수정 필요
+        $sql = "SELECT * FROM movie_boxoffice WHERE title LIKE '%$keyword%'";// OR director LIKE '%$keyword%'";
         $result = mysqli_query($mysqli, $sql);
         $list = '';
 
@@ -142,7 +142,7 @@ $keyword = $_GET['keyword']
         } else {
             while ($row = mysqli_fetch_array($result)) {
                 $m_title = $row['title'];
-                $list = $list . "<tr><td><a href='./detail.php?title=$m_title'>{$m_title}</a></td><td>{$row['released_date']}</td><td>{$row['audience']}</td><td>{$row['director']}</td><td>{$row['genre']}</td></tr></br>";
+                $list = $list . "<tr><td><a href='./detail2.php?m_title=$m_title'>{$m_title}</a></td><td>{$row['released_date']}</td><td>{$row['audience']}</td><td>{$row['director']}</td><td>{$row['genre']}</td></tr></br>";
             }
         }
         echo $list;

@@ -3,7 +3,7 @@
 session_start();
 $mysqli = mysqli_connect("localhost", "team10", "team10", "team10");
 
-$sql = "SELECT year(reference_date) AS 'Year', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
+$sql_y = "SELECT year(reference_date) AS 'Year', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
             FROM film_industry
             WHERE year(reference_date) > 1000
             GROUP BY year(reference_date), country WITH ROLLUP";
@@ -49,75 +49,6 @@ $clicked_month = $_POST['monthOfData'];
             dp.submit();
         }
     </script>
-    <style>
-        Logo {
-            color: black;
-            cursor: pointer;
-            font-size: 2.7vw;
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-            text-decoration: none;
-            height: 4.16vw;
-        }
-
-        ButtonLink {
-            display: flex;
-            justify-content: end;
-
-        }
-
-        nav {
-            background-color: lightblue;
-            width: 100%;
-            height: 4.16vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        Container {
-            display: inline;
-            justify-content: space-between;
-            height: 4.16vw;
-            z-index: 1;
-            width: 74vw;
-            max-width: 1100px;
-
-        }
-
-        mainContainer {
-            background: white;
-            display: grid;
-            justify-content: center;
-            align-items: center;
-            padding: 0 30px;
-            height: 800px;
-            position: relative;
-            z-index: 1;
-        }
-
-        Button {
-            display: inline;
-            justify-content: end;
-
-        }
-
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        li {
-            float: left;
-        }
-    </style>
 </head>
 
 <body>
@@ -152,85 +83,110 @@ $clicked_month = $_POST['monthOfData'];
 
         </ul>
     </nav>
-    <div>
-        <form name="form_year">
-            <input type="hidden" name="yearOfData" />
-            <input type="hidden" name="monthOfData" />
 
-            <div id="table_year">
+    <header style="text-align: center;margin:40px;font-size:30px">
+        <p>Yearly Sales Statistics</p>
+    </header>
 
-                <input type="hidden" name="page" />
-                <?php
-                //년
-                $result = mysqli_query($mysqli, $sql);
-                $list_year = "<table><tr><td>Referencd Year</td><td>Country</td><td>Sum of Sales</td><td>Average of Sales</td></tr>";
-                //$list_year = "Referencd Yeay \tCountry \tSum of Sales \tAverage of Sales <br>";
-                while ($row = mysqli_fetch_array($result)) {
-                    $y = $row['Year'];
-                    $list_year = $list_year . "<tr>
-                                                <td onclick='javascript:updateMonth($y)'>{$row['Year']}</td>
-                                                <td>{$row['country']}</td>
-                                                <td>{$row['sum_sales']}</td>
-                                                <td>{$row['avg_sales']}</td>
-                                            </tr>";
-                    //$list_year = "<a href='javascript:updateMonth($y)'>${list_year} ".$row['Year']." ".$row['country']." ".$row['sum_sales']." ".$row['avg_sales']."</a><br>";
-                }
-                $list_year = $list_year . "</table>";
-                echo $list_year;
-                ?>
-            </div>
+    <div id="sales_type_radio" align="center">
+        <form action="sales_month_response.php" method="POST">
+            <label><input type="radio" name="type" value="sum_yearly_sales" />Sum of Yearly Sales</label>
+            <label><input type="radio" name="type" value="Quarterly Comparison" />Quarterly Sales Average</label>
+            <label><input type="radio" name="type" value="Film_industry_of_all_time" checked />Film industry of all time</label>
+            <br><input style="margin:20px;width:100px" type="submit" value="OK">
         </form>
     </div>
 
 
 
-    <div id="table_month">
-        <form name="form_month">
-            <input type="hidden" name="yearOfData" />
-            <input type="hidden" name="monthOfData" />
 
-            <?php
-            $stmt = $mysqli->prepare($sql_m);
-            $stmt->bind_param("i", $clicked_year);
-            $stmt->execute();
-            $result_m = $stmt->get_result();
+    <table>
+        <tr>
+            <td style="vertical-align:top">
+                <div id="table_year">
+                    <form name="form_year">
+                        <input type="hidden" name="yearOfData" />
+                        <input type="hidden" name="monthOfData" />
 
-            $list_month = "<table><tr><td>Referencd Month</td><td>Country</td><td>Sum of Sales</td><td>Average of Sales</td></tr>";
+                        <div id="table_year">
 
-            while ($row_m = mysqli_fetch_array($result_m)) {
-                $m = $row_m['Month'];
-                $list_month = $list_month . "<tr>
-                                                <td onclick='javascript:updateDay($clicked_year, $m)'>{$row_m['Month']}</td>
-                                                <td>{$row_m['country']}</td>
-                                                <td>{$row_m['sum_sales']}</td>
-                                                <td>{$row_m['avg_sales']}</td>
-                                            </tr>";
-            }
-            $list_month = $list_month . "</table>";
-            echo "Referenced Date : $clicked_year 년";
-            echo $list_month;
+                            <input type="hidden" name="page" />
+                            <?php
+                            //년
+                            $result = mysqli_query($mysqli, $sql_y);
+                            $list_year = "<table><tr><td>Referencd Year</td><td>Country</td><td>Sum of Sales</td><td>Average of Sales</td></tr>";
+                            //$list_year = "Referencd Yeay \tCountry \tSum of Sales \tAverage of Sales <br>";
+                            while ($row = mysqli_fetch_array($result)) {
+                                $y = $row['Year'];
+                                $list_year = $list_year . "<tr>
+                                                            <td onclick='javascript:updateMonth($y)'>{$row['Year']}</td>
+                                                            <td>{$row['country']}</td>
+                                                            <td>{$row['sum_sales']}</td>
+                                                            <td>{$row['avg_sales']}</td>
+                                                        </tr>";
+                            }
+                            $list_year = $list_year . "</table>";
+                            echo $list_year;
+                            ?>
+                        </div>
+                    </form>
+                </div>
+            </td>
 
-            ?>
-        </form>
-    </div>
+            <td style="vertical-align:top">
+                <div id="table_month">
+                    <form name="form_month">
+                        <input type="hidden" name="yearOfData" />
+                        <input type="hidden" name="monthOfData" />
 
-    <div id="table_day">
-        <?php
-        $stmt_d = $mysqli->prepare($sql_d);
-        $stmt_d->bind_param("ii", $clicked_year, $clicked_month);
-        $stmt_d->execute();
-        $result_d = $stmt_d->get_result();
+                        <?php
+                        $stmt = $mysqli->prepare($sql_m);
+                        $stmt->bind_param("i", $clicked_year);
+                        $stmt->execute();
+                        $result_m = $stmt->get_result();
 
-        $list_day = "<table><tr><td>Referencd Day\t</td><td>Country\t</td><td>Sum of Sales\t</td><td>Average of Sales</td></tr>";
+                        $list_month = "<table><tr><td>Referencd Month</td><td>Country</td><td>Sum of Sales</td><td>Average of Sales</td></tr>";
 
-        while ($row_d = mysqli_fetch_array($result_d)) {
-            $list_day = $list_day . "<tr><td>{$row_d['Day']}</td><td>{$row_d['country']}</td><td>{$row_d['sum_sales']}</td><td>{$row_d['avg_sales']}</td></tr> ";
-        }
-        $list_day = $list_day . "</table>";
-        echo "Referenced Date : $clicked_year 년 $clicked_month 월";
-        echo $list_day;
-        ?>
-    </div>
+                        while ($row_m = mysqli_fetch_array($result_m)) {
+                            $m = $row_m['Month'];
+                            $list_month = $list_month . "<tr>
+                                                            <td onclick='javascript:updateDay($clicked_year, $m)'>{$row_m['Month']}</td>
+                                                            <td>{$row_m['country']}</td>
+                                                            <td>{$row_m['sum_sales']}</td>
+                                                            <td>{$row_m['avg_sales']}</td>
+                                                        </tr>";
+                        }
+                        $list_month = $list_month . "</table>";
+                        echo "Referenced Date : $clicked_year 년";
+                        echo $list_month;
+
+                        ?>
+                    </form>
+                </div>
+            </td>
+
+            <td style="vertical-align:top">
+                <div id="table_day">
+                    <?php
+                    $stmt_d = $mysqli->prepare($sql_d);
+                    $stmt_d->bind_param("ii", $clicked_year, $clicked_month);
+                    $stmt_d->execute();
+                    $result_d = $stmt_d->get_result();
+
+                    $list_day = "<table><tr><td>Referencd Day\t</td><td>Country\t</td><td>Sum of Sales\t</td><td>Average of Sales</td></tr>";
+
+                    while ($row_d = mysqli_fetch_array($result_d)) {
+                        $list_day = $list_day . "<tr><td>{$row_d['Day']}</td><td>{$row_d['country']}</td><td>{$row_d['sum_sales']}</td><td>{$row_d['avg_sales']}</td></tr> ";
+                    }
+                    $list_day = $list_day . "</table>";
+                    echo "Referenced Date : $clicked_year 년 $clicked_month 월";
+                    echo $list_day;
+                    ?>
+                </div>
+            </td>
+
+        </tr>
+    </table>  
 
 </body>
 
