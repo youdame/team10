@@ -97,8 +97,7 @@
                     $audMax *= 1000000;
                 }else{
                     $audMin = 0;
-                    $audMax = 10 * 1000000;
-
+                    $audMax = 20 * 1000000;
                 }
 
                 $year = (int)$_POST['year'];
@@ -119,28 +118,17 @@
             <?php
                 $list = '';
                 if($_POST['search_input']){
-
                     // 쿼리
-                    $sql = "SELECT * FROM movie_boxoffice WHERE country = '$country' AND rating >= $rate AND (audience BETWEEN $audMin AND $audMax) 
-                            AND YEAR(released_date) BETWEEN $year AND $year+4";
+                    $sql = "SELECT *
+                        FROM movie_boxoffice
+                            INNER JOIN rating
+                            ON movie_boxoffice.m_id = rating.m_id
+                        WHERE country = '$country' AND rating.rating >= $rate AND (audience BETWEEN $audMin AND $audMax) AND (YEAR(released_date) BETWEEN $year AND $year+4)";
+                    
                     $result = mysqli_query($mysqli, $sql);
-                    //$list = '';
 
                     if(mysqli_num_rows($result) == 0){
                         $list = $list."<tr><td colspan=\"6\">결과가 없습니다.</td></tr>";
-
-                        $country = 'Korea';
-                        $rate = 0;
-                        $year = 2020;
-                        $aud = 'all';
-
-                        if($_POST['audMin']){
-                            $audMin = $_POST['audMin'];
-                            $audMax = $_POST['audMax'];
-                        }else{
-                            $audMin = 0;
-                            $audMax = 20000000;
-                        }
                     }
         
                     while($row = mysqli_fetch_array($result)){

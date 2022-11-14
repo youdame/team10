@@ -3,6 +3,7 @@ CREATE TABLE user(
     pwd VARCHAR(20) NOT NULL,
     username VARCHAR(30) NOT NULL,
     usersex varchar(10) NOT NULL,
+    userage INT NOT NULL,
     preferred VARCHAR(30)
 );
 
