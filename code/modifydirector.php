@@ -22,10 +22,26 @@
                 <Button><ButtonLink href="/"> My Page</a></Button> -->
         </Container>
         <ul>
-        <Button><li><a href="/"> Search</a></li></Button>
-        <Button><li><a href="director.php"> Director</a></li></Button>
-        <Button><li><a href="/"> My page</a></li></Button>
-        <Button><li><a href="test.php"> Login</a></li></Button>
+        <ul>
+        <Button>
+                <li><a href="./.php"> Search</a></li>
+            </Button>
+            <Button>
+                <li><a href="./genre.php"> Genre</a></li>
+            </Button>
+            <Button>
+                <li><a href="./dash.php">DashBoard</a></li>
+            </Button>
+            <Button>
+                <li><a href="./director.php"> Director</a></li>
+            </Button>
+            <Button>
+                <li><a href="./mypage.php"> My page</a></li>
+            </Button>
+            <Button>
+                <li><a href="./login.php"> Login</a></li>
+            </Button>
+        </ul>
         </ul>
     </nav>
 

@@ -3,9 +3,13 @@
 
 
 <?php
+if (!session_id()) {
+    session_start();
+}
+
 $prevPage = 'mypage.php';
 $selected_title = $_POST['movie_title'];
-$nickname = 'test';
+$nickname = $_SESSION['name'];
 $mysqli = mysqli_connect("localhost", "team10", "team10", "team10");
 
 /*user id 구하기 */
