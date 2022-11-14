@@ -42,3 +42,4 @@ CREATE TABLE director(
     director varchar(20) NOT NULL,
     FOREIGN KEY (m_id) REFERENCES movie_boxoffice(m_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
+
