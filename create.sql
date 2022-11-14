@@ -43,16 +43,3 @@ CREATE TABLE director(
     FOREIGN KEY (m_id) REFERENCES movie_boxoffice(m_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
-CREATE TABLE movie_month 
-(
-    year	bigint(20) NOT NULL,
-    month	bigint(20) NOT NULL,
-    k_release	bigint(20) NOT NULL,
-    k_screen	bigint(20) NOT NULL, 
-    k_sales	bigint(20) NOT NULL,
-    k_audience	bigint(20) NOT NULL,
-    f_release	bigint(20) NOT NULL,
-    f_screen	bigint(20) NOT NULL,
-    f_sales	bigint(20) NOT NULL,
-    f_audience	bigint(20) NOT NULL
-); 
