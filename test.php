@@ -86,22 +86,22 @@
         </Container>
         <ul>
             <Button>
-                <li><a href="./.php"> Search</a></li>
+                <li><a href="./code/.php"> Search</a></li>
             </Button>
             <Button>
-                <li><a href="./genre.php"> Genre</a></li>
+                <li><a href="./code/genre.php"> Genre</a></li>
             </Button>
             <Button>
-                <li><a href="./dash.php">DashBoard</a></li>
+                <li><a href="./code/dash.php">DashBoard</a></li>
             </Button>
             <Button>
-                <li><a href="./director.php"> Director</a></li>
+                <li><a href="./code/director.php"> Director</a></li>
             </Button>
             <Button>
-                <li><a href="./mypage.php"> My page</a></li>
+                <li><a href="./code/mypage.php"> My page</a></li>
             </Button>
             <Button>
-                <li><a href="./login.php"> Login</a></li>
+                <li><a href="./code/login.php"> Login</a></li>
             </Button>
 
 
