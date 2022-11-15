@@ -21,131 +21,69 @@ $search_input = false;
     <meta charset="UTF-8">
     <title>Document</title>
 
-    <script type="text/javascript">
-    function selectAll(selectAll){
-        const checkboxes = document.getElementsByName('year[]');
-        checkboxes.forEach((checkbox) => checkbox.checked = selectAll.checked);
-    }
-    </script>
-    
-    
+    <link rel="stylesheet" type="text/css" href="css/header.css">
     <style>
-        Logo {
-            color: black;
-            cursor: pointer;
-            font-size: 2.7vw;
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-            text-decoration: none;
-            height: 4.16vw;
+        #table_option{
+            border-color:darkgrey; 
+            border-style:solid;
+
+            padding: 10px;
+            margin-top: 30px;
+            margin-bottom: 30px;
         }
 
-        ButtonLink {
-            display: flex;
-            justify-content: end;
-
+        #table_option tr, td{
+            padding: 5px;
         }
 
-        nav {
-            background-color: lightblue;
-            width: 100%;
-            height: 4.16vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        Container {
-            display: inline;
-            justify-content: space-between;
-            height: 4.16vw;
-            z-index: 1;
-            width: 74vw;
-            max-width: 1100px;
-
-        }
-
-        mainContainer {
-            background: white;
-            display: grid;
-            justify-content: center;
-            align-items: center;
-            padding: 0 30px;
-            height: 800px;
-            position: relative;
-            z-index: 1;
-        }
-
-        Button {
-            display: inline;
-            justify-content: end;
-
-        }
-
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        li {
-            float: left;
-        }
+        #btn_search{width: 100; height:100;}
     </style>
+
+    <script type="text/javascript">
+        function selectAll(selectAll){
+            const checkboxes = document.getElementsByName('year[]');
+            checkboxes.forEach((checkbox) => checkbox.checked = selectAll.checked);
+        }
+    </script>
 </head>
 
 <body>
-    <nav>
-        <Container>
-            <Logo><a href="main.php">Movie</a></Logo>
-            <!-- <Button>
-                <ButtonLink href="/"> Search</a></Button>
-                <Button><ButtonLink href="/"> Director</a></Button>
-                <Button><ButtonLink href="/"> My Page</a></Button> -->
-        </Container>
-
-        <ul>
-            <Button>
-                <li><a href="./genre.php"> Genre</a></li>
-            </Button>
-            <Button>
-                <li><a href="./dash.php">DashBoard</a></li>
-            </Button>
-            <Button>
-                <li><a href="./director.php"> Director</a></li>
-            </Button>
-            <Button>
-                <li><a href="./sales_month_response.php"> sales</a></li>
-            </Button>
-
-            <?php
-            if (isset($_SESSION['name'])) { ?>
-                <Button>
-                    <li><a href="./mypage.php"> My page</a></li>
-                </Button>
-                <Button>
-                    <li><a href="./logout.php"> Log out</a></li>
-                </Button>
-            <?php
-            } else { ?>
-                <Button>
-                    <li><a href="./login.php"> Login</a></li>
-                </Button>
-            <?php
-            }
-            ?>
+    <header id="main_header">
+        <nav>
+            <a id="logo" href="main.php"> Team10, MOVIE </a>
             
-        </ul>
-    </nav>
+            <ul class="header_ul">
+                <?php
+                if (isset($_SESSION['name'])) { ?>
+                    <li class="header_li"><a href="./logout.php"> Log out</a></li>
+                    <li class="header_li"><a href="./mypage.php"> My page</a></li>
+                    <li class="header_li"><a href="./sales_month.php"> Sales</a></li>
+                    <li class="header_li"><a href="./director.php"> Director</a></li>
+                    <li class="header_li"><a href="./dash.php">DashBoard</a></li>
+                    <li class="header_li"><a href="./genre.php"> Genre</a></li>
+
+                    <li class="header_li"><form action="filter.php" method="post">
+                        <input type="hidden" name="country" value="Korea">
+                        <input type="hidden" name="rate" value="5">
+                        <input type="hidden" name="year" value="2020">
+                        <input type="hidden" name="aud" value="all">
+                        <input type="hidden" name="audMin" value="0">
+                        <input type="hidden" name="audMax" value="20000000">
+                        <input type="hidden" name="search_input" value="true">
+                        <input type="submit" value="Filter" id="filter_submit">
+                    </form></li>
+                <?php
+                } else { ?>
+                    <li class="header_li"><a href="./login.php"> Login</a></li>
+                <?php
+                }
+                ?>
+            </ul>
+        </nav>
+    </header>
 
     <form method="POST">
-        <table>
+        <table id="table_option">
             <tr>
                 <td>Country</td>
                 <td>
@@ -154,6 +92,7 @@ $search_input = false;
                         <option value="USA" <?php if ($country == 'USA') { ?>selected="selected" <?php } ?>>Overseas</option>
                     </select> </br>
                 </td>
+                <td rowspan="4"><input type="submit" id="btn_search" value="search"></td>
             </tr>
 
             <tr>
@@ -191,46 +130,45 @@ $search_input = false;
             </tr>
             <table>
                 <input type="hidden" name="search_input" value="True">
-                <input type="submit" value="search">
     </form>
 
     <div>
         <?php
-        if ($_POST['search_input']) {
-            // 변수 전달받기
-            $country = $_POST['country'];
+            if ($_POST['search_input']) {
+                // 변수 전달받기
+                $country = $_POST['country'];
 
-            if ($_POST['rate'] == 'self') {
-                $rateTextBox = (int)$_POST['rateTextbox'];
+                if ($_POST['rate'] == 'self') {
+                    $rateTextBox = (int)$_POST['rateTextbox'];
+                } else {
+                    $rateTextBox = 0;
+                }
+
+                if (is_numeric($_POST['rate'])) {
+                    $rate = $_POST['rate'];
+                } else {
+                    $rate = $rateTextBox;
+                }
+
+                if ($_POST['aud'] == 'user') {
+                    $audMin = (int)$_POST['AudTxtMin'];
+                    $audMax = (int)$_POST['AudTxtMax'];
+
+                    $audMin *= 1000000;
+                    $audMax *= 1000000;
+                } else {
+                    $audMin = 0;
+                    $audMax = 20 * 1000000;
+                }
+
+                $year = (int)$_POST['year'];
+                $yearEnd = $year + 4;
             } else {
-                $rateTextBox = 0;
+                echo "키워드를 입력해 주세요";
             }
-
-            if (is_numeric($_POST['rate'])) {
-                $rate = $_POST['rate'];
-            } else {
-                $rate = $rateTextBox;
-            }
-
-            if ($_POST['aud'] == 'user') {
-                $audMin = (int)$_POST['AudTxtMin'];
-                $audMax = (int)$_POST['AudTxtMax'];
-
-                $audMin *= 1000000;
-                $audMax *= 1000000;
-            } else {
-                $audMin = 0;
-                $audMax = 20 * 1000000;
-            }
-
-            $year = (int)$_POST['year'];
-            $yearEnd = $year + 4;
-        } else {
-            echo "키워드를 입력해 주세요";
-        }
         ?>
 
-        <table>
+        <table id="table_show_result">
             <tr>
                 <td>영화제목</td>
                 <td>국가</td>
@@ -255,7 +193,7 @@ $search_input = false;
                 }
 
                 while ($row = mysqli_fetch_array($result)) {
-                    $list = $list . "<tr><td>{$row['title']}</td><td>{$row['country']}</td><td>{$row['audience']}</td><td>{$row['rating']}</td></tr> </br>";
+                    $list = $list . "<tr><td><a href='./detail2.php?m_title={$row['title']}'>{$row['title']}</a></td><td>{$row['country']}</td><td>{$row['audience']}</td><td>{$row['rating']}</td></tr>";
                 }
                 echo $list;
             } else {

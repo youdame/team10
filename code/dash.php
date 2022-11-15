@@ -1,80 +1,15 @@
 <!--조유담-->
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="dashstyle.css">
+  <link rel="stylesheet" type="text/css" href="css/header.css">
+
   <style>
-    Logo {
-      color: black;
-      cursor: pointer;
-      font-size: 2.7vw;
-      display: flex;
-      align-items: center;
-      font-weight: bold;
-      text-decoration: none;
-      height: 4.16vw;
-    }
-
-    ButtonLink {
-      display: flex;
-      justify-content: end;
-
-    }
-
-    nav {
-      background-color: lightblue;
-      width: 100%;
-      height: 4.16vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    Container {
-      display: inline;
-      justify-content: space-between;
-      height: 4.16vw;
-      z-index: 1;
-      width: 74vw;
-      max-width: 1100px;
-
-    }
-
-    mainContainer {
-      background: white;
-      display: grid;
-      justify-content: center;
-      align-items: center;
-      padding: 0 30px;
-      height: 800px;
-      position: relative;
-      z-index: 1;
-    }
-
-    Button {
-      display: inline;
-      justify-content: end;
-
-    }
-
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-
-    li {
-      float: left;
-    }
-
-
     table {
       width: 300px;
       border: 1px solid #444444;
@@ -105,48 +40,38 @@
 </head>
 
 <body>
-  <nav>
-    <Container>
-        <Logo><a href="main.php">Movie</a></Logo>
-        <!-- <Button>
-            <ButtonLink href="/"> Search</a></Button>
-            <Button><ButtonLink href="/"> Director</a></Button>
-            <Button><ButtonLink href="/"> My Page</a></Button> -->
-    </Container>
-
-    <ul>
-        <Button>
-            <li><a href="./genre.php"> Genre</a></li>
-        </Button>
-        <Button>
-            <li><a href="./dash.php">DashBoard</a></li>
-        </Button>
-        <Button>
-            <li><a href="./director.php"> Director</a></li>
-        </Button>
-        <Button>
-            <li><a href="./sales_month_response.php"> sales</a></li>
-        </Button>
-
+  <header id="main_header">
+    <nav>
+      <a id="logo" href="main.php"> Team10, MOVIE </a> 
+      <ul class="header_ul">
         <?php
-        session_start();
         if (isset($_SESSION['name'])) { ?>
-            <Button>
-                <li><a href="./mypage.php"> My page</a></li>
-            </Button>
-            <Button>
-                <li><a href="./logout.php"> Log out</a></li>
-            </Button>
+          <li class="header_li"><a href="./logout.php"> Log out</a></li>
+          <li class="header_li"><a href="./mypage.php"> My page</a></li>
+          <li class="header_li"><a href="./sales_month.php"> Sales</a></li>
+          <li class="header_li"><a href="./director.php"> Director</a></li>
+          <li class="header_li"><a href="./dash.php">DashBoard</a></li>
+          <li class="header_li"><a href="./genre.php"> Genre</a></li>
+
+          <li class="header_li"><form action="filter.php" method="post">
+              <input type="hidden" name="country" value="Korea">
+              <input type="hidden" name="rate" value="5">
+              <input type="hidden" name="year" value="2020">
+              <input type="hidden" name="aud" value="all">
+              <input type="hidden" name="audMin" value="0">
+              <input type="hidden" name="audMax" value="20000000">
+              <input type="hidden" name="search_input" value="true">
+              <input type="submit" value="Filter" id="filter_submit">
+          </form></li>
         <?php
         } else { ?>
-            <Button>
-                <li><a href="./login.php"> Login</a></li>
-            </Button>
+            <li class="header_li"><a href="./login.php"> Login</a></li>
         <?php
         }
-        ?>      
+        ?>
       </ul>
     </nav>
+  </header></br>
 
   <!-- 테이블 시작  -->
   <table>

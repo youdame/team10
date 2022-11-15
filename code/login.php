@@ -8,76 +8,10 @@ session_start();
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Team10 - login</title>
+
+    <link rel="stylesheet" type="text/css" href="css/header.css">
     <style>
-        Logo {
-            color: black;
-            cursor: pointer;
-            font-size: 2.7vw;
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-            text-decoration: none;
-            height: 4.16vw;
-        }
-
-        ButtonLink {
-            display: flex;
-            justify-content: end;
-
-        }
-
-        nav {
-            background-color: lightblue;
-            width: 100%;
-            height: 4.16vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        Container {
-            display: inline;
-            justify-content: space-between;
-            height: 4.16vw;
-            z-index: 1;
-            width: 74vw;
-            max-width: 1100px;
-
-        }
-
-        mainContainer {
-            background: white;
-            display: grid;
-            justify-content: center;
-            align-items: center;
-            padding: 0 30px;
-            height: 800px;
-            position: relative;
-            z-index: 1;
-        }
-
-        Button {
-            display: inline;
-            justify-content: end;
-
-        }
-
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        li {
-            float: left;
-        }
-
         #login_table {
             display: grid;
             justify-content: center;
@@ -90,40 +24,43 @@ session_start();
             border: 1px solid lightslategray;
         }
     </style>
+
 </head>
 
 <body>
-    <nav>
-        <Container>
-            <Logo>Movie</Logo>
-            <!-- <Button>
-                <ButtonLink href="/"> Search</a></Button>
-                <Button><ButtonLink href="/"> Director</a></Button>
-                <Button><ButtonLink href="/"> My Page</a></Button> -->
-        </Container>
-        <ul>
-            <Button>
-                <li><a href="./.php"> Search</a></li>
-            </Button>
-            <Button>
-                <li><a href="./genre.php"> Genre</a></li>
-            </Button>
-            <Button>
-                <li><a href="./dash.php">DashBoard</a></li>
-            </Button>
-            <Button>
-                <li><a href="./director.php"> Director</a></li>
-            </Button>
-            <Button>
-                <li><a href="./mypage.php"> My page</a></li>
-            </Button>
-            <Button>
-                <li><a href="./login.php"> Login</a></li>
-            </Button>
+    <header id="main_header">
+        <nav>
+            <a id="logo" href="main.php"> Team10, MOVIE </a>
+            
+            <ul class="header_ul">
+                <?php
+                if (isset($_SESSION['name'])) { ?>
+                    <li class="header_li"><a href="./logout.php"> Log out</a></li>
+                    <li class="header_li"><a href="./mypage.php"> My page</a></li>
+                    <li class="header_li"><a href="./sales_month.php"> Sales</a></li>
+                    <li class="header_li"><a href="./director.php"> Director</a></li>
+                    <li class="header_li"><a href="./dash.php">DashBoard</a></li>
+                    <li class="header_li"><a href="./genre.php"> Genre</a></li>
 
-
-        </ul>
-    </nav>
+                    <li class="header_li"><form action="filter.php" method="post">
+                        <input type="hidden" name="country" value="Korea">
+                        <input type="hidden" name="rate" value="5">
+                        <input type="hidden" name="year" value="2020">
+                        <input type="hidden" name="aud" value="all">
+                        <input type="hidden" name="audMin" value="0">
+                        <input type="hidden" name="audMax" value="20000000">
+                        <input type="hidden" name="search_input" value="true">
+                        <input type="submit" value="Filter" id="filter_submit">
+                    </form></li>
+                <?php
+                } else { ?>
+                    <li class="header_li"><a href="./login.php"> Login</a></li>
+                <?php
+                }
+                ?>
+            </ul>
+        </nav>
+    </header>
 
     <div id="login_table">
         <form action="login_result.php" method="POST">

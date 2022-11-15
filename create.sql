@@ -107,7 +107,9 @@ CREATE TABLE movie_profit(
 
 -- 홍진서4
 CREATE TABLE compare_data(
+    u_id VARCHAR(15) NOT NULL, 
     input_title VARCHAR(50) NOT NULL,
     input_sales BIGINT NOT NULL,
-    input_audience BIGINT NOT NULL
+    input_audience BIGINT NOT NULL,
+    FOREIGN KEY (u_id) REFERENCES user(u_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
