@@ -1,10 +1,10 @@
 -- 홍진서1
 -- user
-INSERT INTO user (u_id, pwd, username, preferred) VALUES ('team12', 'team12', '김이화', 'action');
+INSERT INTO user (u_id, pwd, username, preferred) VALUES ('team10', 'team10', '김이화', 'action');
 
 -- 이유림1
 -- user_info
-INSERT INTO user_info (u_id, usersex, userage) VALUES ('team12', 'f', '20');
+INSERT INTO user_info (u_id, usersex, userage) VALUES ('team10', 'f', '20');
 
 
 -- 조유담1
