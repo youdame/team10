@@ -107,35 +107,46 @@
 <body>
   <nav>
     <Container>
-      <Logo>Movie</Logo>
-      <!-- <Button>
-                <ButtonLink href="/"> Search</a></Button>
-                <Button><ButtonLink href="/"> Director</a></Button>
-                <Button><ButtonLink href="/"> My Page</a></Button> -->
+        <Logo><a href="main.php">Movie</a></Logo>
+        <!-- <Button>
+            <ButtonLink href="/"> Search</a></Button>
+            <Button><ButtonLink href="/"> Director</a></Button>
+            <Button><ButtonLink href="/"> My Page</a></Button> -->
     </Container>
+
     <ul>
-      <Button>
-        <li><a href="./.php"> Search</a></li>
-      </Button>
-      <Button>
-        <li><a href="./genre.php"> Genre</a></li>
-      </Button>
-      <Button>
-        <li><a href="./dash.php">DashBoard</a></li>
-      </Button>
-      <Button>
-        <li><a href="./director.php"> Director</a></li>
-      </Button>
-      <Button>
-        <li><a href="./mypage.php"> My page</a></li>
-      </Button>
-      <Button>
-        <li><a href="./login.php"> Login</a></li>
-      </Button>
+        <Button>
+            <li><a href="./genre.php"> Genre</a></li>
+        </Button>
+        <Button>
+            <li><a href="./dash.php">DashBoard</a></li>
+        </Button>
+        <Button>
+            <li><a href="./director.php"> Director</a></li>
+        </Button>
+        <Button>
+            <li><a href="./sales_month_response.php"> sales</a></li>
+        </Button>
 
-
-    </ul>
-  </nav>
+        <?php
+        session_start();
+        if (isset($_SESSION['name'])) { ?>
+            <Button>
+                <li><a href="./mypage.php"> My page</a></li>
+            </Button>
+            <Button>
+                <li><a href="./logout.php"> Log out</a></li>
+            </Button>
+        <?php
+        } else { ?>
+            <Button>
+                <li><a href="./login.php"> Login</a></li>
+            </Button>
+        <?php
+        }
+        ?>      
+      </ul>
+    </nav>
 
   <!-- 테이블 시작  -->
   <table>

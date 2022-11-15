@@ -14,5 +14,5 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 echo "<script>alert('Deleted.');</script>";
-echo "<script>location.href='compare.php';</script>";
+echo "<script>location.replace('industry.php?yearOfData=2022&monthOfData=11')</script>";
 ?>

@@ -103,18 +103,16 @@ $row_r = mysqli_fetch_array($result_r);
 
 
 <body>
-    <nav>
+<nav>
         <Container>
-            <Logo>Movie</Logo>
+            <Logo><a href="main.php">Movie</a></Logo>
             <!-- <Button>
                 <ButtonLink href="/"> Search</a></Button>
                 <Button><ButtonLink href="/"> Director</a></Button>
                 <Button><ButtonLink href="/"> My Page</a></Button> -->
         </Container>
+
         <ul>
-            <Button>
-                <li><a href="./.php"> Search</a></li>
-            </Button>
             <Button>
                 <li><a href="./genre.php"> Genre</a></li>
             </Button>
@@ -125,14 +123,30 @@ $row_r = mysqli_fetch_array($result_r);
                 <li><a href="./director.php"> Director</a></li>
             </Button>
             <Button>
-                <li><a href="./mypage.php"> My page</a></li>
-            </Button>
-            <Button>
-                <li><a href="./login.php"> Login</a></li>
+                <li><a href="./sales_month_response.php"> sales</a></li>
             </Button>
 
+            <?php
+            session_start();
+            if (isset($_SESSION['name'])) { ?>
+                <Button>
+                    <li><a href="./mypage.php"> My page</a></li>
+                </Button>
+                <Button>
+                    <li><a href="./logout.php"> Log out</a></li>
+                </Button>
+            <?php
+            } else { ?>
+                <Button>
+                    <li><a href="./login.php"> Login</a></li>
+                </Button>
+            <?php
+            }
+            ?>
+            
         </ul>
     </nav>
+
     <div class=content>
         <!-- 포스터  -->
         <div id=codeit>
