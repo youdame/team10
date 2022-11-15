@@ -1,0 +1,13 @@
+DROP TABLE team10.compare_data;
+DROP TABLE team10.movie_profit;
+DROP TABLE team10.film_industry;
+DROP TABLE team10.movie_month_sales;
+DROP TABLE team10.director_award;
+DROP TABLE team10.director_id;
+DROP TABLE team10.director_table;
+DROP TABLE team10.user_rating;
+DROP TABLE team10.rating;
+DROP TABLE team10.user_like;
+DROP TABLE team10.movie_boxoffice;
+DROP TABLE team10.user_info;
+DROP TABLE team10.user;
