@@ -1,4 +1,8 @@
 <!--이유림-->
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -164,6 +168,7 @@
         <form action="sales_month_response.php" method="POST">
             <label><input type="radio" name="type" value="sum_yearly_sales" <?php if ($selected == 'sum_yearly_sales') { ?>checked="checked" <?php } ?> />Sum of Yearly Sales</label>
             <label><input type="radio" name="type" value="Quarterly Comparison" <?php if ($selected == 'Quarterly Comparison') { ?>checked="checked" <?php } ?> />Quarterly Sales Average</label>
+            <label><input type="radio" name="type" value="Film_industry_of_all_time" <?php if ($selected == 'Film_industry_of_all_time') { ?>checked="checked" <?php } ?> />Film industry of all time</label>
             <br><input style="margin:20px;width:100px" type="submit" value="OK">
         </form>
     </div>
@@ -355,7 +360,15 @@
             </div>
 
         </div>
-    <?php } ?>
+    <?php }
+
+    // 홍진서 파트로 연결
+    if ($selected === 'Film_industry_of_all_time'){
+        //echo "<script>location.replace('industry.php')</script>";
+        echo "<script>location.replace('industry.php?yearOfData=2022&monthOfData=11')</script>";
+    }
+    ?>
+
 
 </body>
 

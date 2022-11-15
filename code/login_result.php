@@ -17,7 +17,7 @@ if (mysqli_num_rows($result)) {
     $row = $result->fetch_array(MYSQLI_ASSOC);
     $_SESSION['id'] = $row['u_id'];
     $_SESSION['name'] = $row['username'];
-    echo "<script>location.href='../test.php';</script>";
+    echo "<script>location.href='main.php';</script>";
     exit;
 }
 echo "<script>alert('Login failed.')</script>";

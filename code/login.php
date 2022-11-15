@@ -112,7 +112,8 @@ session_start();
 
         </ul>
     </nav>
-    <form action="./login_result.php" method="POST">
+
+    <form action="login_result.php" method="POST">
         <table>
             <tr>
                 <td>ID</td>
@@ -126,7 +127,7 @@ session_start();
         <input type="submit" value="log in">
     </form>
 
-    <form action="./signup.php">
+    <form action="signup.php">
         <input type="submit" value="sign up">
     </form>
 </body>

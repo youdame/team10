@@ -1,4 +1,7 @@
 <!-- 김다희 dahee kim-->
+<?php
+session_start();
+?>
 <!-- 홈화면에 뭐 넣지..  -->
 
 <!DOCTYPE html>
@@ -84,16 +87,10 @@
     <!--네비게이션 바-->
     <nav>
         <Container>
-            <Logo>Movie</Logo>
-            <!-- <Button>
-                <ButtonLink href="/"> Search</a></Button>
-                <Button><ButtonLink href="/"> Director</a></Button>
-                <Button><ButtonLink href="/"> My Page</a></Button> -->
+            <Logo><a href="main.php">Movie</a></Logo>
         </Container>
+
         <ul>
-            <Button>
-                <li><a href="./.php"> Search</a></li>
-            </Button>
             <Button>
                 <li><a href="./genre.php"> Genre</a></li>
             </Button>
@@ -104,22 +101,49 @@
                 <li><a href="./director.php"> Director</a></li>
             </Button>
             <Button>
-                <li><a href="./director.php"> sales</a></li>
+                <li><a href="./sales_month_response.php"> sales</a></li>
             </Button>
-            <Button>
-                <li><a href="./mypage.php"> My page</a></li>
-            </Button>
-            <Button>
-                <li><a href="./login.php"> Login</a></li>
-            </Button>
+            <form action="filter.php" method="post">
+                <input type="hidden" name="country" value="Korea">
+                <input type="hidden" name="rate" value="5">
+                <input type="hidden" name="year" value="2020">
+                <input type="hidden" name="aud" value="all">
+                <input type="hidden" name="audMin" value="0">
+                <input type="hidden" name="audMax" value="20000000">
+                <input type="hidden" name="search_input" value="true">
+                <li><input type="submit" value="filter"></li>
+            </form>
 
-
+            <?php
+            if (isset($_SESSION['name'])) { ?>
+                <Button>
+                    <li><a href="./mypage.php"> My page</a></li>
+                </Button>
+                <Button>
+                    <li><a href="./logout.php"> Log out</a></li>
+                </Button>
+            <?php
+            } else { ?>
+                <Button>
+                    <li><a href="./login.php"> Login</a></li>
+                </Button>
+            <?php
+            }
+            ?>
+            
         </ul>
     </nav>
 
     <mainContainer>
 
-        <h1>welcome to our page</h1>
+        <div>
+            <h1>welcome to our page</h1>
+            <form action="keywordSearch.php" method="get">
+                <input type="textbox" name="keyword">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+
         <div>
             <p> Let's see which movie is interesting</p>
         </div>
