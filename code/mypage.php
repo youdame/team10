@@ -9,6 +9,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Page</title>
     <style>
+        Logo {
+            color: black;
+            cursor: pointer;
+            font-size: 2.7vw;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            text-decoration: none;
+            height: 4.16vw;
+        }
+
+        ButtonLink {
+            display: flex;
+            justify-content: end;
+
+        }
+
+        nav {
+            background-color: lightblue;
+            width: 100%;
+            height: 4.16vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        Container {
+            display: inline;
+            justify-content: space-between;
+            height: 4.16vw;
+            z-index: 1;
+            width: 74vw;
+            max-width: 1100px;
+
+        }
+
+        mainContainer {
+            background: white;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            padding: 0 30px;
+            height: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        Button {
+            display: inline;
+            justify-content: end;
+
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+        }
+
         [type="submit"] {
             background-color: lightgray;
             border: 0px;
@@ -19,21 +87,60 @@
 </head>
 
 <body>
+    <nav>
+        <Container>
+            <Logo>Movie</Logo>
+            <!-- <Button>
+                <ButtonLink href="/"> Search</a></Button>
+                <Button><ButtonLink href="/"> Director</a></Button>
+                <Button><ButtonLink href="/"> My Page</a></Button> -->
+        </Container>
+        <ul>
+            <Button>
+                <li><a href="./.php"> Search</a></li>
+            </Button>
+            <Button>
+                <li><a href="./genre.php"> Genre</a></li>
+            </Button>
+            <Button>
+                <li><a href="./dash.php">DashBoard</a></li>
+            </Button>
+            <Button>
+                <li><a href="./director.php"> Director</a></li>
+            </Button>
+            <Button>
+                <li><a href="./mypage.php"> My page</a></li>
+            </Button>
+            <Button>
+                <li><a href="./login.php"> Login</a></li>
+            </Button>
+        </ul>
+    </nav>
     <header style="text-align: center;margin:40px;font-size:30px">
         <p>MY PAGE</p>
     </header>
 
 
     <?php
+    if (!session_id()) {
+        session_start();
+    }
 
     //$username = $_SESSION['name'];
-    $nickname = 'test';
+    $nickname = $_SESSION['name'];
     $mysqli = mysqli_connect('localhost', 'team10', 'team10', 'team10');
     $sql = "SELECT u_id, pwd, preferred FROM user WHERE user.username = '$nickname'";
     $row = mysqli_fetch_array(mysqli_query($mysqli, $sql));
     $id = $row[0];
     $pwd = $row[1];
     $genre = $row[2];
+
+    $sql2 = "SELECT user_info.usersex,user_info.userage from user_info 
+            LEFT JOIN user ON user_info.u_id=user.u_id
+            where user_info.u_id = '" . $_SESSION['id'] . "'";
+    $user_info_row = mysqli_fetch_array(mysqli_query($mysqli, $sql2));
+    $user_sex = $user_info_row[0];
+    $user_age = $user_info_row[1];
 
     mysqli_close($mysqli);
     ?>
@@ -55,6 +162,10 @@
                 <p>Preferred Genre</p>
                 <hr style="width:80%"><?= $genre ?>
             </div>
+            <div style="display:inline-block;margin:20px;border:1px solid grey;width:200px;padding-bottom:15px;border-radius:10px">
+                <p>Age</p>
+                <hr style="width:80%"><?= $user_age ?>
+            </div>
             <div style="margin:10px;margin-bottom:40px">
                 <input type="submit" value="Edit Preferred Genre">
             </div>
@@ -65,7 +176,7 @@
         <p style="margin: 10px;margin-top:30px;padding:7px;font-size:17px;width:100px;border-radius:10px;background-color:lightslategray">LIKES</p>
         <?php
         //$nickname = '$_SESSION['name']';
-        $nickname = 'test';
+        $nickname = $_SESSION['name'];
         $mysqli = mysqli_connect("localhost", "team10", "team10", "team10");
         $sql = "SELECT poster, title
                 FROM movie_boxoffice               

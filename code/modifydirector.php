@@ -77,19 +77,46 @@ li {
 </head>
 
 <body>
-        <nav>
-            <Container>
-                <Logo>Movie</Logo>
-            </Container>
-            <ul>
-            <Button><li><a href="/"> Search</a></li></Button>
-            <Button><li><a href="/">DashBoard</a></li></Button>
-            <Button><li><a href="director.php"> Director</a></li></Button>
-            <Button><li><a href="/"> My page</a></li></Button>
-            <Button><li><a href="test.php"> Login</a></li></Button>
-            
-            </ul>
-        </nav>
+
+<!--네비게이션 바-->
+    <nav>
+        <Container>
+            <Logo>Movie</Logo>
+            <!-- <Button>
+                <ButtonLink href="/"> Search</a></Button>
+                <Button><ButtonLink href="/"> Director</a></Button>
+                <Button><ButtonLink href="/"> My Page</a></Button> -->
+        </Container>
+        <ul>
+        <ul>
+        <Button>
+                <li><a href="./.php"> Search</a></li>
+            </Button>
+            <Button>
+                <li><a href="./genre.php"> Genre</a></li>
+            </Button>
+            <Button>
+                <li><a href="./dash.php">DashBoard</a></li>
+            </Button>
+            <Button>
+                <li><a href="./director.php"> Director</a></li>
+            </Button>
+            <Button>
+                <li><a href="./mypage.php"> My page</a></li>
+            </Button>
+            <Button>
+                <li><a href="./login.php"> Login</a></li>
+            </Button>
+        </ul>
+        </ul>
+    </nav>
+
+    <form action = "modifydirector.php" method="GET">
+                정보를 수정할 감독이름을 검색하세요: <br/><br/>
+                <input type="textbox" name="director" placeholder="감독의 이름을 입력하세요">
+                <input type="submit" value="검색하기">
+            </form>
+
             <table>
                 <tr>
                     <td>Director name</td>

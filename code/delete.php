@@ -1,3 +1,4 @@
+
 <!-- 김다희 dahee kim-->
 <?php
         session_start();
@@ -60,11 +61,13 @@
         //$sql="DELETE FROM director_table,director award WHERE director={$_GET['di']}";
         $result=mysqli_query($mysqli,$sql);
         // $list = '';
+
         // if(mysqli_num_rows($result) == 0){
         //     $list = $list."<tr><td colspan=\"5\">결과가 없습니다.</td></tr>";
         // }else{
         //     while($row = mysqli_fetch_array($result)){
         //         $director = $row['director'];
+
                 
         //         $list = $list."<tr><td><a href='./detail.php?director=$director'>{$director}</a></td><td>{$row['film1']}</td><td>{$row['film2']}</td><td>{$row['film3']}</td><td>{$row['award']}</td></tr></br>";
         //     }

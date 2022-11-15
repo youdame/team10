@@ -1,36 +1,128 @@
  <!-- 김다희 Dahee Kim -->
  <!-- 감독 이름 검색 시 감독의 대표작 3개와 수상내역 보여줌, 그리고 제일 오른쪽에 수정버튼 만들어서 update사용하기// -->
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Director</title>
-        <style></style>
-    </head>
+ <!DOCTYPE html>
+ <html lang="en">
 
-    <body>
-        <nav>
-            <Container>
-                <Logo>Movie</Logo>
-            </Container>
-            <ul>
-                <Button><li><a href="/"> Search</a></li></Button>
-                <Button><li><a href="director.php"> Director</a></li></Button>
-                <Button><li><a href="/"> My page</a></li></Button>
-                <Button><li><a href="test.php"> Login</a></li></Button>
-            </ul>
-        </nav>
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title> Director</title>
+     <style>
+         Logo {
+             color: black;
+             cursor: pointer;
+             font-size: 2.7vw;
+             display: flex;
+             align-items: center;
+             font-weight: bold;
+             text-decoration: none;
+             height: 4.16vw;
+         }
 
+         ButtonLink {
+             display: flex;
+             justify-content: end;
 
+         }
 
-        <h1>Search Director Filmography</h1>
-        <div>
-        <p> 감독 필모그래피 검색해보세요~</p></div>
-            
-            <form action = "director.php" method="GET">
+         nav {
+             background-color: lightblue;
+             width: 100%;
+             height: 4.16vw;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             font-size: 1rem;
+             position: sticky;
+             top: 0;
+             z-index: 10;
+         }
+
+         Container {
+             display: inline;
+             justify-content: space-between;
+             height: 4.16vw;
+             z-index: 1;
+             width: 74vw;
+             max-width: 1100px;
+
+         }
+
+         mainContainer {
+             background: white;
+             display: grid;
+             justify-content: center;
+             align-items: center;
+             padding: 0 30px;
+             height: 800px;
+             position: relative;
+             z-index: 1;
+         }
+
+         Button {
+             display: inline;
+             justify-content: end;
+
+         }
+
+         ul {
+             list-style-type: none;
+             margin: 0;
+             padding: 0;
+             overflow: hidden;
+         }
+
+         li {
+             float: left;
+         }
+     </style>
+ </head>
+
+ <body>
+    <nav>
+        <Container>
+            <Logo><a href="main.php">Movie</a></Logo>
+            <!-- <Button>
+                <ButtonLink href="/"> Search</a></Button>
+                <Button><ButtonLink href="/"> Director</a></Button>
+                <Button><ButtonLink href="/"> My Page</a></Button> -->
+        </Container>
+
+        <ul>
+            <Button>
+                <li><a href="./genre.php"> Genre</a></li>
+            </Button>
+            <Button>
+                <li><a href="./dash.php">DashBoard</a></li>
+            </Button>
+            <Button>
+                <li><a href="./director.php"> Director</a></li>
+            </Button>
+            <Button>
+                <li><a href="./sales_month_response.php"> sales</a></li>
+            </Button>
+
+            <?php
+            session_start();
+            if (isset($_SESSION['name'])) { ?>
+                <Button>
+                    <li><a href="./mypage.php"> My page</a></li>
+                </Button>
+                <Button>
+                    <li><a href="./logout.php"> Log out</a></li>
+                </Button>
+            <?php
+            } else { ?>
+                <Button>
+                    <li><a href="./login.php"> Login</a></li>
+                </Button>
+            <?php
+            }
+            ?>
+
+      <form action = "director.php" method="GET">
                 감독이름 검색: 
                 <input type="textbox" name="director" placeholder="감독의 이름을 입력하세요">
                 <input type="submit" value="검색하기">
@@ -72,19 +164,23 @@
             join director_award as da on di.d_id=da.d_id WHERE dt.director='$director'";//%$director%
 
             $result=mysqli_query($mysqli, $sql);      
+
             $list = '';
 
-            if(mysqli_num_rows($result) == 0){
-                $list = $list."<tr><td colspan=\"5\">결과가 없습니다.</td></tr>";
-            }else{
-                while($row = mysqli_fetch_array($result)){
-                    $director = $row['director'];
+            if (mysqli_num_rows($result) == 0) {
+                $list = $list . "<tr><td colspan=\"5\">결과가 없습니다.</td></tr>";
+            } else {
+                while ($row = mysqli_fetch_array($result)) {
+
                     
                     $list = $list."<tr><td><a href='./detail.php?director=$director'>{$director}</a></td><td>{$row['film1']}</td><td>{$row['film2']}</td><td>{$row['film3']}</td><td>{$row['award']}</td></tr>";
+
+
                 }
-            }echo $list;  
-        ?>
-       
-    </body>
-    
-</html>
+            }
+            echo $list;
+            ?>
+
+ </body>
+
+ </html>

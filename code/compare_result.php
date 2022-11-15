@@ -10,7 +10,7 @@ $input_sales = $_POST['input_sales'];
 $input_audience = $_POST['input_audience'];
 
 //$user_id = $_SESSION['id'];
-$user_id = 'JINSEO';
+$user_id = "JINSEO";
 
 $stmt = $mysqli->prepare($sql_insert);
 $stmt->bind_param("ssii", $user_id, $input_title, $input_sales, $input_audience);
@@ -18,5 +18,5 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 echo "<script>alert('Check the result!')</script>";
-echo "<script>location.href='compare.php';</script>";
+echo "<script>location.href='industry.php?yearOfData=2022&monthOfData=11';</script>";
 ?>
