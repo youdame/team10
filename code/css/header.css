@@ -1,0 +1,54 @@
+#main_header{
+    background: #5F9EA0;
+    margin: 0;
+    padding: 8px;
+    text-align: left;
+}
+
+#logo{
+    float: left;
+    cursor: pointer;
+    font-size: 30px;
+    display: flex;
+    align-items: left;
+    font-weight: bold;
+    text-decoration: none;
+    height: 4.16vw;
+
+    display: block;
+    color: azure;
+    padding-left: 10px;
+}
+
+.header_ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.header_li { float: right; }
+.header_li a {
+    display: block;
+    color: azure;
+    font-size: medium;
+    padding: 8px;
+    padding-right: 12px;
+    text-decoration: none;
+    text-align: center;
+    /* font-weight: bold; */
+} 
+
+#filter_submit{
+    background-color: transparent;
+    border: 0px transparent solid;
+
+    color: azure;
+    font-size: medium;
+    display: block;
+    padding: 8px;
+    padding-right: 12px;
+    padding-top: 12px;
+    text-decoration: none;
+    text-align: center;
+}
