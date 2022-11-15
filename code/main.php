@@ -36,7 +36,7 @@ session_start();
                 if (isset($_SESSION['name'])) { ?>
                     <li class="header_li"><a href="./logout.php"> Log out</a></li>
                     <li class="header_li"><a href="./mypage.php"> My page</a></li>
-                    <li class="header_li"><a href="./sales_month.php"> sales</a></li>
+                    <li class="header_li"><a href="./sales_month.php"> Sales</a></li>
                     <li class="header_li"><a href="./director.php"> Director</a></li>
                     <li class="header_li"><a href="./dash.php">DashBoard</a></li>
                     <li class="header_li"><a href="./genre.php"> Genre</a></li>
@@ -49,7 +49,7 @@ session_start();
                         <input type="hidden" name="audMin" value="0">
                         <input type="hidden" name="audMax" value="20000000">
                         <input type="hidden" name="search_input" value="true">
-                        <input type="submit" value="filter" id="filter_submit">
+                        <input type="submit" value="Filter" id="filter_submit">
                     </form></li>
                 <?php
                 } else { ?>
