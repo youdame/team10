@@ -8,10 +8,10 @@ CREATE TABLE user(
 
 -- 이유림1
 CREATE TABLE user_info(
-    u_id VARCHAR(15) NOT NULL;
+    u_id VARCHAR(15) NOT NULL,
     usersex varchar(10) NOT NULL,
     userage INT NOT NULL,
-    FOREIGN KEY (u_id) REFERENCES user(u_id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (u_id) REFERENCES user(u_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 -- 조유담1
