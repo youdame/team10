@@ -135,6 +135,13 @@
     $pwd = $row[1];
     $genre = $row[2];
 
+    $sql2 = "SELECT user_info.usersex,user_info.userage from user_info 
+            LEFT JOIN user ON user_info.u_id=user.u_id
+            where user_info.u_id '" . $_SESSION['id'] . "'";
+    $user_info_row = mysqli_fetch_array(mysqli_query($mysqli, $sql2));
+    $user_sex = $user_info_row[0];
+    $user_age = $user_info_row[1];
+
     mysqli_close($mysqli);
     ?>
     <!--현재 회원 정보 -> 닉네임, 아이디, 선호 장르 -->
@@ -154,6 +161,10 @@
             <div style="display:inline-block;margin:20px;border:1px solid grey;width:200px;padding-bottom:15px;border-radius:10px">
                 <p>Preferred Genre</p>
                 <hr style="width:80%"><?= $genre ?>
+            </div>
+            <div style="display:inline-block;margin:20px;border:1px solid grey;width:200px;padding-bottom:15px;border-radius:10px">
+                <p>Age</p>
+                <hr style="width:80%"><?= $user_age ?>
             </div>
             <div style="margin:10px;margin-bottom:40px">
                 <input type="submit" value="Edit Preferred Genre">
