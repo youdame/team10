@@ -2,7 +2,6 @@
 <?php
 session_start();
 ?>
-<!-- 홈화면에 뭐 넣지..  -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,31 +90,30 @@ session_start();
         </Container>
 
         <ul>
-            <Button>
-                <li><a href="./genre.php"> Genre</a></li>
-            </Button>
-            <Button>
-                <li><a href="./dash.php">DashBoard</a></li>
-            </Button>
-            <Button>
-                <li><a href="./director.php"> Director</a></li>
-            </Button>
-            <Button>
-                <li><a href="./sales_month.php"> sales</a></li>
-            </Button>
-            <form action="filter.php" method="post">
-                <input type="hidden" name="country" value="Korea">
-                <input type="hidden" name="rate" value="5">
-                <input type="hidden" name="year" value="2020">
-                <input type="hidden" name="aud" value="all">
-                <input type="hidden" name="audMin" value="0">
-                <input type="hidden" name="audMax" value="20000000">
-                <input type="hidden" name="search_input" value="true">
-                <li><input type="submit" value="filter"></li>
-            </form>
-
             <?php
             if (isset($_SESSION['name'])) { ?>
+                <Button>
+                    <li><a href="./genre.php"> Genre</a></li>
+                </Button>
+                <Button>
+                    <li><a href="./dash.php">DashBoard</a></li>
+                </Button>
+                <Button>
+                    <li><a href="./director.php"> Director</a></li>
+                </Button>
+                <Button>
+                    <li><a href="./sales_month_response.php"> sales</a></li>
+                </Button>
+                <form action="filter.php" method="post">
+                    <input type="hidden" name="country" value="Korea">
+                    <input type="hidden" name="rate" value="5">
+                    <input type="hidden" name="year" value="2020">
+                    <input type="hidden" name="aud" value="all">
+                    <input type="hidden" name="audMin" value="0">
+                    <input type="hidden" name="audMax" value="20000000">
+                    <input type="hidden" name="search_input" value="true">
+                    <li><input type="submit" value="filter"></li>
+                </form>
                 <Button>
                     <li><a href="./mypage.php"> My page</a></li>
                 </Button>
