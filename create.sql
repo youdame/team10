@@ -7,7 +7,7 @@ CREATE TABLE user(
 );
 
 -- 이유림1
-CREATE TABLE user(
+CREATE TABLE user_info(
     u_id VARCHAR(15) NOT NULL;
     usersex varchar(10) NOT NULL,
     userage INT NOT NULL,
