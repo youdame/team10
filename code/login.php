@@ -77,6 +77,18 @@ session_start();
         li {
             float: left;
         }
+
+        #login_table {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+            margin: auto;
+            margin-top: 100px;
+            padding: 60px;
+            border-radius: 10px;
+            border: 1px solid lightslategray;
+        }
     </style>
 </head>
 
@@ -113,23 +125,24 @@ session_start();
         </ul>
     </nav>
 
-    <form action="login_result.php" method="POST">
-        <table>
-            <tr>
-                <td>ID</td>
-                <td><input type='text' name='input_id' /></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type='text' name='input_pw' /></td>
-            </tr>
-        </table>
-        <input type="submit" value="log in">
-    </form>
-
-    <form action="signup.php">
-        <input type="submit" value="sign up">
-    </form>
+    <div id="login_table">
+        <form action="login_result.php" method="POST">
+            <table>
+                <tr>
+                    <td>ID</td>
+                    <td><input type='text' name='input_id' /></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type='text' name='input_pw' /></td>
+                </tr>
+            </table>
+            <input type="submit" value="log in">
+        </form>
+        <form action="signup.php">
+            <input type="submit" value="sign up">
+        </form>
+    </div>
 </body>
 
 
