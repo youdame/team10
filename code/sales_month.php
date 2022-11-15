@@ -164,6 +164,7 @@
         <form action="sales_month_response.php" method="POST">
             <label><input type="radio" name="type" value="sum_yearly_sales" checked><span>Sum of Yearly Sales</span></label>
             <label><input type="radio" name="type" value="Quarterly Comparison"><span>Quarterly Sales Average</span></label>
+            <label><input type="radio" name="type" value="Film_industry_of_all_time">Film industry of all time</label>
             <br><input style="margin:20px;width:100px" type="submit" value="OK">
         </form>
     </div>
