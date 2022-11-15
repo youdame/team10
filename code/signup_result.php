@@ -25,9 +25,14 @@
         echo "<script>history.back();</script>";
         exit;
     }else{
-        $sql2 = "INSERT INTO user(u_id, pwd, username, usersex, userage, preferred) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql2 = "INSERT INTO user(u_id, pwd, username, preferred) VALUES (?, ?, ?, ?)";
         $stmt = $mysqli->prepare($sql2);
-        $stmt->bind_param("ssssis", $enter_id, $enter_pw, $enter_name, $enter_gender, $enter_age, $enter_genre);
+        $stmt->bind_param("ssss", $enter_id, $enter_pw, $enter_name, $enter_genre);
+        $stmt->execute();
+
+        $sql3 = "INSERT INTO user_info(u_id, usersex, userage) VALUES (?, ?, ?)";
+        $stmt = $mysqli->prepare($sql3);
+        $stmt->bind_param("ssi", $enter_id, $enter_gender, $enter_age);
         $stmt->execute();
 
         echo "<script>alert('Sign up succeed.')</script>";
