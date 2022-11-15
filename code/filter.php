@@ -22,6 +22,23 @@ $search_input = false;
     <title>Document</title>
 
     <link rel="stylesheet" type="text/css" href="css/header.css">
+    <style>
+        #table_option{
+            border-color:darkgrey; 
+            border-style:solid;
+
+            padding: 10px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        #table_option tr, td{
+            padding: 5px;
+        }
+
+        #btn_search{width: 100; height:100;}
+    </style>
+
     <script type="text/javascript">
         function selectAll(selectAll){
             const checkboxes = document.getElementsByName('year[]');
@@ -66,7 +83,7 @@ $search_input = false;
     </header>
 
     <form method="POST">
-        <table>
+        <table id="table_option">
             <tr>
                 <td>Country</td>
                 <td>
@@ -75,6 +92,7 @@ $search_input = false;
                         <option value="USA" <?php if ($country == 'USA') { ?>selected="selected" <?php } ?>>Overseas</option>
                     </select> </br>
                 </td>
+                <td rowspan="4"><input type="submit" id="btn_search" value="search"></td>
             </tr>
 
             <tr>
@@ -112,46 +130,45 @@ $search_input = false;
             </tr>
             <table>
                 <input type="hidden" name="search_input" value="True">
-                <input type="submit" value="search">
     </form>
 
     <div>
         <?php
-        if ($_POST['search_input']) {
-            // 변수 전달받기
-            $country = $_POST['country'];
+            if ($_POST['search_input']) {
+                // 변수 전달받기
+                $country = $_POST['country'];
 
-            if ($_POST['rate'] == 'self') {
-                $rateTextBox = (int)$_POST['rateTextbox'];
+                if ($_POST['rate'] == 'self') {
+                    $rateTextBox = (int)$_POST['rateTextbox'];
+                } else {
+                    $rateTextBox = 0;
+                }
+
+                if (is_numeric($_POST['rate'])) {
+                    $rate = $_POST['rate'];
+                } else {
+                    $rate = $rateTextBox;
+                }
+
+                if ($_POST['aud'] == 'user') {
+                    $audMin = (int)$_POST['AudTxtMin'];
+                    $audMax = (int)$_POST['AudTxtMax'];
+
+                    $audMin *= 1000000;
+                    $audMax *= 1000000;
+                } else {
+                    $audMin = 0;
+                    $audMax = 20 * 1000000;
+                }
+
+                $year = (int)$_POST['year'];
+                $yearEnd = $year + 4;
             } else {
-                $rateTextBox = 0;
+                echo "키워드를 입력해 주세요";
             }
-
-            if (is_numeric($_POST['rate'])) {
-                $rate = $_POST['rate'];
-            } else {
-                $rate = $rateTextBox;
-            }
-
-            if ($_POST['aud'] == 'user') {
-                $audMin = (int)$_POST['AudTxtMin'];
-                $audMax = (int)$_POST['AudTxtMax'];
-
-                $audMin *= 1000000;
-                $audMax *= 1000000;
-            } else {
-                $audMin = 0;
-                $audMax = 20 * 1000000;
-            }
-
-            $year = (int)$_POST['year'];
-            $yearEnd = $year + 4;
-        } else {
-            echo "키워드를 입력해 주세요";
-        }
         ?>
 
-        <table>
+        <table id="table_show_result">
             <tr>
                 <td>영화제목</td>
                 <td>국가</td>

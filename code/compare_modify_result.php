@@ -6,8 +6,7 @@ $mysqli = mysqli_connect("localhost", "team10", "team10", "team10");
 
 $sql_update = "UPDATE compare_data SET input_sales = ?, input_audience = ? WHERE u_id = ?";
 
-//$user_id = $_SESSION['id'];
-$user_id = "JINSEO";
+$user_id = $_SESSION['id'];
 $modify_sales = $_POST['modify_sales'];
 $modify_audience = $_POST['modify_audience'];
 

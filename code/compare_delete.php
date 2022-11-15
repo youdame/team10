@@ -5,8 +5,8 @@ session_start();
 $mysqli = mysqli_connect("localhost", "team10", "team10", "team10");
 
 $sql_delete = "DELETE FROM compare_data WHERE u_id = ?";
-//$user_id = $_SESSION['id'];
-$user_id = "JINSEO";
+$user_id = $_SESSION['id'];
+//$user_id = "JINSEO";
 
 $stmt = $mysqli->prepare($sql_delete);
 $stmt->bind_param("s", $user_id);
