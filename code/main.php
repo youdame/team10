@@ -101,7 +101,7 @@ session_start();
                 <li><a href="./director.php"> Director</a></li>
             </Button>
             <Button>
-                <li><a href="./sales_month_response.php"> sales</a></li>
+                <li><a href="./sales_month.php"> sales</a></li>
             </Button>
             <form action="filter.php" method="post">
                 <input type="hidden" name="country" value="Korea">
@@ -130,7 +130,7 @@ session_start();
             <?php
             }
             ?>
-            
+
         </ul>
     </nav>
 
