@@ -25,7 +25,7 @@ CREATE TABLE movie_boxoffice(
     country	varchar(20) NOT NULL,
     d_id int NOT NULL,
     genre varchar(20) NOT NULL,
-    poster varchar(200) NOT NULL
+    poster text NOT NULL
 );
 
 -- 이유림2
