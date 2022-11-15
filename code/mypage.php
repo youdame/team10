@@ -137,7 +137,7 @@
 
     $sql2 = "SELECT user_info.usersex,user_info.userage from user_info 
             LEFT JOIN user ON user_info.u_id=user.u_id
-            where user_info.u_id '" . $_SESSION['id'] . "'";
+            where user_info.u_id = '" . $_SESSION['id'] . "'";
     $user_info_row = mysqli_fetch_array(mysqli_query($mysqli, $sql2));
     $user_sex = $user_info_row[0];
     $user_age = $user_info_row[1];
