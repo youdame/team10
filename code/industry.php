@@ -1,37 +1,36 @@
 <!--홍진서-->
 <?php
-session_start();
-$mysqli = mysqli_connect("localhost", "team10", "team10", "team10");
+    session_start();
+    $mysqli = mysqli_connect("localhost", "team10", "team10", "team10");
 
-$sql_select = "SELECT * FROM compare_data WHERE u_id = ?";
+    $sql_select = "SELECT * FROM compare_data WHERE u_id = ?";
 
-//임시
-$user_id = "JINSEO";
-$stmt = $mysqli->prepare($sql_select);
-$stmt->bind_param("s", $user_id);
-$stmt->execute();
-$result_main = $stmt->get_result();
+    $user_id = $_SESSION['id'];
+    $stmt = $mysqli->prepare($sql_select);
+    $stmt->bind_param("s", $user_id);
+    $stmt->execute();
+    $result_main = $stmt->get_result();
 
 
-$sql_y = "SELECT year(reference_date) AS 'Year', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
-            FROM film_industry
-            WHERE year(reference_date) > 1000
-            GROUP BY year(reference_date), country WITH ROLLUP";
+    $sql_y = "SELECT year(reference_date) AS 'Year', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
+                FROM film_industry
+                WHERE year(reference_date) > 1000
+                GROUP BY year(reference_date), country WITH ROLLUP";
 
-//sum(sales) as sum_sales, avg(sales) as avg_sales 
-$sql_m = "SELECT month(reference_date) AS 'Month', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
-            FROM film_industry
-            WHERE year(reference_date) = ?
-            GROUP BY month(reference_date), country WITH ROLLUP";
+    //sum(sales) as sum_sales, avg(sales) as avg_sales 
+    $sql_m = "SELECT month(reference_date) AS 'Month', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
+                FROM film_industry
+                WHERE year(reference_date) = ?
+                GROUP BY month(reference_date), country WITH ROLLUP";
 
-$sql_d = "SELECT day(reference_date) AS 'Day', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
-            FROM film_industry
-            WHERE year(reference_date) = ? AND  month(reference_date) = ?
-            GROUP BY day(reference_date), country WITH ROLLUP";
+    $sql_d = "SELECT day(reference_date) AS 'Day', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
+                FROM film_industry
+                WHERE year(reference_date) = ? AND  month(reference_date) = ?
+                GROUP BY day(reference_date), country WITH ROLLUP";
 
-$clicked_year = $_GET['yearOfData'];
-$clicked_month = $_GET['monthOfData'];
-?>
+    $clicked_year = $_GET['yearOfData'];
+    $clicked_month = $_GET['monthOfData'];
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,9 +58,92 @@ $clicked_month = $_GET['monthOfData'];
             dp.submit();
         }
     </script>
+
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <style>
+        body{
+            background-color: white;
+        }
+
+        #sales_type_radio {
+            border: 1px solid grey;
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 15px;
+            line-height: 2rem;
+            padding: 0.2em 0.4em;
+        }
+
+        [type="radio"] {
+            vertical-align: middle;
+        }
+
+        [type="submit"] {
+            background-color: lightslategray;
+            border: 0px;
+            padding: 8px;
+            border-radius: 10px;
+        }
+
+        /* table {
+            padding: 10px;
+        }
+
+        th {
+            background-color: lightslategray;
+        }
+
+        th,
+        td {
+            border: 1px solid grey;
+            padding: 10px;
+            border-collapse: collapse;
+        } */
+    </style>
+
 </head>
 
 <body>
+    <header id="main_header">
+        <nav>
+            <a id="logo" href="main.php"> Team10, MOVIE </a>
+            
+            <ul class="header_ul">
+                <?php
+                if (isset($_SESSION['name'])) { ?>
+                    <li class="header_li"><a href="./logout.php"> Log out</a></li>
+                    <li class="header_li"><a href="./mypage.php"> My page</a></li>
+                    <li class="header_li"><a href="./sales_month.php"> Sales</a></li>
+                    <li class="header_li"><a href="./director.php"> Director</a></li>
+                    <li class="header_li"><a href="./dash.php">DashBoard</a></li>
+                    <li class="header_li"><a href="./genre.php"> Genre</a></li>
+
+                    <li class="header_li"><form action="filter.php" method="post">
+                        <input type="hidden" name="country" value="Korea">
+                        <input type="hidden" name="rate" value="5">
+                        <input type="hidden" name="year" value="2020">
+                        <input type="hidden" name="aud" value="all">
+                        <input type="hidden" name="audMin" value="0">
+                        <input type="hidden" name="audMax" value="20000000">
+                        <input type="hidden" name="search_input" value="true">
+                        <input type="submit" value="Filter" id="filter_submit">
+                    </form></li>
+                <?php
+                } else { ?>
+                    <li class="header_li"><a href="./login.php"> Login</a></li>
+                <?php
+                }
+                ?>
+            </ul>
+        </nav>
+    </header>
+
     <header style="text-align: center;margin:40px;font-size:30px">
         <p>Yearly Sales Statistics</p>
     </header>
