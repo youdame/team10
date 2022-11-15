@@ -1,84 +1,81 @@
-<!--김다희-->
-
-         <!-- Dahee Kim -->
- <!-- 감독 이름 검색 시 감독의 대표작 3개와 수상내역 보여줌, 그리고 제일 오른쪽에 수정버튼 만들어서 update사용하기// -->
-<!-- 그냥 검색해서 select를 delete 로   바꾸기 -->
+<!-- 김다희 dahee kim-->
+<?php
+        session_start();
+        error_reporting(E_ALL);
+        ini_set("display_errors", 0);
+        ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Director</title>
-        <style></style>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
 
-    <body>
-        <nav>
-            <Container>
-                <Logo>Movie</Logo>
-            </Container>
-            <ul>
-                <Button><li><a href="/"> Search</a></li></Button>
-                <Button><li><a href="director.php"> Director</a></li></Button>
-                <Button><li><a href="/"> My page</a></li></Button>
-                <Button><li><a href="test.php"> Login</a></li></Button>
-            </ul>
-        </nav>
+<body>
+<!--네비게이션 바-->
+    <nav>
+        
+        <ul>
+        <Button><li><a href="/"> Search</a></li></Button>
+        <Button><li><a href="director.php"> Director</a></li></Button>
+        <Button><li><a href="/"> My page</a></li></Button>
+        <Button><li><a href="test.php"> Login</a></li></Button>
+        </ul>
+    </nav>
+
+        <form action="delete.php" method="GET">
+                        감독이름 검색: 
+                        <input type="textbox" name="di" placeholder="감독의 이름을 입력하세요">
+                        <input type="submit" value="검색하기">
+                    </form>
 
 
 
-        <h1>삭제할 감독의 이름을 입력하세요</h1>
-        <div>
-        <p> 감독 필모그래피 검색해보세요~</p></div>
-            
-            <form action = "delete.php" method="GET">
-                감독이름 검색: <input type="textbox" name="director" placeholder="감독의 이름을 입력하세요">
-                <input type="submit" value="검색하기">
-            </form>
-
-            <table>
-                <tr>
-                    <td>Director name</td>
-                    <td>Film1</td>
-                    <td>Film2 </td>
-                    <td>Film3 </td>
-                    <td>Award</td>
-                    <td></td>
-                </tr>
- 
-        <?php
-            session_start();
-            $mysqli=mysqli_connect("localhost","team10","team10","team10","3307");
-            // if(isset($_GET['director'])){
-            //     $director=$_GET['director'];
-            // }else{
-            //     $director="1";
-            // }
-        ?>        
-             <form action='director.php'>
-                    <input type='button' value='감독정보 등록' onclick='location.href="newdirector.php"'/></form>
-            <form action='director.php'>
-                    <input type='button' value='감독정보 수정하기' onclick='location.href="modifydirector.php"'/></form>
-            <form action='director.php'>
-                    <input type='button' value='감독정보 삭제하기' onclick='location.href="delete.php"'/></form>                
-      
-        <?php
-            $sql ="DELETE FROM director_table WHERE director LIKE '%$director%'";
-            // $result=mysqli_query($mysqli, $sql);      
-            // $list = '';
-
-            // if(mysqli_num_rows($result) == 0){
-            //     $list = $list."<tr><td colspan=\"5\">결과가 없습니다.</td></tr>";
-            // }else{
-            //     while($row = mysqli_fetch_array($result)){
-            //         $director = $row['director'];
-                    
-            //         $list = $list."<tr><td><a href='./detail.php?director=$director'>{$director}</a></td><td>{$row['film1']}</td><td>{$row['film2']}</td><td>{$row['film3']}</td><td>{$row['award']}</td></tr></br>";
-            //     }
-            // }echo $list;  
-        ?>
+<?php 
    
-    </body>
-    
+        $mysqli=mysqli_connect("localhost","team10","team10","team10","3307");
+   
+        // if(isset($_GET['director'])){
+        //     $director=$_GET['director'];
+        // }else{
+        //     $director="2";
+        // }
+        // DELETE FROM dt, da ,di
+        // using director_table as dt 
+        //             join director_id as di 
+        //             on dt.director=di.director
+        //             join director_award as da 
+        //             on di.d_id=da.d_id 
+        //             WHERE dt.director='test1'//여기만 바꾸기..가능?
+        // $sql="DELETE FROM 
+        // director_table 
+        // WHERE director='$director'";
+
+        $sql="DELETE FROM dt, da ,did using director_table as dt 
+            join director_id as did 
+            on dt.director=did.director
+            join director_award as da 
+            on did.d_id=da.d_id 
+            WHERE dt.director='{$_GET['di']}'";
+        //$sql="DELETE FROM director_table,director award WHERE director={$_GET['di']}";
+        $result=mysqli_query($mysqli,$sql);
+        // $list = '';
+        // if(mysqli_num_rows($result) == 0){
+        //     $list = $list."<tr><td colspan=\"5\">결과가 없습니다.</td></tr>";
+        // }else{
+        //     while($row = mysqli_fetch_array($result)){
+        //         $director = $row['director'];
+                
+        //         $list = $list."<tr><td><a href='./detail.php?director=$director'>{$director}</a></td><td>{$row['film1']}</td><td>{$row['film2']}</td><td>{$row['film3']}</td><td>{$row['award']}</td></tr></br>";
+        //     }
+        // }echo $list;  
+       
+// 물어보는거 구현...ㅅㅂ..
+        // if($result=mysqli_query($mysqli,$sql)){
+        //     echo "<script>alert('감독정보가 삭제되었습니다.')</script>";
+        // }else{
+        //     echo "<script>alert('오류.')</script>";
+        // }
+?>
+</body>
 </html>

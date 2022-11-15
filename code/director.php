@@ -31,7 +31,8 @@
         <p> 감독 필모그래피 검색해보세요~</p></div>
             
             <form action = "director.php" method="GET">
-                감독이름 검색: <input type="textbox" name="director" placeholder="감독의 이름을 입력하세요">
+                감독이름 검색: 
+                <input type="textbox" name="director" placeholder="감독의 이름을 입력하세요">
                 <input type="submit" value="검색하기">
             </form>
 
@@ -49,20 +50,27 @@
                 <form action='director.php'>
                     <input type='button' value='감독정보 수정하기' onclick='location.href="modifydirector.php"'/></form>
                 <form action='director.php'>
-                    <input type='button' value='감독정보 삭제하기' onclick='location.href="delete.php"'/></form>                
+                    <input type='button' value='감독정보 삭제2' onclick='location.href="delete.php"'/></form>
 
+    
         <?php
             session_start();
             $mysqli=mysqli_connect("localhost","team10","team10","team10","3307");
             if(isset($_GET['director'])){
                 $director=$_GET['director'];
             }else{
-                $director="김한민";
+                $director="7";
             }
         ?>        
       
+     
         <?php
-            $sql ="SELECT * FROM director_table WHERE director LIKE '%$director%'";
+            // $sql ="SELECT * FROM director_table WHERE director LIKE '%$director%'";
+            $sql ="SELECT di.d_id, dt.director, dt.film1, dt.film2, dt.film3, da.award FROM 
+            director_table AS dt 
+            join director_id as di on dt.director=di.director
+            join director_award as da on di.d_id=da.d_id WHERE dt.director='$director'";//%$director%
+
             $result=mysqli_query($mysqli, $sql);      
             $list = '';
 
@@ -72,7 +80,7 @@
                 while($row = mysqli_fetch_array($result)){
                     $director = $row['director'];
                     
-                    $list = $list."<tr><td><a href='./detail.php?director=$director'>{$director}</a></td><td>{$row['film1']}</td><td>{$row['film2']}</td><td>{$row['film3']}</td><td>{$row['award']}</td></tr></br>";
+                    $list = $list."<tr><td><a href='./detail.php?director=$director'>{$director}</a></td><td>{$row['film1']}</td><td>{$row['film2']}</td><td>{$row['film3']}</td><td>{$row['award']}</td></tr>";
                 }
             }echo $list;  
         ?>

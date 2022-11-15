@@ -2,6 +2,8 @@
 <!-- 감독이름, 대표작 3개, 수상 등록할 수 있게 하기 update -->
 <?php
         session_start();
+        error_reporting(E_ALL);
+        ini_set("display_errors", 0);
         ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,15 +54,29 @@
             // ."values('".$_POST['director']."
             // ','".$_POST['film1']."',".$_POST['film2'].",
             // ".$_POST['film3'].",".$_POST['award']."')";
-            $sql="INSERT INTO  director_table (director, film1, film2, film3, award) 
-            VALUES('{$_POST['director']}','{$_POST['film1']}','{$_POST['film2']}','{$_POST['film3']}','{$_POST['award']}')";
+            $sql="INSERT INTO  director_table (director, film1, film2, film3)
+            VALUES('{$_POST['director']}','{$_POST['film1']}','{$_POST['film2']}','{$_POST['film3']}')";
+            $sql_1="INSERT into director_award(award) VALUES('{$_POST['award']}')";
+            $sql_2="INSERT into director_id(director)
+            VALUES('{$_POST['director']}')";
+            
+            //,'{$_POST['award']}'
+            // Insert into director_table (director, film1, film2, film3)
+            // values("test1","1","1","1");
+            // Insert into director_award(award)
+            // values("hi");
+            // Insert into director_id(director)
+            // values("test1");
+            
             $result=mysqli_query($mysqli,$sql);      
-            if($result === false){
-                echo '오류';
-                error_log(mysqli_error($sql));
-              } else {
-                echo '성공했습니다. <a href="newdirector.php">돌아가기</a>';
-              }
+            $result_1=mysqli_query($mysqli,$sql_1);    
+            $result_2=mysqli_query($mysqli,$sql_2);
+            // if($result === false){
+            //     echo '오류';
+            //     error_log(mysqli_error($sql));
+            //   } else {
+            //     echo '성공했습니다. <a href="newdirector.php">돌아가기</a>';
+            //   }
         
 
           
