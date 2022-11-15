@@ -20,6 +20,15 @@ $search_input = false;
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+
+    <script type="text/javascript">
+    function selectAll(selectAll){
+        const checkboxes = document.getElementsByName('year[]');
+        checkboxes.forEach((checkbox) => checkbox.checked = selectAll.checked);
+    }
+    </script>
+    
+    
     <style>
         Logo {
             color: black;

@@ -364,7 +364,8 @@ session_start();
 
     // 홍진서 파트로 연결
     if ($selected === 'Film_industry_of_all_time'){
-        echo "<script>location.replace('industry.php')</script>";
+        //echo "<script>location.replace('industry.php')</script>";
+        echo "<script>location.replace('industry.php?yearOfData=2022&monthOfData=11')</script>";
     }
     ?>
 
