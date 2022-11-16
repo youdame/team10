@@ -56,13 +56,14 @@
 
         mainContainer {
             background: white;
-            display: grid;
+            display: flex;
             justify-content: center;
             align-items: center;
             padding: 0 30px;
             height: 800px;
             position: relative;
-            z-index: 1;
+            z-index=1;
+        
         }
 
         Button {
@@ -93,6 +94,7 @@
 
 <body>
     <!--네비게이션 바-->
+  
     <nav>
         <Container>
             <Logo>Movie</Logo>
@@ -100,7 +102,8 @@
                 <ButtonLink href="/"> Search</a></Button>
                 <Button><ButtonLink href="/"> Director</a></Button>
                 <Button><ButtonLink href="/"> My Page</a></Button> -->
-        </Container>
+       
+      
         <ul>
             <Button>
                 <li><a href="./.php"> Search</a></li>
@@ -124,13 +127,8 @@
     </nav>
 
 
-    <h1>welcome to our page</h1>
-    <div>
-        <p> Let's see which movie is interesting</p>
 
-        </div>
-
-
+    <mainContainer>
         <form method="POST" action="newdirector.php">
             감독이름:<input type="text" name="director"/><br/>
             대표작1:<input type="text" name="film1"/><br/>
@@ -175,7 +173,8 @@
 
           
         ?>
- 
+        </mainContainer>
+  </Container>
 
 </body>
 

@@ -52,7 +52,7 @@
 
          mainContainer {
              background: white;
-             display: grid;
+             display: flex;
              justify-content: center;
              align-items: center;
              padding: 0 30px;
@@ -84,29 +84,26 @@
     <nav>
         <Container>
             <Logo><a href="main.php">Movie</a></Logo>
+            
             <!-- <Button>
                 <ButtonLink href="/"> Search</a></Button>
                 <Button><ButtonLink href="/"> Director</a></Button>
                 <Button><ButtonLink href="/"> My Page</a></Button> -->
-        </Container>
-
-        <ul>
-            <Button>
-                <li><a href="./genre.php"> Genre</a></li>
-            </Button>
-            <Button>
-                <li><a href="./dash.php">DashBoard</a></li>
-            </Button>
-            <Button>
-                <li><a href="./director.php"> Director</a></li>
-            </Button>
-            <Button>
-                <li><a href="./sales_month_response.php"> sales</a></li>
-            </Button>
-
-            <?php
+                <?php
             session_start();
             if (isset($_SESSION['name'])) { ?>
+                   <Button>
+                <li><a href="./genre.php"> Genre</a></li>
+                </Button>
+                <Button>
+                    <li><a href="./dash.php">DashBoard</a></li>
+                </Button>
+                <Button>
+                    <li><a href="./director.php"> Director</a></li>
+                </Button>
+                <Button>
+                    <li><a href="./sales_month_response.php"> sales</a></li>
+                </Button>
                 <Button>
                     <li><a href="./mypage.php"> My page</a></li>
                 </Button>
@@ -121,13 +118,14 @@
             <?php
             }
             ?>
-
-      <form action = "director.php" method="GET">
+        </nav>
+        <div>
+                <form action = "director.php" method="GET">
                 감독이름 검색: 
                 <input type="textbox" name="director" placeholder="감독의 이름을 입력하세요">
                 <input type="submit" value="검색하기">
             </form>
-
+        </div>
             <table>
                 <tr>
                     <td>Director name</td>
@@ -144,9 +142,17 @@
                 <form action='director.php'>
                     <input type='button' value='감독정보 삭제2' onclick='location.href="delete.php"'/></form>
 
+      
+  
+
+     
+
+      
+
+     
     
         <?php
-            session_start();
+           
             $mysqli=mysqli_connect("localhost","team10","team10","team10","3307");
             if(isset($_GET['director'])){
                 $director=$_GET['director'];
@@ -158,11 +164,11 @@
      
         <?php
             // $sql ="SELECT * FROM director_table WHERE director LIKE '%$director%'";
-            $sql ="SELECT di.d_id, dt.director, dt.film1, dt.film2, dt.film3, da.award FROM 
+            $sql ="SELECT di.d_id1, dt.director, dt.film1, dt.film2, dt.film3, da.award FROM 
             director_table AS dt 
             join director_id as di on dt.director=di.director
-            join director_award as da on di.d_id=da.d_id WHERE dt.director='$director'";//%$director%
-
+            join director_award as da on di.d_id1=da.d_id2 WHERE dt.director='$director'";//%$director%
+// 감독코드로 ㄱ검색해서 box_office 에서 감독 이름으로 group by..
             $result=mysqli_query($mysqli, $sql);      
 
             $list = '';
@@ -180,7 +186,9 @@
             }
             echo $list;
             ?>
+   
 
+  </Container>
  </body>
 
  </html>

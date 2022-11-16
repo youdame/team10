@@ -111,11 +111,11 @@ li {
         </ul>
     </nav>
 
-    <form action = "modifydirector.php" method="GET">
+    <!-- <form action = "modifydirector.php" method="GET">
                 정보를 수정할 감독이름을 검색하세요: <br/><br/>
                 <input type="textbox" name="director" placeholder="감독의 이름을 입력하세요">
                 <input type="submit" value="검색하기">
-            </form>
+            </form> -->
 
             <table>
                 <tr>
@@ -130,10 +130,10 @@ li {
             <?php
                 
                 $mysqli=mysqli_connect("localhost","team10","team10","team10","3307");
-                $sql ="SELECT di.d_id, dt.director, dt.film1, dt.film2, dt.film3, da.award FROM 
+                $sql ="SELECT di.d_id1, dt.director, dt.film1, dt.film2, dt.film3, da.award FROM 
                 director_table AS dt 
                 join director_id as di on dt.director=di.director
-                join director_award as da on di.d_id=da.d_id";//%$director%
+                join director_award as da on di.d_id1=da.d_id2";//%$director%
     
                 $result=mysqli_query($mysqli, $sql);      
                 $list = '';
@@ -181,7 +181,7 @@ li {
 
             $sql_2="UPDATE director_award AS da 
             INNER JOIN director_id AS did 
-            ON did.d_id=da.d_id 
+            ON did.d_id1=da.d_id2 
             SET award='{$_GET['award']}' 
             WHERE director= '{$_GET['director']}'";
      

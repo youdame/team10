@@ -56,7 +56,7 @@
             join director_id as did 
             on dt.director=did.director
             join director_award as da 
-            on did.d_id=da.d_id 
+            on did.d_id1=da.d_id2
             WHERE dt.director='{$_GET['di']}'";
         //$sql="DELETE FROM director_table,director award WHERE director={$_GET['di']}";
         $result=mysqli_query($mysqli,$sql);
