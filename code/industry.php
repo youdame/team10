@@ -1,40 +1,41 @@
 <!--홍진서-->
 <?php
-    session_start();
-    $mysqli = mysqli_connect("localhost", "team10", "team10", "team10");
+session_start();
+$mysqli = mysqli_connect("localhost", "team10", "team10", "team10");
 
-    $sql_select = "SELECT * FROM compare_data WHERE u_id = ?";
+$sql_select = "SELECT * FROM compare_data WHERE u_id = ?";
 
-    $user_id = $_SESSION['id'];
-    $stmt = $mysqli->prepare($sql_select);
-    $stmt->bind_param("s", $user_id);
-    $stmt->execute();
-    $result_main = $stmt->get_result();
+$user_id = $_SESSION['id'];
+$stmt = $mysqli->prepare($sql_select);
+$stmt->bind_param("s", $user_id);
+$stmt->execute();
+$result_main = $stmt->get_result();
 
 
-    $sql_y = "SELECT year(reference_date) AS 'Year', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
+$sql_y = "SELECT year(reference_date) AS 'Year', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
                 FROM film_industry
                 WHERE year(reference_date) > 1000
                 GROUP BY year(reference_date), country WITH ROLLUP";
 
-    $sql_m = "SELECT month(reference_date) AS 'Month', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
+$sql_m = "SELECT month(reference_date) AS 'Month', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
                 FROM film_industry
                 WHERE year(reference_date) = ?
                 GROUP BY month(reference_date), country WITH ROLLUP";
 
-    $sql_d = "SELECT day(reference_date) AS 'Day', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
+$sql_d = "SELECT day(reference_date) AS 'Day', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
                 FROM film_industry
                 WHERE year(reference_date) = ? AND  month(reference_date) = ?
                 GROUP BY day(reference_date), country WITH ROLLUP";
 
-    $clicked_year = $_GET['yearOfData'];
-    $clicked_month = $_GET['monthOfData'];
+$clicked_year = $_GET['yearOfData'];
+$clicked_month = $_GET['monthOfData'];
 
-    function forPrepareStatement($mysqli, $sql){
-        $result = mysqli_query($mysqli, $sql);
-        return mysqli_fetch_array($result);
-    }
-    ?>
+function forPrepareStatement($mysqli, $sql)
+{
+    $result = mysqli_query($mysqli, $sql);
+    return mysqli_fetch_array($result);
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +43,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Movie Industry Statistics</title>
 
     <script type="text/javascript">
         function updateMonth($yearOfData) {
@@ -65,7 +66,9 @@
 
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <style>
-        body{ background-color: white; }
+        body {
+            background-color: white;
+        }
 
         #sales_type_radio {
             border: 1px solid grey;
@@ -93,32 +96,50 @@
             border-radius: 10px;
         }
 
-        #main_div{ display: flex; }
+        #main_div {
+            display: flex;
+        }
 
-        #main_table{
+        #main_table {
             width: 80%;
             margin: 0 auto;
         }
 
-        #div_compare{text-align: left;}
-        
-        .td_compare{
+        #div_compare {
+            text-align: left;
+        }
+
+        .td_compare {
             text-align: center;
             padding-top: 50px;
             padding-bottom: 50px;
         }
 
-        td{vertical-align: top;}
+        td {
+            vertical-align: top;
+        }
 
-        #div_table_month{margin-left: 30px; margin-right: 30px;}
+        #div_table_month {
+            margin-left: 30px;
+            margin-right: 30px;
+        }
 
-        tr, td{
+        tr,
+        td {
             padding: 5px;
         }
 
-        #div_table_year{background-color: #C6C6C6;}
-        #div_table_month{background-color: #D8D8D8;}
-        #div_table_day{background-color: #EAEAEA;}
+        #div_table_year {
+            background-color: #C6C6C6;
+        }
+
+        #div_table_month {
+            background-color: #D8D8D8;
+        }
+
+        #div_table_day {
+            background-color: #EAEAEA;
+        }
     </style>
 
 </head>
@@ -127,7 +148,7 @@
     <header id="main_header">
         <nav>
             <a id="logo" href="main.php"> Team10, MOVIE </a>
-            
+
             <ul class="header_ul">
                 <?php
                 if (isset($_SESSION['name'])) { ?>
@@ -138,16 +159,18 @@
                     <li class="header_li"><a href="./dash.php">DashBoard</a></li>
                     <li class="header_li"><a href="./genre.php"> Genre</a></li>
 
-                    <li class="header_li"><form action="filter.php" method="post">
-                        <input type="hidden" name="country" value="Korea">
-                        <input type="hidden" name="rate" value="5">
-                        <input type="hidden" name="year" value="2020">
-                        <input type="hidden" name="aud" value="all">
-                        <input type="hidden" name="audMin" value="0">
-                        <input type="hidden" name="audMax" value="20000000">
-                        <input type="hidden" name="search_input" value="true">
-                        <input type="submit" value="Filter" id="filter_submit">
-                    </form></li>
+                    <li class="header_li">
+                        <form action="filter.php" method="post">
+                            <input type="hidden" name="country" value="Korea">
+                            <input type="hidden" name="rate" value="5">
+                            <input type="hidden" name="year" value="2020">
+                            <input type="hidden" name="aud" value="all">
+                            <input type="hidden" name="audMin" value="0">
+                            <input type="hidden" name="audMax" value="20000000">
+                            <input type="hidden" name="search_input" value="true">
+                            <input type="submit" value="Filter" id="filter_submit">
+                        </form>
+                    </li>
                 <?php
                 } else { ?>
                     <li class="header_li"><a href="./login.php"> Login</a></li>
@@ -159,7 +182,7 @@
     </header>
 
     <header style="text-align: center;margin:40px;font-size:30px">
-        <p>Yearly Sales Statistics</p>
+        <p>Movie Industry Statistics</p>
     </header>
 
     <div id="sales_type_radio" align="center">
@@ -173,20 +196,20 @@
 
 
     <div id="main_div">
-    <table id="main_table">
-        <!-- 영화 데이터 비교 -->
-        <tr>
-            <td colspan='3' class="td_compare">
-                <div id="div_compare">
-                    <?php
-                        if(mysqli_num_rows($result_main)>0){ ?>
+        <table id="main_table">
+            <!-- 영화 데이터 비교 -->
+            <tr>
+                <td colspan='3' class="td_compare">
+                    <div id="div_compare">
+                        <?php
+                        if (mysqli_num_rows($result_main) > 0) { ?>
                             <div>
-                                <?php 
-                                while($row = mysqli_fetch_array($result_main)){
+                                <?php
+                                while ($row = mysqli_fetch_array($result_main)) {
                                     $i_title = $row['input_title'];
                                     $i_sales = $row['input_sales'];
                                     $i_audience = $row['input_audience'];
-                                    
+
                                     // 비교할 데이터 임시로 삽입
                                     $sql_1 = "INSERT INTO movie_profit VALUES ('temp', ?, ?)";
                                     $stmt = $mysqli->prepare($sql_1);
@@ -202,17 +225,17 @@
                                     $audience_rank = 0;
                                     $sales_rank = 0;
 
-                                    do{
+                                    do {
                                         $row_rank1 = mysqli_fetch_array($result_rank1);
                                         $title_temp = $row_rank1['m_title'];
                                         $audience_rank = $row_rank1['audience_percent'] * 100;
-                                    }while($title_temp != 'temp');
+                                    } while ($title_temp != 'temp');
 
-                                    do{
+                                    do {
                                         $row_rank2 = mysqli_fetch_array($result_rank2);
                                         $title_temp = $row_rank2['m_title'];
                                         $sales_rank = $row_rank2['sales_percent'] * 100;
-                                    }while($title_temp != 'temp');
+                                    } while ($title_temp != 'temp');
 
                                     // 화면에 출력
                                     echo "<p>{$row['input_title']} ({$row['input_sales']} won, {$row['input_audience']} people) :<br>";
@@ -227,7 +250,7 @@
                                 <button type="button" onclick="location.href='compare_delete.php'">Delete</button></p>
                             </div>
                         <?php
-                        }else{ ?>
+                        } else { ?>
                             <div>
                                 Insert movie data!
                                 <form action="compare_result.php" method="post">
@@ -239,99 +262,99 @@
                             </div>
                         <?php
                         }
-                    ?> 
-                </div>
-            </td>
+                        ?>
+                    </div>
+                </td>
 
-        </tr>
+            </tr>
 
-        <!-- 영화 산업 규모 비교 -->
-        <tr>
-            <td>
-                <div id="div_table_year" class="upper_table">
-                    <form name="form_year">
-                        <input type="hidden" name="yearOfData" />
-                        <input type="hidden" name="monthOfData" />
+            <!-- 영화 산업 규모 비교 -->
+            <tr>
+                <td>
+                    <div id="div_table_year" class="upper_table">
+                        <form name="form_year">
+                            <input type="hidden" name="yearOfData" />
+                            <input type="hidden" name="monthOfData" />
 
-                        <div id="table_year">
+                            <div id="table_year">
 
-                            <input type="hidden" name="page" />
-                            <?php
-                            //년
-                            $result = mysqli_query($mysqli, $sql_y);
-                            $list_year = "<table id='table_year'><tr><td><b>Year</b></td><td><b>Country</b></td><td><b>Sum of Sales</b></td><td><b>Avg of Sales</b></td></tr>";
-                            while ($row = mysqli_fetch_array($result)) {
-                                $y = $row['Year'];
-                                $list_year = $list_year . "<tr>
+                                <input type="hidden" name="page" />
+                                <?php
+                                //년
+                                $result = mysqli_query($mysqli, $sql_y);
+                                $list_year = "<table id='table_year'><tr><td><b>Year</b></td><td><b>Country</b></td><td><b>Sum of Sales</b></td><td><b>Avg of Sales</b></td></tr>";
+                                while ($row = mysqli_fetch_array($result)) {
+                                    $y = $row['Year'];
+                                    $list_year = $list_year . "<tr>
                                                             <td onclick='javascript:updateMonth($y)'>{$row['Year']}</td>
                                                             <td>{$row['country']}</td>
                                                             <td>{$row['sum_sales']}</td>
                                                             <td>{$row['avg_sales']}</td>
                                                         </tr>";
-                            }
-                            $list_year = $list_year . "</table>";
-                            echo "<br>";
-                            echo $list_year;
-                            ?>
-                        </div>
-                    </form>
-                </div>
-            </td>
+                                }
+                                $list_year = $list_year . "</table>";
+                                echo "<br>";
+                                echo $list_year;
+                                ?>
+                            </div>
+                        </form>
+                    </div>
+                </td>
 
-            <td>
-                <div id="div_table_month" class="upper_table">
-                    <form name="form_month">
-                        <input type="hidden" name="yearOfData" />
-                        <input type="hidden" name="monthOfData" />
+                <td>
+                    <div id="div_table_month" class="upper_table">
+                        <form name="form_month">
+                            <input type="hidden" name="yearOfData" />
+                            <input type="hidden" name="monthOfData" />
 
-                        <?php
-                        $stmt = $mysqli->prepare($sql_m);
-                        $stmt->bind_param("i", $clicked_year);
-                        $stmt->execute();
-                        $result_m = $stmt->get_result();
+                            <?php
+                            $stmt = $mysqli->prepare($sql_m);
+                            $stmt->bind_param("i", $clicked_year);
+                            $stmt->execute();
+                            $result_m = $stmt->get_result();
 
-                        $list_month = "<table id='table_month'><tr><td><b>Month</b></td><td><b>Country</b></td><td><b>Sum of Sales</b></td><td><b>Avg of Sales</b></td></tr>";
+                            $list_month = "<table id='table_month'><tr><td><b>Month</b></td><td><b>Country</b></td><td><b>Sum of Sales</b></td><td><b>Avg of Sales</b></td></tr>";
 
-                        while ($row_m = mysqli_fetch_array($result_m)) {
-                            $m = $row_m['Month'];
-                            $list_month = $list_month . "<tr>
+                            while ($row_m = mysqli_fetch_array($result_m)) {
+                                $m = $row_m['Month'];
+                                $list_month = $list_month . "<tr>
                                                             <td onclick='javascript:updateDay($clicked_year, $m)'>{$row_m['Month']}</td>
                                                             <td>{$row_m['country']}</td>
                                                             <td>{$row_m['sum_sales']}</td>
                                                             <td>{$row_m['avg_sales']}</td>
                                                         </tr>";
+                            }
+                            $list_month = $list_month . "</table>";
+                            echo "Referenced Date : $clicked_year 년";
+                            echo $list_month;
+
+                            ?>
+                        </form>
+                    </div>
+                </td>
+
+                <td>
+                    <div id="div_table_day" class="upper_table">
+                        <?php
+                        $stmt_d = $mysqli->prepare($sql_d);
+                        $stmt_d->bind_param("ii", $clicked_year, $clicked_month);
+                        $stmt_d->execute();
+                        $result_d = $stmt_d->get_result();
+
+                        $list_day = "<table id='table_day'><tr><td><b>Day</b></td><td><b>Country</b></td><td><b>Sum of Sales</b></td><td><b>Avg of Sales</b></td></tr>";
+
+                        while ($row_d = mysqli_fetch_array($result_d)) {
+                            $list_day = $list_day . "<tr><td>{$row_d['Day']}</td><td>{$row_d['country']}</td><td>{$row_d['sum_sales']}</td><td>{$row_d['avg_sales']}</td></tr> ";
                         }
-                        $list_month = $list_month . "</table>";
-                        echo "Referenced Date : $clicked_year 년";
-                        echo $list_month;
-
+                        $list_day = $list_day . "</table>";
+                        echo "Referenced Date : $clicked_year 년 $clicked_month 월";
+                        echo $list_day;
                         ?>
-                    </form>
-                </div>
-            </td>
-
-            <td>
-                <div id="div_table_day" class="upper_table">
-                    <?php
-                    $stmt_d = $mysqli->prepare($sql_d);
-                    $stmt_d->bind_param("ii", $clicked_year, $clicked_month);
-                    $stmt_d->execute();
-                    $result_d = $stmt_d->get_result();
-
-                    $list_day = "<table id='table_day'><tr><td><b>Day</b></td><td><b>Country</b></td><td><b>Sum of Sales</b></td><td><b>Avg of Sales</b></td></tr>";
-
-                    while ($row_d = mysqli_fetch_array($result_d)) {
-                        $list_day = $list_day . "<tr><td>{$row_d['Day']}</td><td>{$row_d['country']}</td><td>{$row_d['sum_sales']}</td><td>{$row_d['avg_sales']}</td></tr> ";
-                    }
-                    $list_day = $list_day . "</table>";
-                    echo "Referenced Date : $clicked_year 년 $clicked_month 월";
-                    echo $list_day;
-                    ?>
-                </div>
-            </td>
-        </tr>
-    </table>
-    <div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div>
 
 </body>
 
