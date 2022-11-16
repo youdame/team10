@@ -7,18 +7,33 @@ session_start();
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="dashstyle.css">
         <link rel="stylesheet" type="text/css" href="css/header.css">
       <style>
         body {
           /* background-color: #f0e8d9; */
         }
         table {
-          margin-right: auto;
-          margin-left: auto;
-          width: 300px;
+          /* margin-right: auto;
+          margin-left: auto; */
+          width: 350px;
           border: 1px solid #444444;
           border-collapse: collapse;
+          margin-right : 50px
+          
+        }
+        /* .content {
+            margin-left : 50px; 
+            /* margin: 50px auto;} */
+       
+
+        #codeit {
+            float: left;
+            margin-left: 25%;
+            /* margin-right: auto;
+            margin-left: auto; */
+            /* margin-right: 15px; 
+            margin-bottom: 15px;
+         */
         }
         th, td {
           border: 1px solid #444444;
@@ -27,7 +42,7 @@ session_start();
         .scale {
             margin-right: auto;
             margin-left: auto;
-            width: 600px;
+            width: 800px;
             height: 500px; 
             
         }
@@ -35,7 +50,7 @@ session_start();
         .chart2{
             margin-right: auto;
             margin-left: auto;
-            width: 600px;
+            width: 730px;
             height: 500px; 
         }
         </style>
@@ -77,7 +92,8 @@ session_start();
     </header>
     <br><br><br>
 <!-- 테이블 시작  -->
-<table>
+<div class ="content">
+<table id = "codeit">
 <caption>국내 역대 박스오피스 평점 탑 10</caption>
 <thead>
         <tr>
@@ -111,12 +127,10 @@ for($i = 0; $i <= $top_10; $i++){
 
       </tbody>
     </table>
-    <br>
-    <br>
-    <br><br>
+
 
 <!-- 두 번째 테이블 시작 -->
-<table>
+<table >
 <caption>국내 역대 박스오피스 매출 탑 10</caption>
 <thead>
     <tr>
@@ -150,7 +164,7 @@ for($i = 0; $i <= $top_10; $i++){
 </tbody>
 </table>
 <br><br><br><br>
-
+</div>
 <!-- 테이블 끝 -->
 
 
@@ -200,13 +214,13 @@ for($i = 0; $i <= $top_10; $i++){
       legend: { display: false },
       title: {
         display: true,
-        text: "국내 역대 박스오피스 관람객 탑 10"
+        text: "국내 역대 박스오피스 관람객 수 탑 10"
         }
         }
     });
     </script>
     </div>
-
+    <br><br><br><br>
     <!-- 차트1 끝 -->
 
     <!-- 차트2 시작 -->
