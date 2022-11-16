@@ -40,7 +40,7 @@ CREATE TABLE user_like(
 -- 조유담2
 CREATE TABLE rating(
     m_id int NOT NULL,
-    rating decimal(2, 1) NOT NULL,
+    rating decimal(3, 2) NOT NULL,
     FOREIGN KEY (m_id) REFERENCES movie_boxoffice(m_id)
 );
 
