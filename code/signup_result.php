@@ -2,7 +2,7 @@
 <?php
     session_start();
 
-    $mysqli = mysqli_connect("localhost", "team10", "team10", "team10");
+    $mysqli = mysqli_connect("localhost", "team10", "team10", "team10","3307");
 
     $enter_id = $_POST['enter_id'];
     $enter_pw = $_POST['enter_pw'];
