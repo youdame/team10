@@ -1,5 +1,5 @@
-<!--조유담-->
-<?php
+    <!--조유담-->
+    <?php
     start_session();
     $user_id = $_SESSION['id'];
     // $user = '도레미';
