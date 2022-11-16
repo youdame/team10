@@ -37,6 +37,14 @@ $search_input = false;
         }
 
         #btn_search{width: 100; height:100;}
+
+
+        #main_div{ display: flex; border:solid; }
+
+        #table_show_result{
+            width: 60%;
+            margin: 0 auto;
+        }
     </style>
 
     <script type="text/javascript">
@@ -82,57 +90,61 @@ $search_input = false;
         </nav>
     </header>
 
-    <form method="POST">
-        <table id="table_option">
-            <tr>
-                <td>Country</td>
-                <td>
-                    <select name="country">
-                        <option value="Korea" <?php if ($country == 'Korea') { ?>selected="selected" <?php } ?>>Korea</option>
-                        <option value="USA" <?php if ($country == 'USA') { ?>selected="selected" <?php } ?>>Overseas</option>
-                    </select> </br>
-                </td>
-                <td rowspan="4"><input type="submit" id="btn_search" value="search"></td>
-            </tr>
+    <!-- 검색 옵션 -->
+    <div id="sub_div">
+        <form method="POST">
+            <table id="table_option">
+                <tr>
+                    <td>Country</td>
+                    <td>
+                        <select name="country">
+                            <option value="Korea" <?php if ($country == 'Korea') { ?>selected="selected" <?php } ?>>Korea</option>
+                            <option value="USA" <?php if ($country == 'USA') { ?>selected="selected" <?php } ?>>Overseas</option>
+                        </select> </br>
+                    </td>
+                    <td rowspan="4"><input type="submit" id="btn_search" value="search"></td>
+                </tr>
 
-            <tr>
-                <td>Rate</td>
-                <td>
-                    <input type='radio' name='rate' value='5' onclick="this.form.rateTextbox.disabled=true" <?php if ($rate == '5') { ?>checked="checked" <?php } ?> checked />over 5
-                    <input type='radio' name='rate' value='6' onclick="this.form.rateTextbox.disabled=true" <?php if ($rate == '6') { ?>checked="checked" <?php } ?> />over 6
-                    <input type='radio' name='rate' value='7' onclick="this.form.rateTextbox.disabled=true" <?php if ($rate == '7') { ?>checked="checked" <?php } ?> />over 7
-                    <input type='radio' name='rate' value='8' onclick="this.form.rateTextbox.disabled=true" <?php if ($rate == '8') { ?>checked="checked" <?php } ?> />over 8
-                    <input type='radio' name='rate' value='9' onclick="this.form.rateTextbox.disabled=true" <?php if ($rate == '9') { ?>checked="checked" <?php } ?> />over 9
-                    <input type='radio' name='rate' value='self' onclick="this.form.rateTextbox.disabled=false" <?php if ($rate == 'self') { ?>checked="checked" <?php } ?> />over
-                    <input type="text" name="rateTextbox" value="0" <?php if ($rate != 'self') { ?>disabled="disabled" <?php } ?>>
-                </td>
-            </tr>
+                <tr>
+                    <td>Rate</td>
+                    <td>
+                        <input type='radio' name='rate' value='5' onclick="this.form.rateTextbox.disabled=true" <?php if ($rate == '5') { ?>checked="checked" <?php } ?> checked />over 5
+                        <input type='radio' name='rate' value='6' onclick="this.form.rateTextbox.disabled=true" <?php if ($rate == '6') { ?>checked="checked" <?php } ?> />over 6
+                        <input type='radio' name='rate' value='7' onclick="this.form.rateTextbox.disabled=true" <?php if ($rate == '7') { ?>checked="checked" <?php } ?> />over 7
+                        <input type='radio' name='rate' value='8' onclick="this.form.rateTextbox.disabled=true" <?php if ($rate == '8') { ?>checked="checked" <?php } ?> />over 8
+                        <input type='radio' name='rate' value='9' onclick="this.form.rateTextbox.disabled=true" <?php if ($rate == '9') { ?>checked="checked" <?php } ?> />over 9
+                        <input type='radio' name='rate' value='self' onclick="this.form.rateTextbox.disabled=false" <?php if ($rate == 'self') { ?>checked="checked" <?php } ?> />over
+                        <input type="text" name="rateTextbox" value="0" <?php if ($rate != 'self') { ?>disabled="disabled" <?php } ?>>
+                    </td>
+                </tr>
 
-            <tr>
-                <td>Audience</td>
-                <td>
-                    <input type='radio' name='aud' value='all' onclick="this.form.AudTxtMin.disabled=true; this.form.AudTxtMax.disabled=true" <?php if ($aud == 'all') { ?>checked="checked" <?php } ?> checked />All
-                    <input type='radio' name='aud' value='user' onclick="this.form.AudTxtMin.disabled=false; this.form.AudTxtMax.disabled=false" <?php if ($aud == 'user') { ?>checked="checked" <?php } ?> />
-                    over <input type="text" name="AudTxtMin" value="0" <?php if ($aud == 'all') { ?>disabled="disabled" <?php } ?>> million,
-                    under <input type="text" name="AudTxtMax" value="20" <?php if ($aud == 'all') { ?>disabled="disabled" <?php } ?>> million
-                </td>
-            </tr>
+                <tr>
+                    <td>Audience</td>
+                    <td>
+                        <input type='radio' name='aud' value='all' onclick="this.form.AudTxtMin.disabled=true; this.form.AudTxtMax.disabled=true" <?php if ($aud == 'all') { ?>checked="checked" <?php } ?> checked />All
+                        <input type='radio' name='aud' value='user' onclick="this.form.AudTxtMin.disabled=false; this.form.AudTxtMax.disabled=false" <?php if ($aud == 'user') { ?>checked="checked" <?php } ?> />
+                        over <input type="text" name="AudTxtMin" value="0" <?php if ($aud == 'all') { ?>disabled="disabled" <?php } ?>> million,
+                        under <input type="text" name="AudTxtMax" value="20" <?php if ($aud == 'all') { ?>disabled="disabled" <?php } ?>> million
+                    </td>
+                </tr>
 
-            <tr>
-                <td>Release year</td>
-                <td>
-                    <input type='radio' name='year' value='0' <?php if ($year == 0) { ?>checked="checked" <?php } ?> />before 2005
-                    <input type='radio' name='year' value='2005' <?php if ($year == 2005) { ?>checked="checked" <?php } ?> />2005 to 2009
-                    <input type='radio' name='year' value='2010' <?php if ($year == 2010) { ?>checked="checked" <?php } ?> />2010 to 2014
-                    <input type='radio' name='year' value='2015' <?php if ($year == 2015) { ?>checked="checked" <?php } ?> />2015 to 2019
-                    <input type='radio' name='year' value='2020' <?php if ($year == 2020) { ?>checked="checked" <?php } ?> checked />after 2020
-                </td>
-            </tr>
-            <table>
-                <input type="hidden" name="search_input" value="True">
-    </form>
+                <tr>
+                    <td>Release year</td>
+                    <td>
+                        <input type='radio' name='year' value='0' <?php if ($year == 0) { ?>checked="checked" <?php } ?> />before 2005
+                        <input type='radio' name='year' value='2005' <?php if ($year == 2005) { ?>checked="checked" <?php } ?> />2005 to 2009
+                        <input type='radio' name='year' value='2010' <?php if ($year == 2010) { ?>checked="checked" <?php } ?> />2010 to 2014
+                        <input type='radio' name='year' value='2015' <?php if ($year == 2015) { ?>checked="checked" <?php } ?> />2015 to 2019
+                        <input type='radio' name='year' value='2020' <?php if ($year == 2020) { ?>checked="checked" <?php } ?> checked />after 2020
+                    </td>
+                </tr>
+                <table>
+                    <input type="hidden" name="search_input" value="True">
+        </form>
+    </div>
 
-    <div>
+    <!-- 검색 결과 -->
+    <div id="main_div">
         <?php
             if ($_POST['search_input']) {
                 // 변수 전달받기

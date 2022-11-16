@@ -134,7 +134,6 @@ session_start();
                         <input type='radio' name='genre' value='drama' />drama
                         <input type='radio' name='genre' value='animation' />animation </br>
                         <input type='radio' name='genre' value='SF' />SF
-                        <input type='radio' name='genre' value='romance' />romance
                         <input type='radio' name='genre' value='thriller' />thriller
                         <input type='radio' name='genre' value='none' checked />none
                     </td>

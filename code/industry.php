@@ -17,7 +17,6 @@
                 WHERE year(reference_date) > 1000
                 GROUP BY year(reference_date), country WITH ROLLUP";
 
-    //sum(sales) as sum_sales, avg(sales) as avg_sales 
     $sql_m = "SELECT month(reference_date) AS 'Month', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
                 FROM film_industry
                 WHERE year(reference_date) = ?
@@ -66,9 +65,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <style>
-        body{
-            background-color: white;
-        }
+        body{ background-color: white; }
 
         #sales_type_radio {
             border: 1px solid grey;
@@ -96,9 +93,7 @@
             border-radius: 10px;
         }
 
-        #main_div{
-            display: flex;
-        }
+        #main_div{ display: flex; }
 
         #main_table{
             width: 80%;
@@ -220,7 +215,7 @@
                                     }while($title_temp != 'temp');
 
                                     // 화면에 출력
-                                    echo "{$row['input_title']} ({$row['input_sales']} won, {$row['input_audience']} people) :<br>";
+                                    echo "<p>{$row['input_title']} ({$row['input_sales']} won, {$row['input_audience']} people) :<br>";
                                     echo "The sales of the movie are in the top {$sales_rank}%, and the audience is in the top {$audience_rank}% ";
 
                                     // 비교 데이터 삭제
@@ -229,7 +224,7 @@
                                 };
                                 ?>
                                 <button type="button" onclick="window.open('compare_modify.php', 'Modify compare data', 'width=600, height=400');">Modify</button>
-                                <button type="button" onclick="location.href='compare_delete.php'">Delete</button>
+                                <button type="button" onclick="location.href='compare_delete.php'">Delete</button></p>
                             </div>
                         <?php
                         }else{ ?>
@@ -275,6 +270,7 @@
                                                         </tr>";
                             }
                             $list_year = $list_year . "</table>";
+                            echo "<br>";
                             echo $list_year;
                             ?>
                         </div>
@@ -294,7 +290,7 @@
                         $stmt->execute();
                         $result_m = $stmt->get_result();
 
-                        $list_month = "<table id='table_month'><tr><td>Month</td><td>Country</td><td>Sum of Sales</td><td>Avg of Sales</td></tr>";
+                        $list_month = "<table id='table_month'><tr><td><b>Month</b></td><td><b>Country</b></td><td><b>Sum of Sales</b></td><td><b>Avg of Sales</b></td></tr>";
 
                         while ($row_m = mysqli_fetch_array($result_m)) {
                             $m = $row_m['Month'];
@@ -322,7 +318,7 @@
                     $stmt_d->execute();
                     $result_d = $stmt_d->get_result();
 
-                    $list_day = "<table id='table_day'><tr><td>Day\t</td><td>Country\t</td><td>Sum of Sales\t</td><td>Avg of Sales</td></tr>";
+                    $list_day = "<table id='table_day'><tr><td><b>Day</b></td><td><b>Country</b></td><td><b>Sum of Sales</b></td><td><b>Avg of Sales</b></td></tr>";
 
                     while ($row_d = mysqli_fetch_array($result_d)) {
                         $list_day = $list_day . "<tr><td>{$row_d['Day']}</td><td>{$row_d['country']}</td><td>{$row_d['sum_sales']}</td><td>{$row_d['avg_sales']}</td></tr> ";

@@ -23,6 +23,7 @@ CREATE TABLE movie_boxoffice(
     audience int NOT NULL,
     screen_num int NOT NULL,
     country	varchar(20) NOT NULL,
+    distributor varchar(50) NOT NULL,
     d_id int NOT NULL,
     genre varchar(20) NOT NULL,
     poster text NOT NULL
