@@ -22,6 +22,7 @@ session_start();
         }
         th, td {
           border: 1px solid #444444;
+          text-align : center;
         }
         .scale {
             margin-right: auto;
