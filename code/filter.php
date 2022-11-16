@@ -217,9 +217,6 @@ $search_input = false;
         </table>
     </div>
 
-
-
-    <script src="./filter.js"></script>
 </body>
 
 </html>
