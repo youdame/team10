@@ -8,12 +8,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="css/header.css">
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
 
 <body>
 <!--네비게이션 바-->
+<header id="main_header">
+        <nav>
+            <a id="logo" href="main.php"> Team10, MOVIE </a>
+            
+            <ul class="header_ul">
+                <?php
+                session_start();
+                if (isset($_SESSION['name'])) { ?>
+                    <li class="header_li"><a href="./logout.php"> Log out</a></li>
+                    <li class="header_li"><a href="./mypage.php"> My page</a></li>
+                    <li class="header_li"><a href="./sales_month.php"> Sales</a></li>
+                    <li class="header_li"><a href="./director.php"> Director</a></li>
+                    <li class="header_li"><a href="./dash.php">DashBoard</a></li>
+                    <li class="header_li"><a href="./genre.php"> Genre</a></li>
+                   
+                   
+                    <li class="header_li"><form action="filter.php" method="post">
+                        <input type="hidden" name="country" value="Korea">
+                        <input type="hidden" name="rate" value="5">
+                        <input type="hidden" name="year" value="2020">
+                        <input type="hidden" name="aud" value="all">
+                        <input type="hidden" name="audMin" value="0">
+                        <input type="hidden" name="audMax" value="20000000">
+                        <input type="hidden" name="search_input" value="true">
+                        <input type="submit" value="Filter" id="filter_submit">
+                    </form></li>
+                
+                    <li class = "header_li"><a href="./newdirector.php"> 감독정보등록</a></li>
+                    <li class = "header_li"><a href="./modifydirector.php"> 감독정보수정</a></li>
+                    <li class = "header_li"><a href="./delete.php"> 감독정보삭제</a></li>
+                <?php
+                } else { ?>
+                    <li class="header_li"><a href="./login.php"> Login</a></li>
+                <?php
+                }
+                ?>
+            </ul>
+        </nav>
+    </header>
     <nav>
         
         <ul>
