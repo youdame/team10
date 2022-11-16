@@ -48,7 +48,7 @@
     <header id="main_header">
         <nav>
             <a id="logo" href="main.php"> Team10, MOVIE </a>
-            
+
             <ul class="header_ul">
                 <?php
                 if (isset($_SESSION['name'])) { ?>
@@ -59,16 +59,18 @@
                     <li class="header_li"><a href="./dash.php">DashBoard</a></li>
                     <li class="header_li"><a href="./genre.php"> Genre</a></li>
 
-                    <li class="header_li"><form action="filter.php" method="post">
-                        <input type="hidden" name="country" value="Korea">
-                        <input type="hidden" name="rate" value="5">
-                        <input type="hidden" name="year" value="2020">
-                        <input type="hidden" name="aud" value="all">
-                        <input type="hidden" name="audMin" value="0">
-                        <input type="hidden" name="audMax" value="20000000">
-                        <input type="hidden" name="search_input" value="true">
-                        <input type="submit" value="Filter" id="filter_submit">
-                    </form></li>
+                    <li class="header_li">
+                        <form action="filter.php" method="post">
+                            <input type="hidden" name="country" value="Korea">
+                            <input type="hidden" name="rate" value="5">
+                            <input type="hidden" name="year" value="2020">
+                            <input type="hidden" name="aud" value="all">
+                            <input type="hidden" name="audMin" value="0">
+                            <input type="hidden" name="audMax" value="20000000">
+                            <input type="hidden" name="search_input" value="true">
+                            <input type="submit" value="Filter" id="filter_submit">
+                        </form>
+                    </li>
                 <?php
                 } else { ?>
                     <li class="header_li"><a href="./login.php"> Login</a></li>
@@ -90,7 +92,6 @@
             <label><input type="radio" name="genre" value="드라마" <?php if ($selected == '드라마') { ?>checked="checked" <?php } ?> />Drama</label>
             <label><input type="radio" name="genre" value="스릴러" <?php if ($selected == '스릴러') { ?>checked="checked" <?php } ?> />Thriller</label>
             <label><input type="radio" name="genre" value="코미디" <?php if ($selected == '코미디') { ?>checked="checked" <?php } ?> />Comedy</label>
-            <label><input type="radio" name="genre" value="로맨스" <?php if ($selected == '로맨스') { ?>checked="checked" <?php } ?> />Romance</label>
             <label><input type="radio" name="genre" value="애니메이션" <?php if ($selected == '애니메이션') { ?>checked="checked" <?php } ?> />Animation</label><br>
             <label><input style="margin: 20px;" type="submit" name="submit" value="SEARCH">
         </form>
