@@ -48,7 +48,7 @@ session_start();
             text-align:center;
         }
         Button{
-            background-color: azure;
+            background-color: lightgray;
 
             border: 1px solid black;
 

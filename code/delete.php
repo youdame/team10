@@ -70,9 +70,9 @@ h1{
             text-align:center;
         }
         button{
-            background-color: azure;
+            background-color: lightgray;
 
-            border: 1px black;
+            border: 1px solid black;
 
             color: black;
 
@@ -92,6 +92,15 @@ h1{
 
             cursor: pointer;
             border-radius: 5px;
+        }
+        #searchdirector{
+            width:300px;
+            height:40px;
+            background-color:white;
+            border: 2px solid black;
+            border-radius:5px;
+            margin:10px;
+
         }
 
 
@@ -146,8 +155,8 @@ h1{
         <h2>삭제할 감독의 이름을 검색하세요</h2>
         <form action="delete.php" method="GET">
                        
-                        <input type="textbox" name="di" placeholder="감독의 이름을 입력하세요">
-                        <input type="submit" value="검색하기">
+                        <input id="searchdirector" type="textbox" name="di" placeholder="감독의 이름을 입력하세요">
+                        <button type="submit" value="검색하기">검색하기</button>
                     </form>
             </div>
 
