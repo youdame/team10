@@ -11,17 +11,17 @@ $stmt->bind_param("s", $user_id);
 $stmt->execute();
 $result_main = $stmt->get_result();
 
-$sql_y = "SELECT year(reference_date) AS 'Year', country, round(sum(attendance)) AS sum_attendance, round(avg(attendance)) AS avg_attendance
+$sql_y = "SELECT year(reference_date) AS 'Year', country, FORMAT(sum(attendance), 0) AS sum_attendance, FORMAT(avg(attendance), 0) AS avg_attendance
                 FROM film_industry
                 WHERE year(reference_date) > 1000
                 GROUP BY year(reference_date), country WITH ROLLUP";
 
-$sql_m = "SELECT month(reference_date) AS 'Month', country, round(sum(attendance)) AS sum_attendance, round(avg(attendance)) AS avg_attendance 
+$sql_m = "SELECT month(reference_date) AS 'Month', country, FORMAT(sum(attendance), 0) AS sum_attendance, FORMAT(avg(attendance), 0) AS avg_attendance 
                 FROM film_industry
                 WHERE year(reference_date) = ?
                 GROUP BY month(reference_date), country WITH ROLLUP";
 
-$sql_d = "SELECT day(reference_date) AS 'Day', country, attendance, sales
+$sql_d = "SELECT day(reference_date) AS 'Day', country, FORMAT(sum(attendance), 0) AS attendance, FORMAT(sum(sales), 0) AS sales
                 FROM film_industry
                 WHERE year(reference_date) = ? AND  month(reference_date) = ?
                 GROUP BY day(reference_date), country WITH ROLLUP";
@@ -292,8 +292,11 @@ $clicked_month = $_GET['monthOfData'];
                                     }else{
                                         $country_value = $row['country'];
                                     }
+                                    if($row['Year']==""){ 
+                                        $y = "<b><i>TOTAL</i></b>";
+                                    }
                                     $list_year = $list_year."<tr>
-                                                                <td onclick='javascript:updateMonth($y)'>{$row['Year']}</td>
+                                                                <td onclick='javascript:updateMonth($y)'>$y</td>
                                                                 <td>$country_value</td>
                                                                 <td style='text-align:right;'>{$row['sum_attendance']}</td>
                                                                 <td style='text-align:right;'>{$row['avg_attendance']}</td>
@@ -336,8 +339,9 @@ $clicked_month = $_GET['monthOfData'];
                                 }else{
                                     $country_value = $row_m['country'];
                                 }
+                                if($row_m['Month']==""){ $m = "<b><i>TOTAL</i></b>"; }
                                 $list_month = $list_month . "<tr>
-                                                            <td onclick='javascript:updateDay($clicked_year, $m)'>{$row_m['Month']}</td>
+                                                            <td onclick='javascript:updateDay($clicked_year, $m)'>$m</td>
                                                             <td>$country_value</td>
                                                             <td style='text-align:right;'>{$row_m['sum_attendance']}</td>
                                                             <td style='text-align:right;'>{$row_m['avg_attendance']}</td>
@@ -375,8 +379,10 @@ $clicked_month = $_GET['monthOfData'];
                             }else{
                                 $country_value = $row_d['country'];
                             }
+                            if($row_d['Day']==""){ $d = "<b><i>TOTAL</i></b>"; }
+                            else { $d = $row_d['Day']; }
                             $list_day = $list_day . "<tr>
-                                                        <td>{$row_d['Day']}</td>
+                                                        <td>$d</td>
                                                         <td>$country_value</td>
                                                         <td style='text-align:right;'>{$row_d['attendance']}</td>
                                                         <td style='text-align:right;'>{$row_d['sales']}</td>

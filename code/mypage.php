@@ -100,7 +100,7 @@
             </div>
             <div style="display:inline-block;margin:20px;border:1px solid grey;width:200px;padding-bottom:15px;border-radius:10px">
                 <p>Age</p>
-                <hr style="width:80%"><?= $user_age ?>
+                <hr style="width:80%"><?= $user_age ?>'s
             </div>
             <div style="margin:10px;margin-bottom:40px">
                 <input type="submit" value="Edit Preferred Genre">

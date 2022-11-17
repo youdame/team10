@@ -167,7 +167,7 @@ h1{
       
         <?php
             
-            $mysqli=mysqli_connect("localhost","team10","team10","team10","3307");
+            $mysqli=mysqli_connect("localhost","team10","team10","team10");
     
             $sql="INSERT INTO  director_table (director, film1, film2, film3)
             VALUES('{$_POST['director']}','{$_POST['film1']}','{$_POST['film2']}','{$_POST['film3']}')";

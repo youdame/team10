@@ -36,7 +36,7 @@ mainContainer{
     z-index: 1;
 }
 table{
-            background: lightblue;
+            background: lightgray;
             display: grid;
             justify-content: center;
             align-items: center;
@@ -172,7 +172,7 @@ h1{
 
             <?php
             
-                $mysqli=mysqli_connect("localhost","team10","team10","team10","3307");
+                $mysqli=mysqli_connect("localhost","team10","team10","team10");
                 if(isset($_GET['director'])){
                     $director=$_GET['director'];
                 }else{
@@ -198,7 +198,8 @@ h1{
                     while ($row = mysqli_fetch_array($result)) {
 
                         
-                        $list = $list."<tr><td><a href='./detail.php?director=$director'>{$director}</a></td><td>{$row['film1']}</td><td>{$row['film2']}</td><td>{$row['film3']}</td><td>{$row['award']}</td></tr>";
+                        //$list = $list."<tr><td><a href='./detail2.php?director=$director'>{$director}</a></td><td>{$row['film1']}</td><td>{$row['film2']}</td><td>{$row['film3']}</td><td>{$row['award']}</td></tr>";
+                        $list = $list."<tr><td>{$director}</td><td>{$row['film1']}</td><td>{$row['film2']}</td><td>{$row['film3']}</td><td>{$row['award']}</td></tr>";
 
 
                     }

@@ -36,7 +36,7 @@ mainContainer{
     z-index: 1;
 }
 table{
-            background: lightblue;
+            background: lightgray;
             display: grid;
             justify-content: center;
             align-items: center;
@@ -189,7 +189,7 @@ h1{
 
             <?php
                 
-                $mysqli=mysqli_connect("localhost","team10","team10","team10","3307");
+                $mysqli=mysqli_connect("localhost","team10","team10","team10");
                 $sql ="SELECT di.d_id1, dt.director, dt.film1, dt.film2, dt.film3, da.award FROM 
                 director_table AS dt 
                 join director_id as di on dt.director=di.director
@@ -204,7 +204,7 @@ h1{
                     while($row = mysqli_fetch_array($result)){
                         $director = $row['director'];
                         
-                        $list = $list."<tr><td><a href='./detail.php?director=$director'>{$director}</a></td><td>{$row['film1']}</td><td>{$row['film2']}</td><td>{$row['film3']}</td><td>{$row['award']}</td></tr>";
+                        $list = $list."<tr><td>{$director}</td><td>{$row['film1']}</td><td>{$row['film2']}</td><td>{$row['film3']}</td><td>{$row['award']}</td></tr>";
                     }
                 }echo $list;  
 ?>
@@ -213,7 +213,7 @@ h1{
       
         <?php
             
-            $mysqli=mysqli_connect("localhost","team10","team10","team10","3307");
+            $mysqli=mysqli_connect("localhost","team10","team10","team10");
             // $sql ="INSERT INTO director_table (director,film1,film2,film3,award)"
             // ."values('".$_POST['director']."
             // ','".$_POST['film1']."',".$_POST['film2'].",

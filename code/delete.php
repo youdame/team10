@@ -151,7 +151,7 @@ h1{
     </header>
 
     <div class="center-button">
-        <h1> 감독이름 검색: </h1>
+        <h1> 감독이름 삭제: </h1>
         <h2>삭제할 감독의 이름을 검색하세요</h2>
         <form action="delete.php" method="GET">
                        
@@ -164,7 +164,7 @@ h1{
 
 <?php 
    
-        $mysqli=mysqli_connect("localhost","team10","team10","team10","3307");
+        $mysqli=mysqli_connect("localhost","team10","team10","team10");
    
         // if(isset($_GET['director'])){
         //     $director=$_GET['director'];

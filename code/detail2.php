@@ -20,7 +20,7 @@
     $d_id= $row_d['d_id'];
 
 
-    $sql_director_name = "SELECT * FROM director_id WHERE d_id = '$d_id'";
+    $sql_director_name = "SELECT * FROM director_id WHERE d_id1 = '$d_id'";
     $result_director_name = mysqli_query($conn, $sql_director_name);
     $row_director_name = mysqli_fetch_array($result_director_name);
 

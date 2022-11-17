@@ -1,14 +1,14 @@
 -- 홍진서1
--- user
+-- user (1개)
 INSERT INTO user (u_id, pwd, username, preferred) VALUES ('team10', 'team10', '김이화', 'action');
 
 -- 이유림1
--- user_info
+-- user_info (1개)
 INSERT INTO user_info (u_id, usersex, userage) VALUES ('team10', 'f', '20');
 
 
 -- 조유담1
--- movie_boxoffice
+-- movie_boxoffice (101개)
 INSERT INTO movie_boxoffice (m_id, title, released_date, sales, audience, screen_num, country, distributor, d_id, genre, poster) VALUES ('1', '명량', '2014-07-30', '135748398910', '17613682', '1587', 'Korea', '씨제이이엔엠', '1', '액션', 'https://w.namu.la/s/e4322104523e0c26ad4f10968e9428818a76a166ae6007bb92a60e31d773ee0ab419874d14fd237128d72d0d1d8d8d392ad55d8c7e35d9679ac11afd8db49456dc143b70ef1d6ea67689fdb8e6d298b356ff70dced97942cb8051386f6e59df43678a0f10b1c29dd6f027a1541422ea2');
 INSERT INTO movie_boxoffice (m_id, title, released_date, sales, audience, screen_num, country, distributor, d_id, genre, poster) VALUES ('2', '극한직업', '2019-01-23', '139647979516', '16264944', '1978', 'Korea', '씨제이이엔엠', '2', '코미디', 'http://t1.daumcdn.net/movie/4e00e81f2b6f4d2eb65b3387240cc3c01547608409838');
 INSERT INTO movie_boxoffice (m_id, title, released_date, sales, audience, screen_num, country, distributor, d_id, genre, poster) VALUES ('3', '신과함께-죄와 벌', '2017-12-20', '115698654137', '14410754', '1912', 'Korea', '롯데엔터테인먼트', '3', 'SF', 'https://cdn.huffingtonpost.kr/news/photo/201807/71403_136191.jpeg');
@@ -118,7 +118,7 @@ INSERT INTO movie_boxoffice (m_id, title, released_date, sales, audience, screen
 
 
 -- 조유담2
--- rating
+-- rating (101개)
 INSERT INTO rating (m_id, rating) VALUES ('1', '7.8');
 INSERT INTO rating (m_id, rating) VALUES ('2', '8.51');
 INSERT INTO rating (m_id, rating) VALUES ('3', '7.83');
@@ -229,7 +229,7 @@ INSERT INTO rating (m_id, rating) VALUES ('101', '7.95');
 
 
 -- 김다희1
--- director_table
+-- director_table (69개)
 INSERT INTO director_table (director, film1, film2, film3) VALUES ('김한민', '한산 리덕스(2022)', '노량: 죽음의 바다(2021)', '한산: 용의 출현(2021)');
 INSERT INTO director_table (director, film1, film2, film3) VALUES ('이병헌', '극한직업', '과속스캔들', '써니');
 INSERT INTO director_table (director, film1, film2, film3) VALUES ('김용화', '신과함께-죄와 벌', '신과함께-인과 연', '국가대표');
@@ -303,8 +303,7 @@ INSERT INTO director_table (director, film1, film2, film3) VALUES ('카일 발�
 
 
 -- 김다희2
--- director_id
-
+-- director_id (69개)
 INSERT INTO director_id (director) VALUES ('김한민');
 INSERT INTO director_id (director) VALUES ('이병헌');
 INSERT INTO director_id (director) VALUES ('김용화');
@@ -377,7 +376,7 @@ INSERT INTO director_id (director) VALUES ('카일 발다');
 
 
 -- 김다희3
--- director_award
+-- director_award (69개)
 INSERT INTO director_award (award) VALUES ('2022년 27회 춘사국제영화제 각본상 수상');
 INSERT INTO director_award (award) VALUES ('2019년 24회 춘사국제영화제 관객이 드리는 최고인기영화상 수상');
 INSERT INTO director_award (award) VALUES ('2018년 54회 백상예술대상 영화 감독상 수상');
@@ -450,7 +449,7 @@ INSERT INTO director_award (award) VALUES ('');
 
 
 -- 이유림3
--- movie month sales
+-- movie month sales (118개)
 INSERT INTO movie_month_sales (year, month, sales, country) VALUES ('2018', '1', '1.12742E+11', '한국');
 INSERT INTO movie_month_sales (year, month, sales, country) VALUES ('2018', '2', '56020721704', '한국');
 INSERT INTO movie_month_sales (year, month, sales, country) VALUES ('2018', '3', '63213457740', '한국');
@@ -572,7 +571,7 @@ INSERT INTO movie_month_sales (year, month, sales, country) VALUES ('2022', '11'
 
 
 -- 홍진서2
--- film_industry
+-- film_industry (2821개)
 INSERT INTO film_industry (reference_date, opening, screening, sales, attendance, country) VALUES ('2022-10-01', '0', '33', '3193921063', '311146', 'Korea');
 INSERT INTO film_industry (reference_date, opening, screening, sales, attendance, country) VALUES ('2022-10-02', '0', '33', '3740936164', '363049', 'Korea');
 INSERT INTO film_industry (reference_date, opening, screening, sales, attendance, country) VALUES ('2022-10-03', '1', '33', '3799746663', '377791', 'Korea');
@@ -3397,7 +3396,7 @@ INSERT INTO film_industry (reference_date, opening, screening, sales, attendance
 
 
 -- 홍진서3
--- movie_profit
+-- movie_profit (500개)
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('명량', '13574839891', '17613682');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('극한직업', '139647979516', '16264944');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('신과함께-죄와 벌', '115698654137', '1441754');
@@ -3406,22 +3405,22 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('어벤져스: �
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('겨울왕국 2', '1148142145', '13747792');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('아바타', '12844797523', '13624328');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('베테랑', '1516815525', '134149');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('괴물', '', '131974');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('괴물', '0', '131974');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('도둑들', '936655685', '1298333');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('7번방의 선물', '9143191467', '1281126');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('암살', '98463132781', '12757');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('범죄도시 2', '131296328978', '12693239');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('알라딘', '1698362359', '12555894');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('"광해, 왕이 된 남자"', '88928769', '12319542');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('왕의 남자', '', '1232831');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('왕의 남자', '0', '1232831');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('신과함께-인과 연', '1266614699', '12274996');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('택시운전사', '95855737149', '12186684');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('태극기 휘날리며', '', '11746135');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('태극기 휘날리며', '0', '11746135');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('부산행', '9317828348', '11565479');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('해운대', '8193463821', '11453338');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('변호인', '828717593', '1137461');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('어벤져스: 인피니티 워', '999196769', '1121188');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('실미도', '', '1181');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('실미도', '0', '1181');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('어벤져스: 에이지 오브 울트론', '88582586366', '1494499');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('기생충', '8745982995', '131386');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('겨울왕국', '82461544', '129611');
@@ -3436,12 +3435,12 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('캡틴 아메�
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('해적: 바다로 간 산적', '663768276', '866646');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('수상한 그녀', '62696639249', '8656397');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('국가대표', '689663338', '8487894');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('디워', '', '8426973');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('디워', '0', '8426973');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('백두산', '698253663', '8252669');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('과속스캔들', '539411534', '8245523');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('탑건: 매버릭', '876957516', '8161915');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('스파이더맨: 파 프롬 홈', '6992711', '82164');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('웰컴 투 동막골', '', '88622');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('웰컴 투 동막골', '0', '88622');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('공조', '63781731326', '7817446');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('트랜스포머 3', '74841355', '778487');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('히말라야', '617358315', '7759473');
@@ -3450,9 +3449,9 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('스파이더맨
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('트랜스포머: 패자의 역습', '51478531663', '7557');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('밀정', '61269783831', '7542');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('최종병기 활', '558278615', '747633');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('트랜스포머', '', '744531');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('트랜스포머', '0', '744531');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('써니', '54342351', '7362467');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('화려한 휴가', '', '737993');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('화려한 휴가', '0', '737993');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('스파이더맨: 홈 커밍', '5912581382', '7258678');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('한산: 용의 출현', '73651798381', '7257575');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('1987', '58165581145', '7231638');
@@ -3466,10 +3465,10 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('럭키', '56444
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('은밀하게 위대하게', '487887413', '695983');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('곡성', '5586352382', '687998');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('범죄도시', '5631814149', '6879841');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('타짜', '', '6847777');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('타짜', '0', '6847777');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('"좋은 놈, 나쁜 놈, 이상한 놈"', '43768628939', '6686912');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('늑대소년', '46593175', '6654837');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('미녀는 괴로워', '', '6619498');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('미녀는 괴로워', '0', '6619498');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('군함도', '551565168', '6592151');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('미션 임파서블: 폴아웃', '55888375112', '6584915');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('다크 나이트 라이즈', '47644838', '6396528');
@@ -3478,19 +3477,19 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('사도', '48842
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('전우치', '446543717', '6136928');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('킹스맨 : 시크릿 에이전트', '53699795', '6129681');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('미션 임파서블: 로그네이션', '4854735367', '6126488');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('투사부일체', '', '615431');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('투사부일체', '0', '615431');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('연평해전', '4556322833', '643784');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('반지의 제왕 : 왕의 귀환', '', '596');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('반지의 제왕 : 왕의 귀환', '0', '596');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('인셉션', '441654632', '5926948');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('레미제라블', '4344999', '591189');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('닥터 스트레인지: 대혼돈의 멀티버스', '626488387', '58846');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('공조2: 인터내셔날', '59872672184', '583891');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('쉬리', '', '582');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('쉬리', '0', '582');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('캡틴 마블', '51491272223', '58169');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('미션 임파서블 3', '', '574789');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('미션 임파서블 3', '0', '574789');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('쥬라기 월드: 폴른 킹덤', '497771137', '5661128');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('청년경찰', '4438115516', '565327');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('가문의 위기(가문의 영광2)', '', '5635266');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('가문의 위기(가문의 영광2)', '0', '5635266');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('숨바꼭질', '39629875', '56414');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('덕혜옹주', '4439382819', '5599229');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('더 테러 라이브', '39866712881', '5583596');
@@ -3507,12 +3506,12 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('더 킹', '4348
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('완득이', '3853535', '53151');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('트랜스포머: 사라진 시대', '4412272845', '529581');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('완벽한 타인', '44356752474', '5294119');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('살인의 추억', '', '5255376');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('살인의 추억', '0', '5255376');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('조커', '454439213', '525538');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('월드 워 Z', '38555357', '5237525');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('반지의 제왕 : 두개의 탑', '', '5183');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('반지의 제왕 : 두개의 탑', '0', '5183');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('타워', '37654858', '518114');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('말아톤', '', '514822');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('말아톤', '0', '514822');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('미녀와 야수', '42132589579', '5138193');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('추격자', '339432785', '571619');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('독전', '43484892913', '56362');
@@ -3520,10 +3519,10 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('쿵푸팬더 2'
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('아쿠아맨', '4411345674', '538134');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('공작', '42788691176', '4974512');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('인사이드 아웃', '3824694936', '4969735');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('캐리비안의 해적: 세상의 끝에서', '', '4966571');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('캐리비안의 해적: 세상의 끝에서', '0', '4966571');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('킹스맨: 골든 서클', '4987484736', '4945484');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('동갑내기 과외하기', '', '4937573');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('스파이더맨 3', '', '493566');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('동갑내기 과외하기', '0', '4937573');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('스파이더맨 3', '0', '493566');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('바람과 함께 사라지다', '34614661161', '499937');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('마션', '39663145295', '4888');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('토르: 라그나로크', '39248432595', '4857152');
@@ -3541,8 +3540,8 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('신세계', '34
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('쿵푸 팬더', '3965', '46739');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('신비한 동물사전', '3933726358', '4666993');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('도가니', '355668548', '4662822');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('캐리비안의 해적 : 망자의 함', '', '462893');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('박물관이 살아있다!', '', '4612831');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('캐리비안의 해적 : 망자의 함', '0', '462893');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('박물관이 살아있다!', '0', '4612831');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('내 아내의 모든 것', '34222165', '4598583');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('판도라', '366446164', '4583645');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('나쁜 녀석들: 더 무비', '3956195124', '457392');
@@ -3558,30 +3557,30 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('아이언맨', 
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('엑스맨: 데이즈 오브 퓨처 패스트', '34654558766', '4313871');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('강철중: 공공의 적 1-1', '28465757767', '4367');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('아가씨', '35211229991', '4287839');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('킹콩', '', '423243');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('킹콩', '0', '423243');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('어메이징 스파이더맨 2', '34869568', '416835');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('인디아나 존스 4 : 크리스탈 해골의 왕국', '26693951667', '413611');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('용의자', '337161', '4131248');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('건축학개론', '321985', '411645');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('태풍', '', '494395');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('태풍', '0', '494395');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('미이라 3:황제의 무덤', '262222784', '49795');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('7급 공무원', '2671311856', '488799');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('다크 나이트', '275947136', '487355');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('색즉시공', '', '482797');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('색즉시공', '0', '482797');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('댄싱퀸', '31292595', '457546');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('우리 생애 최고의 순간', '2615178425', '444582');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('꾼', '31313568795', '418341');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('타짜-신의 손', '3237312927', '415361');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('혹성탈출: 반격의 서막', '315145395', '4256');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('해리포터와 비밀의 방', '', '4');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('해리포터와 비밀의 방', '0', '4');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('쿵푸팬더3', '3134798156', '3984812');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('캡틴 아메리카: 윈터 솔져', '3171585385', '396322');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('공공의 적 2', '', '3911356');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('공공의 적 2', '0', '3911356');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('박수건달', '28379548569', '3897969');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('베놈', '34121127', '388896');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('한반도', '', '38838');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('한반도', '0', '38838');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('조선명탐정 : 사라진 놉의 딸', '3456879428', '387215');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('트로이', '', '3851');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('트로이', '0', '3851');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('역린', '2989329789', '3849433');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('남한산성', '3122583792', '384987');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('매드 맥스: 분노의 도로', '3296364462', '3842441');
@@ -3596,24 +3595,24 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('82년생 김지
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('너의 이름은.', '2956454156', '3673885');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('분노의 질주: 홉스&쇼', '32241767793', '3657536');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('분노의 질주: 더 익스트림', '29981156348', '3653238');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('친절한 금자씨', '', '365');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('해리 포터와 불의 잔', '', '3615');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('친절한 금자씨', '0', '365');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('해리 포터와 불의 잔', '0', '3615');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('모가디슈', '3455829773', '3613984');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('인턴', '28518443148', '361642');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('라라랜드', '39452694', '3597519');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('귀향', '272487599', '3586929');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('리얼 스틸', '26566677', '3579666');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('신의 한 수', '2881921456', '3566336');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('미스터 & 미세스 스미스', '', '35469');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('스캔들-조선남녀상열지사', '', '3522747');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('미스터 & 미세스 스미스', '0', '35469');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('스캔들-조선남녀상열지사', '0', '3522747');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('코코', '2772328944', '3513114');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('매트릭스2 리로디드', '', '351');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('해리 포터와 불사조 기사단', '', '3475');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('가문의 부활 - 가문의 영광3', '', '3464516');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('매트릭스2 리로디드', '0', '351');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('해리 포터와 불사조 기사단', '0', '3475');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('가문의 부활 - 가문의 영광3', '0', '3464516');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('부러진 화살', '25936754', '345978');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('끝까지 간다', '277339', '34535');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('스파이', '245926935', '343581');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('아일랜드', '', '34339');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('아일랜드', '0', '34339');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('비긴 어게인', '271424461', '342839');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('그것만이 내 세상', '27444525382', '341843');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('이끼', '2585636126', '348144');
@@ -3621,54 +3620,54 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('토이 스토�
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('어바웃 타임', '249825335', '3392251');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('돈', '2886961462', '338935');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('포화속으로', '242176897', '338576');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('다이 하드 4 : 죽어도 산다', '', '3388');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('다이 하드 4 : 죽어도 산다', '0', '3388');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('맨 인 블랙 3', '2731527', '3379762');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('악인전', '29135415', '336436');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('다빈치 코드', '', '333982');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('다빈치 코드', '0', '333982');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('슈퍼배드 3', '2421698719', '3324861');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('데드풀', '27595618651', '3317196');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('시동', '289893436', '331738');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('슈렉2', '', '33533');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('슈렉2', '0', '33533');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('아이 캔 스피크', '25532214986', '328243');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('스타워즈: 깨어난 포스', '28353796331', '3273879');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('올드보이', '', '3269');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('올드보이', '0', '3269');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('분노의 질주: 더 세븐', '2645498694', '3247955');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('터미네이터 제니시스', '26556715129', '32437');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('그래비티', '314841356', '3227452');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('우주전쟁', '', '3223');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('우주전쟁', '0', '3223');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('마녀', '2724229463', '318991');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('탐정: 리턴즈', '2699459678', '3152872');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('어린 신부', '', '31495');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('오! 브라더스', '', '3148748');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('"장화, 홍련"', '', '3146217');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('그놈 목소리', '', '3143247');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('우리들의 행복한 시간', '', '313232');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('어린 신부', '0', '31495');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('오! 브라더스', '0', '3148748');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('"장화, 홍련"', '0', '3146217');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('그놈 목소리', '0', '3143247');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('우리들의 행복한 시간', '0', '313232');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('캐리비안의 해적: 낯선 조류', '272799675', '31346');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('퀵', '229689', '312569');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('감기', '2178422', '311923');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('말죽거리 잔혹사', '', '3115767');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('광복절 특사', '', '3119');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('말죽거리 잔혹사', '0', '3115767');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('광복절 특사', '0', '3119');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('나우 유 씨 미 2', '2511669113', '31113');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('마파도', '', '39467');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('마파도', '0', '39467');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('하모니', '21992266198', '368544');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('거북이 달린다', '2857347292', '359812');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('너는 내 운명', '', '351134');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('너는 내 운명', '0', '351134');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('이터널스', '317375745', '35415');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('캐리비안의 해적: 죽은 자는 말이 없다', '24975495122', '349894');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('스물', '23558988686', '344134');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('토르: 다크 월드', '22525885', '339889');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('식객', '', '338868');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('식객', '0', '338868');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('방자전', '22853629794', '335116');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('인크레더블 2', '24554683588', '33352');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('하울의 움직이는 성', '', '315165');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('하울의 움직이는 성', '0', '315165');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('마더', '2195373838', '313523');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('오싹한 연애', '221977', '39356');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('투모로우', '', '364');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('투모로우', '0', '364');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('레드: 더 레전드', '2151135897', '34647');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('해리 포터와 혼혈 왕자', '25842431', '32669');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('드래곤 길들이기 2', '23979935189', '356');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('형', '23129111893', '298222');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('황금 나침반', '', '2979838');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('황금 나침반', '0', '2979838');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('친구 2', '2184687513', '2971475');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('26년', '21241327145', '2963449');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('워낭소리', '1925997532', '2962897');
@@ -3677,15 +3676,15 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('서치', '25283
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('고지전', '219685576', '2945137');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('엑스맨: 아포칼립스', '2446788795', '2938818');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('프리즌', '2379276987', '2931897');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('3', '', '29294');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('3', '0', '29294');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('가장 보통의 연애', '248858343', '2924563');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('솔트', '2171912325', '2921331');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('헬로우 고스트', '21154651779', '2897477');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('귀신이 산다', '', '289');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('귀신이 산다', '0', '289');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('원티드', '19258777', '2867594');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('말모이', '2398714552', '28662');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('극비수사', '22389535897', '286786');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('슈렉3', '', '2844159');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('슈렉3', '0', '2844159');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('표적', '222563593', '2841788');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('앤트맨', '23528441937', '2841699');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('쥬라기 월드: 도미니언', '2923712631', '2837415');
@@ -3698,9 +3697,9 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('마녀(魔女) 
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('빅 히어로', '21993119765', '281949');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('덩케르크', '24576771848', '279275');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('혹성탈출: 진화의 시작', '2629757', '2773794');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('황산벌', '', '2771236');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('황산벌', '0', '2771236');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('부당거래', '21326977937', '2766436');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('1번가의 기적', '', '275457');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('1번가의 기적', '0', '275457');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('메이즈 러너: 스코치 트라이얼', '21596946349', '2744413');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('가디언즈 오브 갤럭시 VOL. 2', '23452686686', '2735721');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('시라노; 연애조작단', '2171151599', '2731828');
@@ -3713,7 +3712,7 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('적벽대전 2 
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('소원', '185297921', '271171');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('지.아이.조 : 전쟁의 서막', '1988912696', '276748');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('타이탄', '2214397429', '268558');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('친구', '', '2678846');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('친구', '0', '2678846');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('곤지암', '21442114144', '2675559');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('살인자의 기억법', '21375287492', '2658589');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('브레이킹 던 part2', '189958365', '2654817');
@@ -3729,32 +3728,32 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('위험한 상�
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('아수라', '2576226662', '259428');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('보안관', '28444549', '2588617');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('굿모닝 프레지던트', '187788932', '2583294');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('음란서생', '', '257622');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('내 머리 속의 지우개', '', '256578');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('음란서생', '0', '257622');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('내 머리 속의 지우개', '0', '256578');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('기술자들', '19894297783', '256434');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('퍼시픽 림', '2477392512', '2539114');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('정글북', '21517513134', '2537419');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('증인', '2477262331', '253475');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('엑스맨: 퍼스트 클래스', '1975363', '2533852');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('내 생애 가장 아름다운 일주일', '', '253313');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('해리포터와 아즈카반의 죄수', '', '2532');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('내 생애 가장 아름다운 일주일', '0', '253313');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('해리포터와 아즈카반의 죄수', '0', '2532');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('목격자', '21733771597', '2524333');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('패션 오브 크라이스트', '', '25237');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('패션 오브 크라이스트', '0', '25237');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('마이펫의 이중생활', '1945636655', '25251');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('조작된 도시', '2138295587', '2514943');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('공동경비구역 JSA', '', '251354');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('"나니아 연대기-사자,마녀 그리고 옷장"', '', '255133');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('터미네이터 3', '', '2491354');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('공동경비구역 JSA', '0', '251354');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('"나니아 연대기-사자,마녀 그리고 옷장"', '0', '255133');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('터미네이터 3', '0', '2491354');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('블랙머니', '28666341', '2479664');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('우리 형', '', '2479585');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('우리 형', '0', '2479585');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('반창꼬', '17911274787', '2475797');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('박수칠 때 떠나라', '', '2475291');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('선생 김봉두', '', '2472135');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('박수칠 때 떠나라', '0', '2475291');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('선생 김봉두', '0', '2472135');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('보스 베이비', '189343774', '2451919');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('조선명탐정: 흡혈괴마의 비밀', '19822724764', '2444123');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('화차', '1845923', '24364');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('이웃사람', '1887442369', '243499');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('광식이 동생 광태', '', '2432');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('광식이 동생 광태', '0', '2432');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('재심', '19264792637', '242111');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('신비한 동물들과 그린델왈드의 범죄', '2816583118', '241462');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('터미네이터: 다크 페이트', '216714183', '241227');
@@ -3765,55 +3764,55 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('의뢰인', '17
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('테이큰', '15971389', '237983');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('7 스카이폴', '17487213', '2376145');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('가문의 영광4 - 가문의 수난', '177922195', '2368267');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('스파이더맨 2', '', '236774');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('스파이더맨 2', '0', '236774');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('블라인드', '183871765', '2367272');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('박열', '1893543795', '2359174');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('맨발의 기봉이', '', '2347311');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('바람의 파이터', '', '2346446');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('작업의 정석', '', '2342232');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('첫사랑 사수 궐기 대회', '', '233941');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('맨발의 기봉이', '0', '2347311');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('바람의 파이터', '0', '2346446');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('작업의 정석', '0', '2342232');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('첫사랑 사수 궐기 대회', '0', '233941');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('미인도', '15531621371', '2325715');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('스파이', '18417637358', '2318748');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('라스트 갓파더', '16832542997', '231699');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('모아나', '18556237', '23154');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('주유소 습격사건', '', '231');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('주유소 습격사건', '0', '231');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('테이큰 2', '1758198553', '238596');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('하녀', '1731669976', '234487');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('메이즈 러너: 데스 큐어', '189287314', '2299732');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('맘마미아!2', '1967283', '2293836');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('분노의 질주: 더 얼티메이트', '22596586', '2292415');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('"달콤, 살벌한 연인"', '', '2286745');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('"달콤, 살벌한 연인"', '0', '2286745');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('호빗: 스마우그의 폐허', '1785613316', '2282744');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('나잇&데이', '1754262425', '2282191');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('혈의 누', '', '2274995');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('혈의 누', '0', '2274995');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('미니언즈2', '21986219672', '2266931');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('컨저링', '16353225777', '2262758');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('슈렉 포에버', '23178925617', '2261356');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('극락도 살인사건', '', '2259511');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('극락도 살인사건', '0', '2259511');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('이글 아이', '14577167667', '2258369');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('배트맨 대 슈퍼맨: 저스티스의 시작', '1896246428', '2256913');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('레디 플레이어 원', '199331871', '225443');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('위대한 유산', '', '2251491');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('위대한 유산', '0', '2251491');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('7광구', '193916535', '224251');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('배틀쉽', '165459215', '2241687');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('매트릭스3 레볼루션', '', '224');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('매트릭스3 레볼루션', '0', '224');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('셜록홈즈 : 그림자 게임', '16679135', '2239156');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('박쥐', '1551788827', '2237271');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('타짜: 원 아이드 잭', '1968729214', '2229239');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('어거스트 러쉬', '', '2218573');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('나는 전설이다', '', '2215883');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('포세이돈', '', '22146');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('어거스트 러쉬', '0', '2218573');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('나는 전설이다', '0', '2215883');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('포세이돈', '0', '22146');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('셜록 홈즈', '1627513113', '227751');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('싱글즈', '', '22342');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('싱글즈', '0', '22342');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('마당을 나온 암탉', '14669955', '221722');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('7 퀀텀 오브 솔러스', '14366688333', '2213');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('내 여자친구를 소개합니다', '', '2199359');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('댄서의 순정', '', '2197555');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('내 여자친구를 소개합니다', '0', '2199359');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('댄서의 순정', '0', '2197555');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('싱크홀', '2139565269', '2195683');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('악의 연대기', '17361815332', '2192525');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('강남 197', '17717971499', '2192172');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('바르게 살자', '', '21925');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('늑대의 유혹', '', '2189453');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('바르게 살자', '0', '21925');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('늑대의 유혹', '0', '2189453');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('이상한 나라의 앨리스', '2661236', '2182365');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('맨 오브 스틸', '179296463', '2182227');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('로건', '183916223', '216919');
@@ -3826,14 +3825,14 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('극장판 귀�
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('마이 웨이', '1599483', '2142622');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('나의 사랑 나의 신부', '166364435', '2141155');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('겟 아웃', '174315775', '2138146');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('범죄의 재구성', '', '2129358');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('사랑', '', '2123815');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('범죄의 재구성', '0', '2129358');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('사랑', '0', '2123815');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('베놈 2: 렛 데어 비 카니지', '2111644289', '2123652');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('세븐 데이즈', '38146', '212741');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('굿바이 싱글', '1691276195', '218273');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('이클립스', '15192541723', '2155');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('사생결단', '', '214716');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('엑스맨 : 최후의 전쟁', '', '29618');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('사생결단', '0', '214716');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('엑스맨 : 최후의 전쟁', '0', '29618');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('몽타주', '1524585', '295592');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('색즉시공 시즌2', '5112885', '288134');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('명당', '179775524', '287474');
@@ -3842,61 +3841,61 @@ INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('내부자들: �
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('쩨쩨한 로맨스', '159162661', '28574');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('장화신은 고양이', '17611885', '28154');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('인투 더 스톰', '1615593332', '278492');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('청춘만화', '', '266354');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('청춘만화', '0', '266354');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('눈에는 눈 이에는 이', '13414235', '258764');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('비상선언', '2926363328', '25876');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('뷰티 인사이드', '16155795131', '254297');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('본 얼티메이텀', '', '2528');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('본 얼티메이텀', '0', '2528');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('혹성탈출: 종의 전쟁', '16854482778', '251315');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('봉이 김선달', '1622752642', '251277');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('아라한 장풍대작전', '', '25');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('아라한 장풍대작전', '0', '25');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('소울', '193416418', '248137');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('비열한 거리', '', '24788');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('비열한 거리', '0', '24788');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('노아', '15514835', '226574');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('캐리비안의 해적 : 블랙펄의 저주', '', '2146');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('캐리비안의 해적 : 블랙펄의 저주', '0', '2146');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('레버넌트: 죽음에서 돌아온 자', '1611125513', '27657');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('오페라의 유령', '', '2688');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('오페라의 유령', '0', '2688');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('테이큰 3', '161214', '26561');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('페르시아의 왕자: 시간의 모래', '14717552534', '23533');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('박물관이 살아있다 2', '12591149', '22526');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('천문: 하늘에 묻는다', '16525432', '249');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('테넷', '1846429817', '1998987');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('시실리 2km', '', '198738');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('시실리 2km', '0', '198738');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('크루엘라', '1925287964', '1983397');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('남자가 사랑할 때', '14512223', '1979311');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('루시', '164687639', '1974893');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('효자동 이발사', '', '1972377');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('타이타닉', '', '197178');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('효자동 이발사', '0', '1972377');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('타이타닉', '0', '197178');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('협상', '1732133166', '1967721');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('알리타: 배틀 엔젤', '18569763667', '1951889');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('육사오(6/45)', '1954525898', '1951159');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('뉴 문', '1398836267', '194927');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('천사와 악마', '12734649711', '1936321');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('애나벨 : 인형의 주인', '15526858738', '1934192');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('가족', '', '193234');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('가족', '0', '193234');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('컨저링 2', '15759374229', '192865');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('터보', '13113579', '1923748');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('애자', '13785879439', '1922634');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('내안의 그놈', '16412116567', '1916855');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('잠복근무', '', '1914941');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('잠복근무', '0', '1914941');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('그림자 살인', '128588556', '1914779');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('영웅', '', '191');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('영웅', '0', '191');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('#살아있다', '159653299', '19373');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('수어사이드 스쿼드', '1587316188', '1898121');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('오늘의 연애', '14924654487', '1891993');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('글러브', '137575745', '18881');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('러브 액츄얼리', '', '1887');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('러브 액츄얼리', '0', '1887');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('헤어질 결심', '195163646', '1881387');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('라디오 스타', '', '187951');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('라디오 스타', '0', '187951');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('퍼시 잭슨과 번개 도둑', '13372357257', '1877226');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('해결사', '1463913437', '1873327');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('코리아', '134488485', '1872681');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('아이들...', '135797125', '1867849');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('"색, 계"', '', '18669');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('"색, 계"', '0', '18669');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('연애의 온도', '13798864446', '1865195');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('마약왕', '16222446942', '186476');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('구세주', '', '1858668');
-INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('조폭마누라2-돌아온 전설', '', '185877');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('구세주', '0', '1858668');
+INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('조폭마누라2-돌아온 전설', '0', '185877');
 INSERT INTO movie_profit (m_title, m_sales, m_audience) VALUES ('지.아이.조 2', '14457485', '1855917');
 
 

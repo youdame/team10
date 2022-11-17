@@ -205,7 +205,7 @@ $search_input = false;
                 $list = '';
                 if ($_POST['search_input']) {
                     // 쿼리 filt
-                    $sql = "SELECT *
+                    $sql = "SELECT title, country, FORMAT(audience, 0) AS audience, rating
                             FROM movie_boxoffice
                                 INNER JOIN rating
                                 ON movie_boxoffice.m_id = rating.m_id

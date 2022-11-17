@@ -109,10 +109,10 @@ $keyword = $_GET['keyword']
         </tr>
 
         <?php
-        $sql = "SELECT * 
+        $sql = "SELECT title, released_date, FORMAT(audience, 0) as audience, director, genre
                 FROM movie_boxoffice 
                     LEFT JOIN director_id
-                    ON movie_boxoffice.d_id = director_id.d_id
+                    ON movie_boxoffice.d_id = director_id.d_id1
                 WHERE title LIKE '%$keyword%' OR director LIKE '%$keyword%'";
         $result = mysqli_query($mysqli, $sql);
         $list = '';
@@ -125,7 +125,7 @@ $keyword = $_GET['keyword']
                 $list = $list . "<tr>
                                     <td><a href='./detail2.php?m_title=$m_title'>{$m_title}</a></td>
                                     <td>{$row['released_date']}</td>
-                                    <td>{$row['audience']}</td>
+                                    <td style='text-align:right;'>{$row['audience']}</td>
                                     <td>{$row['director']}</td>
                                     <td>{$row['genre']}</td>
                                 </tr>";

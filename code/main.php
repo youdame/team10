@@ -13,6 +13,8 @@ session_start();
     <link rel="stylesheet" type="text/css" href="css/header.css">
 
     <style>
+   
+
         .backgroundImage{
             background-image: url('./movie1.jpg');
             width: 100%;

@@ -105,7 +105,7 @@ CREATE INDEX index_film_industry ON film_industry(reference_date, attendance);
 CREATE TABLE movie_profit(
     m_title VARCHAR(50) NOT NULL,
     m_sales BIGINT,
-    m_audience BIGINT NOT NULL
+    m_audience BIGINT
 );
 
 -- 홍진서4
