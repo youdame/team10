@@ -15,53 +15,89 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-        
-        Container {
-            display: inline;
-            justify-content: space-between;
-            height: 4.16vw;
-            z-index: 1;
-            width: 74vw;
-            max-width: 1100px;
+Container{
+    display: inline;
+    justify-content: space-between;
+    height: 4.16vw;
+    z-index: 1;
+    width: 74vw;
+    max-width: 1100px;
 
-        }
-
-        mainContainer {
-            background: white;
-            display: flex;
+}
+mainContainer{
+    background: white;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* padding: 0 30px; */
+    height: 200px;
+    width:100%;
+    position: relative;
+    z-index: 1;
+}
+table{
+            background: lightblue;
+            display: grid;
             justify-content: center;
             align-items: center;
-            padding: 0 30px;
-            height: 800px;
-            position: relative;
-            z-index=1;
-        
-        }
-
-        Button {
-            display: inline;
-            justify-content: end;
-
-        }
-
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        li {
-            float: left;
-        }
-
-        [type="submit"] {
-            background-color: lightgray;
-            border: 0px;
-            padding: 8px;
+            width: 100%;
+            margin: auto;
+            margin-top: 100px;
+            /* padding: 60px; */
             border-radius: 10px;
+            border: 1px solid lightslategray;
         }
-    </style>
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+td{font-size: 15px;
+            line-height: 2rem;
+            padding: 0.2em 0.4em;}
+            
+li {
+    float: left;
+}
+        
+h1{
+            color: black; font-size: 40px;text-align: center;
+        }
+        h2{
+            color:black; text-align:center;
+        }
+        .center-button{
+            text-align:center;
+        }
+        button{
+            background-color: azure;
+
+            border: 1px black;
+
+            color: black;
+
+            padding: 15px 30px;
+
+            text-align: center;
+
+            text-decoration: none;
+
+
+
+            display: inline-block;
+
+            font-size: 16px;
+
+            margin: 4px 2px;
+
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+         
+     </style>
 </head>
 
 <body>
@@ -107,8 +143,8 @@
     </header>
   
 
-
-    <mainContainer>
+<h1>새로운 감독의 필모그래피 추가</h1>
+    <div class="center-button">
         <form method="POST" action="newdirector.php">
             감독이름:<input type="text" name="director"/><br/>
             대표작1:<input type="text" name="film1"/><br/>
@@ -117,15 +153,13 @@
             수상내역:<input type = "text" name="award"/><br/>
             <input type= "submit" name="register"/><br/>
         </form>
+        <div>
                     
       
         <?php
             
             $mysqli=mysqli_connect("localhost","team10","team10","team10","3307");
-            // $sql ="INSERT INTO director_table (director,film1,film2,film3,award)"
-            // ."values('".$_POST['director']."
-            // ','".$_POST['film1']."',".$_POST['film2'].",
-            // ".$_POST['film3'].",".$_POST['award']."')";
+    
             $sql="INSERT INTO  director_table (director, film1, film2, film3)
             VALUES('{$_POST['director']}','{$_POST['film1']}','{$_POST['film2']}','{$_POST['film3']}')";
             $sql_1="INSERT into director_award(award) VALUES('{$_POST['award']}')";

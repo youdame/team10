@@ -59,22 +59,24 @@ CREATE TABLE director_table (
     film1 varchar(300),
     film2 varchar(300),
     film3 varchar(300)
+    
 );
+CREATE INDEX index_dir ON director_table(film1,film2);
 
 
 -- 김다희2
 CREATE TABLE director_id(
-    d_id INT(10) NOT NULL AUTO_INCREMENT,
+    d_id1 INT(10) NOT NULL AUTO_INCREMENT,
     director varchar(300),
-    PRIMARY KEY (`d_id`)
+    PRIMARY KEY (`d_id1`)
 );
 
 
 -- 김다희3
 CREATE TABLE director_award(
-    d_id INT(10) NOT NULL AUTO_INCREMENT,
+    d_id2 INT(10) NOT NULL AUTO_INCREMENT,
     award varchar(300),
-    PRIMARY KEY (`d_id`)
+    PRIMARY KEY (`d_id2`)
 );
 
 

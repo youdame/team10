@@ -86,6 +86,7 @@ session_start();
                 <tr>
                     <td>Password</td>
                     <td><input type='password' class="user_input" name='input_pw' /></td>
+
                 </tr>
             </table>
         </form>

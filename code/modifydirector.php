@@ -29,19 +29,21 @@ mainContainer{
     display: grid;
     justify-content: center;
     align-items: center;
-    padding: 0 30px;
-    height: 800px;
+    /* padding: 0 30px; */
+    height: 400px;
+    width:100%;
     position: relative;
     z-index: 1;
 }
 table{
-         display: grid;
+            background: lightblue;
+            display: grid;
             justify-content: center;
             align-items: center;
-            width: 30%;
+            width: 100%;
             margin: auto;
             margin-top: 100px;
-            padding: 60px;
+            /* padding: 60px; */
             border-radius: 10px;
             border: 1px solid lightslategray;
         }
@@ -52,10 +54,47 @@ ul {
     padding: 0;
     overflow: hidden;
 }
-
+td{font-size: 15px;
+            line-height: 2rem;
+            padding: 0.2em 0.4em;}
+            
 li {
     float: left;
 }
+        
+h1{
+            color: black; font-size: 40px;text-align: center;
+        }
+        h2{
+            color:black; text-align:center;
+        }
+        .center-button{
+            text-align:center;
+        }
+        Button{
+            background-color: azure;
+
+            border: 1px black;
+
+            color: black;
+
+            padding: 15px 30px;
+
+            text-align: center;
+
+            text-decoration: none;
+
+
+
+            display: inline-block;
+
+            font-size: 16px;
+
+            margin: 4px 2px;
+
+            cursor: pointer;
+            border-radius: 5px;
+        }
 </style>
 </head>
 
@@ -98,19 +137,34 @@ li {
                 <?php
                 }
                 ?>
-            </ul>
-        </nav>
+     
     </header>
-    <nav>
-        <Container>
-         
-        </Container>
+  
 
     <!-- <form action = "modifydirector.php" method="GET">
                 정보를 수정할 감독이름을 검색하세요: <br/><br/>
                 <input type="textbox" name="director" placeholder="감독의 이름을 입력하세요">
                 <input type="submit" value="검색하기">
             </form> -->
+            <mainContainer>
+            <h1>감독 정보 수정</h1>
+       <div>
+        <h2> 수정하고자 하는 감독 이름을 작성 후, <br/>
+            모든 칸의 내용을 입력 후 제출 버튼을 누르세요</p>
+        </div>
+
+        <div class="center-button">
+        <form method="GET" action="modifydirector.php">
+            감독이름: <input type = "text" name = "director"/><br/>
+            대표작1:<input type="text" name="film1"/><br/>
+            대표작2:<input type="text" name="film2"/><br/>
+            대표작3:<input type="text" name="film3"/><br/>
+            수상내역:<input type = "text" name="award"/><br/>
+          
+                    <Button type="submit">수정하기</Button></div>
+          
+                </form>
+            </div>
 
             <table>
                 <tr>
@@ -121,6 +175,7 @@ li {
                     <td>Award</td>
                     <td></td>
                 </tr>
+                </mainContainer>
 
             <?php
                 
@@ -143,21 +198,7 @@ li {
                     }
                 }echo $list;  
 ?>
-    <h1>감독 정보 수정</h1>
-       <div>
-        <p> 수정하고자 하는 감독 이름을 작성 후, <br/>
-            모든 칸의 내용을 입력 후 제출 버튼을 누르세요</p>
-        </div>
-
-
-        <form method="GET" action="modifydirector.php">
-            감독이름: <input type = "text" name = "director"/><br/>
-            대표작1:<input type="text" name="film1"/><br/>
-            대표작2:<input type="text" name="film2"/><br/>
-            대표작3:<input type="text" name="film3"/><br/>
-            수상내역:<input type = "text" name="award"/><br/>
-            <input type= "submit" value="수정하기"/><br/>
-        </form>
+  
                     
       
         <?php
@@ -201,7 +242,7 @@ li {
                 echo "<script>alert('오류.')</script>";
                 error_log(mysqli_error($sql));
               } else {
-                echo '성공했습니다. ';
+                echo "";
               }
     
         ?>

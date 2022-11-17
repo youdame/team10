@@ -147,6 +147,8 @@
         echo 'rollback';
     }
 
+    mysqli_commit($mysqli);
+
     Header('location:' . $prevPage);
 
     ?>

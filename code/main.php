@@ -13,25 +13,86 @@ session_start();
     <link rel="stylesheet" type="text/css" href="css/header.css">
 
     <style>
+        .backgroundImage{
+            background-image: url('./movie1.jpg');
+            width: 100%;
+            height: 800px;
+            background-size: 100% 100%;
+            
+            z-index:-1;
+
+        }
         .mainContainer {
-            background: white;
+            
+         
             display: grid;
             justify-content: center;
             align-items: center;
             /* padding: 0 30px; */
-            height: 800px;
+            height: 700px;
             position: relative;
-            z-index: 1;
+            z-index: 10;
+           
+   
+        }
+     
+   
+        
+        h1{
+            color: white; font-size: 40px;text-align: center;
+        }
+        h2{
+            color:white; text-align:center;
+        }
+        .center-button{
+            text-align:center;
+        }
+        Button{
+            background-color: azure;
+
+            border: 1px solid black;
+
+            color: black;
+
+            height:50px;
+
+            padding: 15px 30px;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            display: inline-block;
+
+            font-size: 16px;
+
+            margin: 4px 2px;
+
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #searchdata{
+            
+            width:300px;
+            height:50px;
+            background-color:white;
+            border: 2px solid black;
+            border-radius:5px;
+
+        
         }
     </style>
 </head>
 
 <body>
+   
+
     <header id="main_header">
+   
         <nav>
+            <ul class="header_ul">
             <a id="logo" href="main.php"> Team10, MOVIE </a>
             
-            <ul class="header_ul">
                 <?php
                 if (isset($_SESSION['name'])) { ?>
                     <li class="header_li"><a href="./logout.php"> Log out</a></li>
@@ -60,29 +121,44 @@ session_start();
             </ul>
         </nav>
     </header>
-    
-    <div class="mainContainer">
-        <div>
-            <?php if (isset($_SESSION['name'])) { ?>
-                <h1>Welcome, <?php echo $_SESSION['name']?></h1>
-            <?php
-            } else { ?>
-                <h1>Welcome to our page!</h1>
-                <h2>Please log in</h2>
-            <?php
-            }
-            ?>
-            
-            <form action="keywordSearch.php" method="get">
-                <input type="textbox" name="keyword">
-                <input type="submit" value="Search">
-            </form>
-        </div>
+    <div class="backgroundImage">
 
-        <div>
+        <div class="mainContainer">
+            <div>
+                <?php if (isset($_SESSION['name'])) { ?>
+                    <h1>Welcome, <?php echo $_SESSION['name']?></h1>
+                <?php
+                } else { ?>
+                    <h1>EXPLORE MOVIE!</h1>
+                    <h2>Please log in</h2>
+                <?php
+                }
+                ?>
+                <?php
+                    if (isset($_SESSION['name'])) { ?>
+                    <form action="keywordSearch.php" method="get">
+                    <input id="searchdata" type="textbox" name="keyword" placeholder="영화 제목을 검색하세요" >
+                    
+                    <button type="submit" value="Search">검색</button>
+                </form>
+            
+                <?php
+                    } else { 
+                        ?>
+                    <div class="center-button">
+                    <Button onclick="location.href='login.php'"> LOGIN</Button></div>
+                    <?php
+                    }
+                    ?>
+                </form>
+                </div>
+                <div>
             <p> Let's see which movie is interesting</p>
         </div>
     </div>
+
+        
+    
 </body>
 
 </html>
