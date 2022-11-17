@@ -13,7 +13,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Director</title>
     <style>
 Container{
     display: inline;
@@ -175,23 +175,11 @@ h1{
             $sql_2="INSERT into director_id(director)
             VALUES('{$_POST['director']}')";
             
-            //,'{$_POST['award']}'
-            // Insert into director_table (director, film1, film2, film3)
-            // values("test1","1","1","1");
-            // Insert into director_award(award)
-            // values("hi");
-            // Insert into director_id(director)
-            // values("test1");
             
             $result=mysqli_query($mysqli,$sql);      
             $result_1=mysqli_query($mysqli,$sql_1);    
             $result_2=mysqli_query($mysqli,$sql_2);
-            // if($result === false){
-            //     echo '오류';
-            //     error_log(mysqli_error($sql));
-            //   } else {
-            //     echo '성공했습니다. <a href="newdirector.php">돌아가기</a>';
-            //   }
+
         
 
           

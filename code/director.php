@@ -182,12 +182,12 @@ h1{
         
         
             <?php
-                // $sql ="SELECT * FROM director_table WHERE director LIKE '%$director%'";
+                
                 $sql ="SELECT di.d_id1, dt.director, dt.film1, dt.film2, dt.film3, da.award FROM 
                 director_table AS dt 
                 join director_id as di on dt.director=di.director
-                join director_award as da on di.d_id1=da.d_id2 WHERE dt.director='$director'";//%$director%
-    // 감독코드로 ㄱ검색해서 box_office 에서 감독 이름으로 group by..
+                join director_award as da on di.d_id1=da.d_id2 WHERE dt.director='$director'";
+   
                 $result=mysqli_query($mysqli, $sql);      
 
                 $list = '';
@@ -198,7 +198,7 @@ h1{
                     while ($row = mysqli_fetch_array($result)) {
 
                         
-                        //$list = $list."<tr><td><a href='./detail2.php?director=$director'>{$director}</a></td><td>{$row['film1']}</td><td>{$row['film2']}</td><td>{$row['film3']}</td><td>{$row['award']}</td></tr>";
+                       
                         $list = $list."<tr><td>{$director}</td><td>{$row['film1']}</td><td>{$row['film2']}</td><td>{$row['film3']}</td><td>{$row['award']}</td></tr>";
 
 

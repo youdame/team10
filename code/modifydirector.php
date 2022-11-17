@@ -12,7 +12,7 @@
     
 <link rel="stylesheet" type="text/css" href="css/header.css">
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Director</title>
     <style>
 
 Container{
@@ -214,10 +214,7 @@ h1{
         <?php
             
             $mysqli=mysqli_connect("localhost","team10","team10","team10");
-            // $sql ="INSERT INTO director_table (director,film1,film2,film3,award)"
-            // ."values('".$_POST['director']."
-            // ','".$_POST['film1']."',".$_POST['film2'].",
-            // // ".$_POST['film3'].",".$_POST['award']."')";
+
             $sql_1="UPDATE director_table SET
             director='{$_GET['director']}',
             film1='{$_GET['film1']}', 
@@ -233,19 +230,6 @@ h1{
      
 
 
-            // update director_table SET director="test1", film1="22",film2="33", film3="44" where director="test1";
-
-            // update director_award da inner join director_id did
-            // on did.d_id=da.d_id
-            // set award="55"
-            // where director="test1";
-            // "UPDATE director_table SET film1=$_POST['film1']WHERE director='%$director%'";
-            //      ".$_POST['film3'].",".$_POST['award']."')";
-            //      $sql="UPDATE director_table SET 
-            //      director=
-            //      WHERE director like '$director%'";
-                 
-            // // UPDATE myMember SET phone = '010-1234-5678"', userId = 'yuna-kim' WHERE myMemberID = 5;
             $result_1=mysqli_query($mysqli,$sql_1);    
             $result_2=mysqli_query($mysqli,$sql_2);  
             if($result_1 === false){

@@ -13,8 +13,6 @@ $user_id = $_SESSION['id'];
 $conn = mysqli_connect("localhost", "team10", "team10", "team10");
 
 
-// $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
-
 $movie_id = mysqli_real_escape_string($conn, $_POST['movie_id']);
 
 
