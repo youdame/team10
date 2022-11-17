@@ -72,9 +72,9 @@ h1{
             text-align:center;
         }
         Button{
-            background-color: azure;
+            background-color: lightgray;
 
-            border: 1px black;
+            border: 1px solid black;
 
             color: black;
 
@@ -94,6 +94,16 @@ h1{
 
             cursor: pointer;
             border-radius: 5px;
+        
+        }
+        #searchdirector{
+            width:300px;
+            height:40px;
+            background-color:white;
+            border: 2px solid black;
+            border-radius:5px;
+            margin:10px;
+
         }
 </style>
 </head>
@@ -155,11 +165,11 @@ h1{
 
         <div class="center-button">
         <form method="GET" action="modifydirector.php">
-            감독이름: <input type = "text" name = "director"/><br/>
-            대표작1:<input type="text" name="film1"/><br/>
-            대표작2:<input type="text" name="film2"/><br/>
-            대표작3:<input type="text" name="film3"/><br/>
-            수상내역:<input type = "text" name="award"/><br/>
+            감독이름:<input id="searchdirector"  type = "text" name = "director" placeholder="감독의 이름을 입력하세요"><br/>
+            대표작1: <input id="searchdirector" type="text" name="film1" placeholder="감독의 대표작을 입력하세요"/><br/>
+            대표작2: <input id="searchdirector" type="text" name="film2" placeholder="감독의 대표작을 입력하세요"/><br/>
+            대표작3: <input id="searchdirector" type="text" name="film3" placeholder="감독의 대표작을 입력하세요"/><br/>
+            수상내역:<input id="searchdirector" type = "text" name="award" placeholder="감독의 수상내역을 입력하세요"/><br/>
           
                     <Button type="submit">수정하기</Button></div>
           

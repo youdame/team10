@@ -72,7 +72,7 @@ h1{
             text-align:center;
         }
         button{
-            background-color: azure;
+            background-color:lightgray;
 
             border: 1px solid black;
 
