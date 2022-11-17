@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <style>
         #sales_type_radio {
-            border: 1px solid;
+            border: 1px solid GREY;
             width: 60%;
             margin: auto;
             padding: 20px;
