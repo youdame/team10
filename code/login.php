@@ -22,6 +22,19 @@ session_start();
             padding: 60px;
             border-radius: 10px;
             border: 1px solid lightslategray;
+            text-align: center;
+        }
+
+        #login_btn{
+            height: 60px;
+            width: 100%;
+            margin-left: 5px;
+        }
+
+        .user_input{
+            height: 25px;
+            margin-top: 2px;
+            margin-left: 5px;
         }
     </style>
 
@@ -67,18 +80,17 @@ session_start();
             <table>
                 <tr>
                     <td>ID</td>
-                    <td><input type='text' name='input_id' /></td>
+                    <td><input type='text' class="user_input" name='input_id' /></td>
+                    <td rowspan="2"><input type="submit" id="login_btn" value="log in"></td>
                 </tr>
                 <tr>
                     <td>Password</td>
-                    <td><input type='text' name='input_pw' /></td>
+                    <td><input type='password' class="user_input" name='input_pw' /></td>
                 </tr>
             </table>
-            <input type="submit" value="log in">
         </form>
-        <form action="signup.php">
-            <input type="submit" value="sign up">
-        </form>
+        <br>
+        <a href="signup.php">Sign up here!</a>
     </div>
 </body>
 

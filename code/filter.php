@@ -48,6 +48,9 @@ $search_input = false;
             margin-right:auto;
             margin-top: 30px;
             margin-bottom: 30px;
+
+            border-top: 1px solid #bcbcbc;
+            border-bottom: 1px solid #bcbcbc;
         }
 
         #table_show_result td{
@@ -201,7 +204,7 @@ $search_input = false;
                 <?php
                 $list = '';
                 if ($_POST['search_input']) {
-                    // 쿼리
+                    // 쿼리 filt
                     $sql = "SELECT *
                             FROM movie_boxoffice
                                 INNER JOIN rating
