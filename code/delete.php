@@ -11,6 +11,92 @@
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        
+Container{
+    display: inline;
+    justify-content: space-between;
+    height: 4.16vw;
+    z-index: 1;
+    width: 74vw;
+    max-width: 1100px;
+
+}
+mainContainer{
+    background: white;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* padding: 0 30px; */
+    height: 200px;
+    width:100%;
+    position: relative;
+    z-index: 1;
+}
+table{
+            background: lightblue;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: auto;
+            margin-top: 100px;
+            /* padding: 60px; */
+            border-radius: 10px;
+            border: 1px solid lightslategray;
+        }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+td{font-size: 15px;
+            line-height: 2rem;
+            padding: 0.2em 0.4em;}
+            
+li {
+    float: left;
+}
+        
+h1{
+            color: black; font-size: 40px;text-align: center;
+        }
+        h2{
+            color:black; text-align:center;
+        }
+        .center-button{
+            text-align:center;
+        }
+        button{
+            background-color: azure;
+
+            border: 1px black;
+
+            color: black;
+
+            padding: 15px 30px;
+
+            text-align: center;
+
+            text-decoration: none;
+
+
+
+            display: inline-block;
+
+            font-size: 16px;
+
+            margin: 4px 2px;
+
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+
+    </style>
+
 </head>
 
 <body>
@@ -54,21 +140,16 @@
             </ul>
         </nav>
     </header>
-    <nav>
-        
-        <ul>
-        <Button><li><a href="/"> Search</a></li></Button>
-        <Button><li><a href="director.php"> Director</a></li></Button>
-        <Button><li><a href="/"> My page</a></li></Button>
-        <Button><li><a href="test.php"> Login</a></li></Button>
-        </ul>
-    </nav>
 
+    <div class="center-button">
+        <h1> 감독이름 검색: </h1>
+        <h2>삭제할 감독의 이름을 검색하세요</h2>
         <form action="delete.php" method="GET">
-                        감독이름 검색: 
+                       
                         <input type="textbox" name="di" placeholder="감독의 이름을 입력하세요">
                         <input type="submit" value="검색하기">
                     </form>
+            </div>
 
 
 

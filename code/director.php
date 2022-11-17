@@ -13,37 +13,96 @@
      <title> Director</title>
      <style>
  
-         Container {
-             display: inline;
-             justify-content: space-between;
-             height: 4.16vw;
-             z-index: 1;
-             width: 74vw;
-             max-width: 1100px;
+ 
 
-         }
+Container{
+    display: inline;
+    justify-content: space-between;
+    height: 4.16vw;
+    z-index: 1;
+    width: 74vw;
+    max-width: 1100px;
 
-         mainContainer {
-             background: white;
-             display: grid;
-             justify-content: center;
-             align-items: center;
-             padding: 0 30px;
-             height: 800px;
-             position: relative;
-             z-index: 1;
-         }
-        table{
-         display: grid;
+}
+mainContainer{
+    background: white;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* padding: 0 30px; */
+    height: 200px;
+    width:100%;
+    position: relative;
+    z-index: 1;
+}
+table{
+            background: lightblue;
+            display: grid;
             justify-content: center;
             align-items: center;
-            width: 30%;
+            width: 100%;
             margin: auto;
             margin-top: 100px;
-            padding: 60px;
+            /* padding: 60px; */
             border-radius: 10px;
             border: 1px solid lightslategray;
         }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+td{font-size: 15px;
+            line-height: 2rem;
+            padding: 0.2em 0.4em;}
+            
+li {
+    float: left;
+}
+        
+h1{
+            color: black; font-size: 40px;text-align: center;
+        }
+        h2{
+            color:black; text-align:center;
+        }
+        .center-button{
+            text-align:center;
+        }
+        button{
+            background-color: azure;
+
+            border: 1px solid black;
+
+            color: black;
+
+            padding: 15px 30px;
+
+            text-align: center;
+
+            text-decoration: none;
+            height:60px;
+
+            display: inline-block;
+
+            font-size: 16px;
+
+            margin: 4px 2px;
+
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #searchdirector{
+            width:300px;
+            height:50px;
+            background-color:white;
+            border: 2px solid black;
+            border-radius:5px;
+
+        }
+
          
      </style>
  </head>
@@ -51,9 +110,10 @@
  <body>
  <header id="main_header">
         <nav>
-            <a id="logo" href="main.php"> Team10, MOVIE </a>
+
             
             <ul class="header_ul">
+            <a id="logo" href="main.php"> Team10, MOVIE </a>
                 <?php
                 session_start();
                 if (isset($_SESSION['name'])) { ?>
@@ -88,14 +148,17 @@
             </ul>
         </nav>
     </header>
-    <Container>
-                <form action = "director.php" method="GET">
-                감독이름 검색: 
-                <input type="textbox" name="director" placeholder="감독의 이름을 입력하세요">
-                <input type="submit" value="검색하기">
+    <mainContainer>
+    <div class="center-button">
                 
-                </form>
-        
+                <h1>감독이름 검색 </h1>
+                <form action = "director.php" method="GET">
+                <input id="searchdirector" type="textbox" name="director" placeholder="감독의 이름을 입력하세요">
+                <button type="submit" value="검색하기">검색하기</button>
+
+                
+                </form></div>
+                </mainContainer>
                 <table>
                     <tr>
                         <td>Director name</td>
@@ -144,7 +207,7 @@
                 ?>
    
 
-  </Container>
+  
  </body>
 
  </html>

@@ -71,7 +71,7 @@ session_start();
                 </tr>
                 <tr>
                     <td>Password</td>
-                    <td><input type='text' name='input_pw' /></td>
+                    <td><input type='password' name='input_pw' /></td>
                 </tr>
             </table>
             <input type="submit" value="log in">

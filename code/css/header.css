@@ -13,7 +13,7 @@
     align-items: left;
     font-weight: bold;
     text-decoration: none;
-    height: 4.16vw;
+    height: 50px;
 
     display: block;
     color: azure;
@@ -47,7 +47,7 @@
     font-size: medium;
     display: block;
     padding: 8px;
-    padding-right: 12px;
+    /* padding-right: 12px; */
     padding-top: 12px;
     text-decoration: none;
     text-align: center;
