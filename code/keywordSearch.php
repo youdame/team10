@@ -40,6 +40,12 @@ $keyword = $_GET['keyword']
             margin-right:auto;
             margin-top: 30px;
             margin-bottom: 30px;
+
+            border-collapse: separate;
+            border-spacing: 0 10px;
+
+            border-top: 1px solid #bcbcbc;
+            border-bottom: 1px solid #bcbcbc;
         }
 
         table td{
@@ -87,7 +93,7 @@ $keyword = $_GET['keyword']
     
     <div id="div_search">
         <form action="keywordSearch.php" method="GET">
-            <input id="textbox_search" type="textbox" size="" name="keyword">
+            <input id="textbox_search" type="textbox" name="keyword" placeholder="Please enter your keyword here">
             <input type="submit" value="search">
         </form>
     </div>

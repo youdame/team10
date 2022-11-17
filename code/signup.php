@@ -24,6 +24,10 @@ session_start();
             padding: 20px;
         }
 
+        table{
+            text-align: left;
+        }
+        
         table,
         td,
         th {
@@ -38,6 +42,11 @@ session_start();
 
         td {
             height: 40px;
+            padding-bottom: 10px;
+        }
+
+        .need_padding{
+            padding-left: 20px;
         }
 
         [type="submit"] {
@@ -94,41 +103,41 @@ session_start();
 
     <div id="signup_table">
         <form action="./signup_result.php" method="POST">
-            <table>
+            <table id="main_table">
                 <tr>
                     <td id="type_label">ID</td>
-                    <td><input type='text' name='enter_id' required /></td>
+                    <td class="need_padding"><input type='text' name='enter_id' required /></td>
                 </tr>
                 <tr>
                     <td id="type_label">Password</td>
-                    <td><input type='text' name='enter_pw' required /></td>
+                    <td class="need_padding"><input type='text' name='enter_pw' required /></td>
                 </tr>
                 <tr>
                     <td id="type_label">Name</td>
-                    <td><input type='text' name='enter_name' required /></td>
+                    <td class="need_padding"><input type='text' name='enter_name' required /></td>
                 </tr>
                 <tr>
                     <td id="type_label">Gender</td>
-                    <td>
-                        <input type='radio' name='gender' value='f' />female
+                    <td class="need_padding">
+                        <input type='radio' name='gender' value='f' checked/>female
                         <input type='radio' name='gender' value='m' />male
                     </td>
                 </tr>
-                <tr>
+                <<tr>
                     <td>Age</td>
-                    <td>
-                        <input type='radio' name='age' value='10' />10's
-                        <input type='radio' name='age' value='20' />20's
-                        <input type='radio' name='age' value='30' />30's
-                        <input type='radio' name='age' value='40' />40's
-                        <br><input type='radio' name='age' value='50' />50's
-                        <input type='radio' name='age' value='60' />60's
-                        <input type='radio' name='age' value='70' />over 70's
+                    <td class="need_padding">
+                            <input type='radio' name='age' value='10' />10's
+                            <input type='radio' name='age' value='20' checked/>20's
+                            <input type='radio' name='age' value='30' />30's
+                            <input type='radio' name='age' value='40' />40's
+                            <br><input type='radio' name='age' value='50' />50's
+                            <input type='radio' name='age' value='60' />60's
+                            <input type='radio' name='age' value='70' />over 70's
                     </td>
                 </tr>
                 <tr>
                     <td>Preferred<br>Category</td>
-                    <td>
+                    <td class="need_padding">
                         <input type='radio' name='genre' value='action' />action
                         <input type='radio' name='genre' value='comedy' />comedy
                         <input type='radio' name='genre' value='drama' />drama

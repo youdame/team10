@@ -11,13 +11,12 @@ $stmt->bind_param("s", $user_id);
 $stmt->execute();
 $result_main = $stmt->get_result();
 
-
-$sql_y = "SELECT year(reference_date) AS 'Year', country, round(sum(attendance)) as sum_attendance, round(avg(attendance)) as avg_attendance
+$sql_y = "SELECT year(reference_date) AS 'Year', country, round(sum(attendance)) AS sum_attendance, round(avg(attendance)) AS avg_attendance
                 FROM film_industry
                 WHERE year(reference_date) > 1000
                 GROUP BY year(reference_date), country WITH ROLLUP";
 
-$sql_m = "SELECT month(reference_date) AS 'Month', country, round(sum(attendance)) as sum_attendance, round(avg(attendance)) as avg_attendance 
+$sql_m = "SELECT month(reference_date) AS 'Month', country, round(sum(attendance)) AS sum_attendance, round(avg(attendance)) AS avg_attendance 
                 FROM film_industry
                 WHERE year(reference_date) = ?
                 GROUP BY month(reference_date), country WITH ROLLUP";
@@ -102,6 +101,8 @@ $clicked_month = $_GET['monthOfData'];
 
         #div_compare {
             text-align: left;
+            font-weight: bold; 
+            font-size: large;
         }
 
         .td_compare {
@@ -212,8 +213,8 @@ $clicked_month = $_GET['monthOfData'];
                                     $stmt->execute();
 
                                     // 비교 데이터의 백분위 알아내기 (관객수, 수익)
-                                    $sql_rank1 = "SELECT m_title, PERCENT_RANK() OVER (ORDER BY m_audience) AS audience_percent FROM movie_profit";
-                                    $sql_rank2 = "SELECT m_title, PERCENT_RANK() OVER (ORDER BY m_sales) AS sales_percent FROM movie_profit";
+                                    $sql_rank1 = "SELECT m_title, FORMAT(PERCENT_RANK() OVER (ORDER BY m_audience), 2) AS audience_percent FROM movie_profit";
+                                    $sql_rank2 = "SELECT m_title, FORMAT(PERCENT_RANK() OVER (ORDER BY m_sales), 2) AS sales_percent FROM movie_profit WHERE m_sales != 0";
 
                                     $result_rank1 = mysqli_query($mysqli, $sql_rank1);
                                     $result_rank2 = mysqli_query($mysqli, $sql_rank2);
@@ -223,17 +224,17 @@ $clicked_month = $_GET['monthOfData'];
                                     do {
                                         $row_rank1 = mysqli_fetch_array($result_rank1);
                                         $title_temp = $row_rank1['m_title'];
-                                        $audience_rank = $row_rank1['audience_percent'] * 100;
+                                        $audience_rank = 100 - $row_rank1['audience_percent'] * 100;
                                     } while ($title_temp != 'temp');
 
                                     do {
                                         $row_rank2 = mysqli_fetch_array($result_rank2);
                                         $title_temp = $row_rank2['m_title'];
-                                        $sales_rank = $row_rank2['sales_percent'] * 100;
+                                        $sales_rank = 100 - $row_rank2['sales_percent'] * 100;
                                     } while ($title_temp != 'temp');
 
                                     // 화면에 출력
-                                    echo "<p>{$row['input_title']} ({$row['input_sales']} won, {$row['input_audience']} people) :<br>";
+                                    echo "<p>{$row['input_title']} ({$row['input_sales']} won, {$row['input_audience']} people) :<br><br>";
                                     echo "The sales of the movie are in the top {$sales_rank}%, and the audience is in the top {$audience_rank}% ";
 
                                     // 비교 데이터 삭제
@@ -247,11 +248,11 @@ $clicked_month = $_GET['monthOfData'];
                         <?php
                         } else { ?>
                             <div>
-                                Insert movie data!
+                                Insert movie data! <br><br>
                                 <form action="compare_result.php" method="post">
-                                    Title <input type="textbox" name="input_title" required>
-                                    Sales <input type="textbox" name="input_sales" required>
-                                    Audience <input type="textbox" name="input_audience" required>
+                                    Title <input type="textbox" name="input_title" required>&nbsp&nbsp&nbsp&nbsp
+                                    Sales <input type="textbox" name="input_sales" required>&nbsp&nbsp&nbsp&nbsp
+                                    Audience <input type="textbox" name="input_audience" required>&nbsp&nbsp&nbsp&nbsp
                                     <input type="submit" value="Compare">
                                 </form>
                             </div>
@@ -286,9 +287,14 @@ $clicked_month = $_GET['monthOfData'];
                                                 </tr>";
                                 while ($row = mysqli_fetch_array($result)) {
                                     $y = $row['Year'];
+                                    if($row['country']==""){ 
+                                        $country_value = "<b><i>TOTAL</i></b>";
+                                    }else{
+                                        $country_value = $row['country'];
+                                    }
                                     $list_year = $list_year."<tr>
                                                                 <td onclick='javascript:updateMonth($y)'>{$row['Year']}</td>
-                                                                <td>{$row['country']}</td>
+                                                                <td>$country_value</td>
                                                                 <td style='text-align:right;'>{$row['sum_attendance']}</td>
                                                                 <td style='text-align:right;'>{$row['avg_attendance']}</td>
                                                             </tr>";
@@ -309,6 +315,7 @@ $clicked_month = $_GET['monthOfData'];
                             <input type="hidden" name="monthOfData" />
 
                             <?php
+                            //월
                             $stmt = $mysqli->prepare($sql_m);
                             $stmt->bind_param("i", $clicked_year);
                             $stmt->execute();
@@ -324,9 +331,14 @@ $clicked_month = $_GET['monthOfData'];
 
                             while ($row_m = mysqli_fetch_array($result_m)) {
                                 $m = $row_m['Month'];
+                                if($row_m['country']==""){ 
+                                    $country_value = "<b><i>TOTAL</i></b>";
+                                }else{
+                                    $country_value = $row_m['country'];
+                                }
                                 $list_month = $list_month . "<tr>
                                                             <td onclick='javascript:updateDay($clicked_year, $m)'>{$row_m['Month']}</td>
-                                                            <td>{$row_m['country']}</td>
+                                                            <td>$country_value</td>
                                                             <td style='text-align:right;'>{$row_m['sum_attendance']}</td>
                                                             <td style='text-align:right;'>{$row_m['avg_attendance']}</td>
                                                         </tr>";
@@ -343,6 +355,7 @@ $clicked_month = $_GET['monthOfData'];
                 <td>
                     <div id="div_table_day" class="upper_table">
                         <?php
+                        //일
                         $stmt_d = $mysqli->prepare($sql_d);
                         $stmt_d->bind_param("ii", $clicked_year, $clicked_month);
                         $stmt_d->execute();
@@ -357,9 +370,14 @@ $clicked_month = $_GET['monthOfData'];
                                         </tr>";
 
                         while ($row_d = mysqli_fetch_array($result_d)) {
+                            if($row_d['country']==""){ 
+                                $country_value = "<b><i>TOTAL</i></b>";
+                            }else{
+                                $country_value = $row_d['country'];
+                            }
                             $list_day = $list_day . "<tr>
                                                         <td>{$row_d['Day']}</td>
-                                                        <td>{$row_d['country']}</td>
+                                                        <td>$country_value</td>
                                                         <td style='text-align:right;'>{$row_d['attendance']}</td>
                                                         <td style='text-align:right;'>{$row_d['sales']}</td>
                                                     </tr> ";
