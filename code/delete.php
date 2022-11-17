@@ -1,6 +1,10 @@
 
 <!-- 김다희 dahee kim-->
 <?php
+header('Content-Type: text/html; charset=UTF-8');
+?>
+
+<?php
         session_start();
         error_reporting(E_ALL);
         ini_set("display_errors", 0);

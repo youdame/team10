@@ -2,6 +2,9 @@
 <!-- 감독이름, 대표작 3개, 수상 등록할 수 있게 하기 update -->
 <!-- 감독이름을 검색하면, list로 항목 가져오기, 그다음에 그 검색값으로 sql update하기 -->
 <?php
+header('Content-Type: text/html; charset=UTF-8');
+?>
+<?php
         session_start();
         error_reporting(E_ALL);
         ini_set("display_errors", 0);

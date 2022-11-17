@@ -1,5 +1,8 @@
 <!--이유림-->
 <?php
+header('Content-Type: text/html; charset=UTF-8');
+?>
+<?php
 if (!session_id()) {
     session_start();
 }

@@ -1,6 +1,9 @@
 <!-- 김다희 newdirector.php 감독정보 등록하기 page -->
 <!-- 감독이름, 대표작 3개, 수상 등록할 수 있게 하기 update -->
 <?php
+header('Content-Type: text/html; charset=UTF-8');
+?>
+<?php
 
         session_start();
         error_reporting(E_ALL);

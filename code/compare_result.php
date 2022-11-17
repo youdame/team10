@@ -1,5 +1,9 @@
 <!--홍진서-->
 <?php
+header('Content-Type: text/html; charset=UTF-8');
+?>
+
+<?php
 session_start();
 $mysqli = mysqli_connect("localhost", "team10", "team10", "team10");
 

@@ -1,5 +1,8 @@
 <!--조유담-->
 <?php
+header('Content-Type: text/html; charset=UTF-8');
+?>
+<?php
 session_start();
 $user_id = $_SESSION['id'];
 $movie_id = $_POST['movie_id'];

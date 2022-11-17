@@ -1,6 +1,8 @@
  <!-- 김다희 Dahee Kim -->
  <!-- 감독 이름 검색 시 감독의 대표작 3개와 수상내역 보여줌, 그리고 제일 오른쪽에 수정버튼 만들어서 update사용하기// -->
-
+<?php
+header('Content-Type: text/html; charset=UTF-8');
+?>
  <!DOCTYPE html>
  <html lang="en">
 
