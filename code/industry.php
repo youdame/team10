@@ -12,17 +12,17 @@ $stmt->execute();
 $result_main = $stmt->get_result();
 
 
-$sql_y = "SELECT year(reference_date) AS 'Year', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
+$sql_y = "SELECT year(reference_date) AS 'Year', country, round(sum(attendance)) as sum_attendance, round(avg(attendance)) as avg_attendance
                 FROM film_industry
                 WHERE year(reference_date) > 1000
                 GROUP BY year(reference_date), country WITH ROLLUP";
 
-$sql_m = "SELECT month(reference_date) AS 'Month', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
+$sql_m = "SELECT month(reference_date) AS 'Month', country, round(sum(attendance)) as sum_attendance, round(avg(attendance)) as avg_attendance 
                 FROM film_industry
                 WHERE year(reference_date) = ?
                 GROUP BY month(reference_date), country WITH ROLLUP";
 
-$sql_d = "SELECT day(reference_date) AS 'Day', country, sum(sales) as sum_sales, avg(sales) as avg_sales 
+$sql_d = "SELECT day(reference_date) AS 'Day', country, attendance, sales
                 FROM film_industry
                 WHERE year(reference_date) = ? AND  month(reference_date) = ?
                 GROUP BY day(reference_date), country WITH ROLLUP";
@@ -30,11 +30,6 @@ $sql_d = "SELECT day(reference_date) AS 'Day', country, sum(sales) as sum_sales,
 $clicked_year = $_GET['yearOfData'];
 $clicked_month = $_GET['monthOfData'];
 
-function forPrepareStatement($mysqli, $sql)
-{
-    $result = mysqli_query($mysqli, $sql);
-    return mysqli_fetch_array($result);
-}
 ?>
 
 <!DOCTYPE html>
@@ -101,7 +96,7 @@ function forPrepareStatement($mysqli, $sql)
         }
 
         #main_table {
-            width: 80%;
+            width: 70%;
             margin: 0 auto;
         }
 
@@ -282,16 +277,22 @@ function forPrepareStatement($mysqli, $sql)
                                 <?php
                                 //년
                                 $result = mysqli_query($mysqli, $sql_y);
-                                $list_year = "<table id='table_year'><tr><td><b>Year</b></td><td><b>Country</b></td><td><b>Sum of Sales</b></td><td><b>Avg of Sales</b></td></tr>";
+                                $list_year = "<table id='table_year'>
+                                                <tr style='text-align:center;'>
+                                                    <td><b>Year</b></td>
+                                                    <td><b>Country</b></td>
+                                                    <td><b>Sum of Attendance</b></td>
+                                                    <td><b>Avg of Attendance</b></td>
+                                                </tr>";
                                 while ($row = mysqli_fetch_array($result)) {
                                     $y = $row['Year'];
-                                    $list_year = $list_year . "<tr>
-                                                            <td onclick='javascript:updateMonth($y)'>{$row['Year']}</td>
-                                                            <td>{$row['country']}</td>
-                                                            <td>{$row['sum_sales']}</td>
-                                                            <td>{$row['avg_sales']}</td>
-                                                        </tr>";
-                                }
+                                    $list_year = $list_year."<tr>
+                                                                <td onclick='javascript:updateMonth($y)'>{$row['Year']}</td>
+                                                                <td>{$row['country']}</td>
+                                                                <td style='text-align:right;'>{$row['sum_attendance']}</td>
+                                                                <td style='text-align:right;'>{$row['avg_attendance']}</td>
+                                                            </tr>";
+                                    }
                                 $list_year = $list_year . "</table>";
                                 echo "<br>";
                                 echo $list_year;
@@ -313,15 +314,21 @@ function forPrepareStatement($mysqli, $sql)
                             $stmt->execute();
                             $result_m = $stmt->get_result();
 
-                            $list_month = "<table id='table_month'><tr><td><b>Month</b></td><td><b>Country</b></td><td><b>Sum of Sales</b></td><td><b>Avg of Sales</b></td></tr>";
+                            $list_month = "<table id='table_month'>
+                                                <tr style='text-align:center;'>
+                                                    <td><b>Month</b></td>
+                                                    <td><b>Country</b></td>
+                                                    <td><b>Sum of Attendance</b></td>
+                                                    <td><b>Avg of Attendance</b></td>
+                                                </tr>";
 
                             while ($row_m = mysqli_fetch_array($result_m)) {
                                 $m = $row_m['Month'];
                                 $list_month = $list_month . "<tr>
                                                             <td onclick='javascript:updateDay($clicked_year, $m)'>{$row_m['Month']}</td>
                                                             <td>{$row_m['country']}</td>
-                                                            <td>{$row_m['sum_sales']}</td>
-                                                            <td>{$row_m['avg_sales']}</td>
+                                                            <td style='text-align:right;'>{$row_m['sum_attendance']}</td>
+                                                            <td style='text-align:right;'>{$row_m['avg_attendance']}</td>
                                                         </tr>";
                             }
                             $list_month = $list_month . "</table>";
@@ -341,10 +348,21 @@ function forPrepareStatement($mysqli, $sql)
                         $stmt_d->execute();
                         $result_d = $stmt_d->get_result();
 
-                        $list_day = "<table id='table_day'><tr><td><b>Day</b></td><td><b>Country</b></td><td><b>Sum of Sales</b></td><td><b>Avg of Sales</b></td></tr>";
+                        $list_day = "<table id='table_day'>
+                                        <tr style='text-align:center;'>
+                                            <td><b>Day</b></td>
+                                            <td><b>Country</b></td>
+                                            <td><b>Number of Attendance</b></td>
+                                            <td><b>Sales</b></td>
+                                        </tr>";
 
                         while ($row_d = mysqli_fetch_array($result_d)) {
-                            $list_day = $list_day . "<tr><td>{$row_d['Day']}</td><td>{$row_d['country']}</td><td>{$row_d['sum_sales']}</td><td>{$row_d['avg_sales']}</td></tr> ";
+                            $list_day = $list_day . "<tr>
+                                                        <td>{$row_d['Day']}</td>
+                                                        <td>{$row_d['country']}</td>
+                                                        <td style='text-align:right;'>{$row_d['attendance']}</td>
+                                                        <td style='text-align:right;'>{$row_d['sales']}</td>
+                                                    </tr> ";
                         }
                         $list_day = $list_day . "</table>";
                         echo "Referenced Date : $clicked_year 년 $clicked_month 월";

@@ -16,6 +16,37 @@ $keyword = $_GET['keyword']
     <title>Document</title>
     
     <link rel="stylesheet" type="text/css" href="css/header.css">
+    <style>
+
+        #main_div{ display: flex; }
+        #div_search{
+            padding-top: 30px;
+            width:100%;
+            text-align: center;
+        }
+
+        #textbox_search{
+            margin-left:auto; 
+            margin-right:auto;
+
+            width:50%;
+            height:35px;
+            font-size:25px;
+        }
+
+        table{
+            padding: 10px;
+            margin-left:auto; 
+            margin-right:auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        table td{
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+    </style>
 </head>
 
 <body>
@@ -53,22 +84,25 @@ $keyword = $_GET['keyword']
         </nav>
     </header>
 
-    <form action="keywordSearch.php" method="GET">
-        <input type="textbox" name="keyword">
-        <input type="submit" value="search">
-    </form>
+    
+    <div id="div_search">
+        <form action="keywordSearch.php" method="GET">
+            <input id="textbox_search" type="textbox" size="" name="keyword">
+            <input type="submit" value="search">
+        </form>
+    </div>
 
+    <div id="main_div">
     <table>
         <tr>
-            <td>Title</td>
-            <td>Released date</td>
-            <td>Number of audience</td>
-            <td>Director</td>
-            <td>Genre</td>
+            <td><b>Title</b></td>
+            <td><b>Released date</b></td>
+            <td><b>Number of audience</b></td>
+            <td><b>Director</b></td>
+            <td><b>Genre</b></td>
         </tr>
 
         <?php
-        // 쿼리 수정 필요
         $sql = "SELECT * 
                 FROM movie_boxoffice 
                     LEFT JOIN director_id
@@ -91,9 +125,10 @@ $keyword = $_GET['keyword']
                                 </tr>";
             }
         }
+        $list = $list."</table>";
         echo $list;
-
         ?>
+    </div>
 </body>
 
 </html>

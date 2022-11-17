@@ -148,12 +148,12 @@
         <p> 장르 : <?php echo $row['genre'];?></p>
         <p> 국적 : <?php echo $row['country'];?> </p>
         <p> 개봉일 : <?php echo $row['released_date'];?> </p>
-        <p> 매출액 : <?php echo number_format( $row['sales']);?>원 </p>
+        <p> 매출액 : <?php echo number_format($row['sales']);?>원 </p>
         <p> 관객수 : <?php echo number_format($row['audience']);?>명</p>
         <p> 스크린 수: <?php echo number_format($row['screen_num']);?>개</p>
         <p> 감독: <?php echo $row_director_name['director'];?></p>
         <p> 배급사: <?php echo $row['distributor'];?></p>
-        <p> 평점: <?php echo $row_r['rating'];?></p>
+        <p> 평점: <?php echo $row_r['rating'];?>점</p>
         
 
 
