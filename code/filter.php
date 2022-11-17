@@ -19,7 +19,7 @@ $search_input = false;
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Filtering Search</title>
 
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <style>
