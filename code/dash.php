@@ -6,6 +6,7 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
+        <title>DashBoard</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/header.css">
       <style>
